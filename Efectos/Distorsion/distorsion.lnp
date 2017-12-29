@@ -1,0 +1,8 @@
+--cpu Cortex-M3
+".\distorsion.o"
+".\startup_lpc17xx.o"
+".\system_lpc17xx.o"
+--strict --scatter ".\distorsion.sct"
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\distorsion.map" -o .\distorsion.axf
