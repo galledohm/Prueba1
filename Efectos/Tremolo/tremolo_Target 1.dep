@@ -1,0 +1,4 @@
+Dependencies for Project 'tremolo', Target 'Target 1': (DO NOT MODIFY !)
+F (.\tremolo.c)(0x5A47E646)()
+F (.\startup_LPC17xx.s)(0x51C7F600)(--cpu Cortex-M3 -g --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\NXP\LPC17xx--list .\startup_lpc17xx.lst --xref -o .\startup_lpc17xx.o --depend .\startup_lpc17xx.d)
+F (C:\Keil\ARM\Startup\NXP\LPC17xx\system_LPC17xx.c)(0x51C7F600)()
