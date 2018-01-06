@@ -1,0 +1,45 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+C:\Users\Usuario\Desktop\Subsistemas-SEDA\SEDA\Proyecto1\PROJECT\Proyecto1.uvproj
+Project File Date:  01/05/2018
+
+<h2>Output:</h2>
+<<<<<<< Updated upstream
+Build target 'LPC1768'
+compiling main.c...
+..\USER\main.c(16): warning:  #61-D: integer operation result is out of range
+..\USER\main.c(19): warning:  #61-D: integer operation result is out of range
+..\USER\main.c(179): warning:  #1-D: last line of file ends without a newline
+..\USER\main.c(12): warning:  #177-D: function "init_GPIO" was declared but never referenced
+linking...
+Program Size: Code=2812 RO-data=236 RW-data=16032 ZI-data=608  
+".\Obj\Proyecto1.axf" - 0 Errors, 4 Warning(s).
+Build target 'LPC1768'
+compiling main.c...
+..\USER\main.c(16): warning:  #61-D: integer operation result is out of range
+..\USER\main.c(19): warning:  #61-D: integer operation result is out of range
+..\USER\main.c(180): warning:  #1-D: last line of file ends without a newline
+..\USER\main.c(12): warning:  #177-D: function "init_GPIO" was declared but never referenced
+linking...
+Program Size: Code=2812 RO-data=236 RW-data=16032 ZI-data=608  
+".\Obj\Proyecto1.axf" - 0 Errors, 4 Warning(s).
+Build target 'LPC1768'
+compiling main.c...
+..\USER\main.c(16): warning:  #61-D: integer operation result is out of range
+..\USER\main.c(19): warning:  #61-D: integer operation result is out of range
+..\USER\main.c(181): warning:  #1-D: last line of file ends without a newline
+linking...
+Program Size: Code=2820 RO-data=236 RW-data=16032 ZI-data=608  
+".\Obj\Proyecto1.axf" - 0 Errors, 3 Warning(s).
+Build target 'LPC1768'
+compiling main.c...
+..\USER\main.c(16): warning:  #61-D: integer operation result is out of range
+..\USER\main.c(19): warning:  #61-D: integer operation result is out of range
+linking...
+Program Size: Code=2820 RO-data=236 RW-data=16032 ZI-data=608  
+".\Obj\Proyecto1.axf" - 0 Errors, 2 Warning(s).
+=======
+>>>>>>> Stashed changes
