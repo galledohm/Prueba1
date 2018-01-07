@@ -572,6 +572,11 @@
               <FileType>1</FileType>
               <FilePath>..\USER\init_timers_pins.c</FilePath>
             </File>
+            <File>
+              <FileName>i2c_lpc17xx.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\USER\i2c_lpc17xx.c</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>

@@ -1,6 +1,6 @@
 #include <LPC17xx.H>
 #include "init_timers_pins.h"
-
+#include <i2c_lpc17xx.h>
 
 uint32_t canal_LM35,canal_HIH;
 volatile uint32_t frec_anemometro;
@@ -79,6 +79,26 @@ void init_DAC(void)
 {
 	LPC_SC->PCLKSEL0|= (0x00<<22); 	 	// CCLK/4 (Fpclk después del reset) (100 Mhz/4 = 25Mhz)	
 	LPC_DAC->DACCTRL=0;								// ? 
+}
+
+void config_DS1621(void)
+{
+	I2CSendAddr(0x48,0);
+	I2CSendByte(0xAC);
+	I2CSendByte(0x02);
+	I2CSendStop();
+	I2Cdelay();
+	I2CSendAddr(0x48,0);
+	I2CSendByte(0xEE);
+	I2CSendStop();
+}
+
+unsigned char leer_DS1621(unsigned char ACK)
+{
+	I2CSendAddr(0x48,0);
+	I2CSendByte(0xAA);
+	I2CSendAddr(0x48,1);
+	return I2CGetByte(ACK);
 }
 
 int main(void)
