@@ -1,28 +1,12 @@
 #include <LPC17xx.H>
-#include "init_timers_pins.h"
+#include "init.h"
 #include <i2c_lpc17xx.h>
 
-uint32_t canal_LM35,canal_HIH;
+/* ---------------------------------------------------- Variables ----------------------------------------------------*/
+uint32_t temp_LM35 = 0,humedad = 0;
 volatile uint32_t frec_anemometro;
 
-
-void init_ADC_sensores(void)
-{	
-	LPC_SC->PCONP|= (1<<12);					// POwer ON
-	LPC_SC->PCLKSEL0&=~(3<<24); 			// CLK ADC = CCLK/4 (Fpclk después del reset) (100 Mhz/4 = 25Mhz)
-	//LPC_ADC->ADCR= 0;								//No podemos escribir todo el registro, hay bits reservados
-	LPC_ADC->ADCR= (0x01<<2)|					// Canal 2
-								 (0x01<<4)|	  	  	// Canal 4
-							   (0x01<<8)|		     	// CLKDIV=1   (Fclk_ADC= 25Mhz /(1+1)= 12.5 Mhz)
-								 (4<<24)|				    // Inicio de conversión con el Match 1 del Timer 0
-								 (0x01<<21);			 	// PDN=1
-
-	LPC_ADC->ADINTEN=(1<<2);					// Hab. interrupción fin de conversión del PENÚLTIMO canal(canal 2)
-	NVIC_EnableIRQ(ADC_IRQn);					 
-	NVIC_SetPriority(ADC_IRQn,2);			    
-}
-
-//He movido el ADC_grabar al archivo del DMA
+/* ---------------------------------------------------- Funciones de atención a la interrupción ----------------------------------------------------*/
 
 void TIMER0_IRQHandler (void)				// Interrumpe cada segundo
 {
@@ -71,14 +55,8 @@ void ADC_IRQHandler(void)
 	LPC_ADC->ADCR&=~(1<<16); // BURST=0     // Deshabilitamos el modo Ráfaga (ojo continua la conversión del siguiente canal) 
   
 	//Almacenamos las muestras
-	canal_LM35= ((LPC_ADC->ADDR2 >>4)&0xFFF);	// flag DONE se borra automat. al leer ADDR2
-	canal_HIH= ((LPC_ADC->ADDR4 >>4)&0xFFF);	// flag DONE se borra automat. al leer ADDR0
-}
-
-void init_DAC(void)
-{
-	LPC_SC->PCLKSEL0|= (0x00<<22); 	 	// CCLK/4 (Fpclk después del reset) (100 Mhz/4 = 25Mhz)	
-	LPC_DAC->DACCTRL=0;								// ? 
+	temp_LM35 = (((LPC_ADC->ADDR0 >>4)&0xFFF)*3.3/4095)*100;	//Temperatura LM35 en ºC
+	humedad = ((((LPC_ADC->ADDR2 >>4)&0xFFF)*3.3/4095)-0.772)/0.03;	//%Humedad relativa
 }
 
 void config_DS1621(void)
@@ -101,6 +79,8 @@ unsigned char leer_DS1621(unsigned char ACK)
 	return I2CGetByte(ACK);
 }
 
+
+/* --------------------------------------------------------------- Programa Principal ---------------------------------------------------------------*/
 int main(void)
 {
 	init_GPIO();
@@ -110,9 +90,8 @@ int main(void)
 		2. Inicializar ADC
 		3. Inicializar FSM(?) - Vamos a usar una máquina de estados para crear un menú en el LCD??
 		4. Inicializar LCD con LCD_Initialization()
-		5. Calibrar TocuhPanel
 	*/
 	
-	//Bucle espera activa
+	//while (1);
 	
 }

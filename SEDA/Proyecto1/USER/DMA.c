@@ -50,21 +50,6 @@ void apagar_DMA(void)
     LPC_TIM1->TCR = 0x01;     				 
 }	*/
 
-void init_ADC_grabar(void)
-{	
-	LPC_SC->PCONP|= (1<<12);					// POwer ON
-	LPC_SC->PCLKSEL0&=~(3<<24); 			// CLK ADC = CCLK/4 (Fpclk después del reset) (100 Mhz/4 = 25Mhz)
-	//LPC_SC->PCLKSEL0|=(1<<24); 			// CLK ADC = CCLK = 100 MHz (Para muestrear a 500kHz)
-	LPC_ADC->ADCR= 0;
-	LPC_ADC->ADCR= (0x01<<0)|		  	  // Canal 0
-	//						 (0x02<<8)|		     	// CLKDIV=2   (Fclk_ADC= 100Mhz /(2+1)= 33.3 Mhz) para muestrear a 500Khz!!!
-							   (0x01<<8)|		     	// CLKDIV=1   (Fclk_ADC= 25Mhz /(1+1)= 12.5 Mhz)
-								 (4<<24)|				    // Inicio de conversión con el Match 1 del Timer 0
-								 (0x01<<21);			 	// PDN=1
-  LPC_ADC->ADINTEN= (1<<0);					// Hab. interrupción fin de conversión canal 0
-}
-
-
 void init_DMA_DAC(void)
 {				
 	  LPC_SC->PCONP 	|= (1<<29);																					// Power DMA
@@ -160,11 +145,7 @@ void DMA_IRQHandler(void)
 
 }// desHab. DMA 	
 		
-			
-			
-			
-			
-	
+
 }
 
 void rec() //Grabar

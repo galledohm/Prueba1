@@ -8,7 +8,7 @@ void init_ADC_grabar(void);
 void init_TIMER1(void);
 void init_DMA_ADC(void);
 void DMA_IRQHandler(void);
-void EINT2_IRQHandler();
+void EINT2_IRQHandler(void);
 void init_DMA(void);
 extern int q,w,e,r,t;
 
