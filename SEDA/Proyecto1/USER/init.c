@@ -1,6 +1,7 @@
-#include "init_timers_pins.h"
+#include "init.h"
 
-// Inicialización de los pines para los sensores, pulsadores, micrófono, altavoces, ventilador
+/*-------------------------------- Inicialización de los pines para los sensores, pulsadores, micrófono, altavoces, ventilador ----------------------------------*/
+
 void init_GPIO(void)
 {
 	// Sensores analógicos y micrófono	
@@ -31,7 +32,10 @@ void init_GPIO(void)
 
 }
 
-// Configuración del timer que controla la conversión del ADC para los sensoles analógicos
+
+/* ---------------------------------------------------------------------- Configuración TIMERS --------------------------------------------------------------------*/
+
+//Configuración del timer que controla la conversión del ADC para los sensoles analógicos
 void init_TIMER0(void)
 {
 	  LPC_SC->PCONP|=(1<<1);						// 
@@ -43,7 +47,6 @@ void init_TIMER0(void)
 }
 
 // Configuración del timer que controla la conversión del DAC para reproducir
-/*Lo que había pensado era poner este TIMER interrumpiendo cada segundo, para poder usarlo para el anemómetro y para mandar cosas por la UART y al LCD*/
 void init_TIMER1(void)
 {
 	  LPC_SC->PCONP|=(1<<2);						// 
@@ -55,7 +58,7 @@ void init_TIMER1(void)
 }
 
 
-//Este podríamos usarle para el DMA
+//TIMER -> DMA
 void init_TIMER2(void)
 {
 	  LPC_SC->PCONP|=(1<<22);						// 
@@ -75,6 +78,47 @@ void init_TIMER3(void)
 		LPC_TIM3->TCR |= 1 << 0; 					// Start contador
 }
 
-//TIMER para el ventilador
+/* ---------------------------------------------------- Configuración PWM ----------------------------------------------------*/
+
 void init_PWM(void)
 {}
+
+/* ---------------------------------------------------- Configuración ADC ----------------------------------------------------*/
+
+void init_ADC_sensores(void)
+{	
+	LPC_SC->PCONP|= (1<<12);					// POwer ON
+	LPC_SC->PCLKSEL0&=~(3<<24); 			// CLK ADC = CCLK/4 (Fpclk después del reset) (100 Mhz/4 = 25Mhz)
+	//LPC_ADC->ADCR= 0;								//No podemos escribir todo el registro, hay bits reservados
+	LPC_ADC->ADCR= (0x01<<2)|					// Canal 2
+								 (0x01<<4)|	  	  	// Canal 4
+							   (0x01<<8)|		     	// CLKDIV=1   (Fclk_ADC= 25Mhz /(1+1)= 12.5 Mhz)
+								 (4<<24)|				    // Inicio de conversión con el Match 1 del Timer 0
+								 (0x01<<21);			 	// PDN=1
+
+	LPC_ADC->ADINTEN=(1<<2);					// Hab. interrupción fin de conversión del PENÚLTIMO canal(canal 2)
+	NVIC_EnableIRQ(ADC_IRQn);					 
+	NVIC_SetPriority(ADC_IRQn,2);			    
+}
+
+void init_ADC_grabar(void)
+{	
+	LPC_SC->PCONP|= (1<<12);					// POwer ON
+	LPC_SC->PCLKSEL0&=~(3<<24); 			// CLK ADC = CCLK/4 (Fpclk después del reset) (100 Mhz/4 = 25Mhz)
+	//LPC_SC->PCLKSEL0|=(1<<24); 			// CLK ADC = CCLK = 100 MHz (Para muestrear a 500kHz)
+	LPC_ADC->ADCR= 0;
+	LPC_ADC->ADCR= (0x01<<0)|		  	  // Canal 0
+	//						 (0x02<<8)|		     	// CLKDIV=2   (Fclk_ADC= 100Mhz /(2+1)= 33.3 Mhz) para muestrear a 500Khz!!!
+							   (0x01<<8)|		     	// CLKDIV=1   (Fclk_ADC= 25Mhz /(1+1)= 12.5 Mhz)
+								 (4<<24)|				    // Inicio de conversión con el Match 1 del Timer 0
+								 (0x01<<21);			 	// PDN=1
+  LPC_ADC->ADINTEN= (1<<0);					// Hab. interrupción fin de conversión canal 0
+}
+
+/* ---------------------------------------------------- Configuración ADC ----------------------------------------------------*/
+//NO SE SI ES NECESARIO USARLO, EN EL DMA.c ya hay una configuración de DAC
+void init_DAC(void)
+{
+	LPC_SC->PCLKSEL0|= (0x00<<22); 	 	// CCLK/4 (Fpclk después del reset) (100 Mhz/4 = 25Mhz)	
+	LPC_DAC->DACCTRL=0;								// ? 
+}
