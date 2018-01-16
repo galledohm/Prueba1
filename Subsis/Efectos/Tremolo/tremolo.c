@@ -18,7 +18,7 @@ void ADC_IRQHandler(void)
 		sample++;
 	}
 	if (sample == 999) sample = 1;  		//En caso de trabajar con la última muestra de la sinusoide
-	LPC_DAC->DACR = (int)(((float)((LPC_ADC->ADGDR >>4)&0x3FF)) * ((float)waveform[sample]/4095.0)) << 6;	// Modulamos la señal con la sinusoide
+	LPC_DAC->DACR = ((int)(((float)((LPC_ADC->ADGDR >>4)&0xFFF)) * ((float)waveform[sample]/4095.0)) >> 2) << 6;	// Modulamos la señal con la sinusoide
 	 
 }
 

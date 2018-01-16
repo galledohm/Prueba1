@@ -5,22 +5,22 @@
 #define F_out 1000
 
 /*Parámetros para el delay*/
-#define DELAY_MAX 16000
+#define DELAY_MAX 16384
 
 uint16_t Delay_Buffer[DELAY_MAX];
 uint16_t DelayWrite = 0;
 uint16_t DelayRead = 0;
 uint8_t octaver_value = 1;
-uint16_t Delay_Depth = 16000; //default starting delay is 100000 is 0.5 sec approx.
+uint16_t Delay_Depth = 16384; //default starting delay is <0.1s
 uint16_t read_timer, delay, divider;
 
 void ADC_IRQHandler(void)
 {
 	//OCTAVER (estructura similar al delay pero la idea es sacar muestras a una velocidad no constante
-	Delay_Buffer[DelayWrite] = ((LPC_ADC->ADGDR >>4)&0x3FF);		//Valor de la muestra de entrada actual
+	Delay_Buffer[DelayWrite] = ((LPC_ADC->ADGDR >>4)&0xFFF);		//Valor de la muestra de entrada actual
 	DelayWrite++;
 	if(DelayWrite >= Delay_Depth) DelayWrite = 0; 						//Condición para reiniciar el contador de las muestras del búffer
-	LPC_DAC->DACR = (Delay_Buffer[DelayRead]) << 6;	
+	LPC_DAC->DACR = (Delay_Buffer[DelayRead] >> 2) << 6;	
 	
 	if (octaver_value == 2) DelayRead = DelayRead + 2;
 	if (octaver_value == 1) DelayRead = DelayRead + 1;

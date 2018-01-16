@@ -5,19 +5,19 @@
 //NOTA:Frec.Muestro CDs = 44KHz
 
 /*Parámetros para el delay*/
-#define DELAY_MAX 16000						//valor máximo posible para la memoria
+#define DELAY_MAX 16384						//valor máximo posible para la memoria
 
 uint16_t Delay_Buffer[DELAY_MAX];
 uint16_t DelayCounter = 0;
-uint16_t Delay_Depth = 16000; //default starting delay is 100000 is 0.5 sec approx.
+uint16_t Delay_Depth = 16384; //default starting delay is 100000 is 0.5 sec approx.
 
 void ADC_IRQHandler(void)
 {
 	//DELAY (Los ">>1" permiten atenuar la señal en los ecos consecutivos)
-	Delay_Buffer[DelayCounter] = ((LPC_ADC->ADGDR >>4)&0x3FF);		//Valor de la muestra de entrada actual
+	Delay_Buffer[DelayCounter] = ((LPC_ADC->ADGDR >>4)&0xFFF);		//Valor de la muestra de entrada actual
 	DelayCounter++;
 	if(DelayCounter >= Delay_Depth) DelayCounter = 0; 						//Condición para reiniciar el contador de las muestras del búffer
-	LPC_DAC->DACR = ((Delay_Buffer[DelayCounter] + ((LPC_ADC->ADGDR >>4)&0x3FF)) >> 1) << 6;	// se borra automat. el flag DONE al leer ADCGDR	
+	LPC_DAC->DACR = ((Delay_Buffer[DelayCounter] + ((LPC_ADC->ADGDR >>4)&0x3FF)) >> 2) << 6;	// se borra automat. el flag DONE al leer ADCGDR	
 	 
 }
 

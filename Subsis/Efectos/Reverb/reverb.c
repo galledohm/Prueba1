@@ -23,11 +23,11 @@ void ADC_IRQHandler(void)
 	//Reverb: Se trata de un efecto muy similar al delay o al echo, pero con la diferencia de que recibes varios desde distintos focos, es decir,
 	//recibes varios echos pero con un retardo entre ellos porque al estar en diferentes focos el recorrido sería dintito, mayor para unos y menor para otros 
 	
-	input_signal = ((LPC_ADC->ADGDR >>4)&0x3FF);		//Valor de la muestra de entrada actual
+	input_signal = ((LPC_ADC->ADGDR >>4)&0xFFF);		//Valor de la muestra de entrada actual
 	
 	Delay_Buffer1[DelayCounter1]  = (input_signal + Delay_Buffer1[DelayCounter1])>>1;
-	Delay_Buffer2[DelayCounter2]  = (input_signal + Delay_Buffer2[DelayCounter2])>>1;
-	Delay_Buffer3[DelayCounter3]  = (input_signal + Delay_Buffer3[DelayCounter3])>>1;
+	Delay_Buffer2[DelayCounter2]  = (input_signal + Delay_Buffer2[DelayCounter2])>>2;
+	Delay_Buffer3[DelayCounter3]  = (input_signal + Delay_Buffer3[DelayCounter3])>>3;
 	
   DelayCounter1++;	
 	if(DelayCounter1 >= Delay_Depth1) DelayCounter1 = 0; 

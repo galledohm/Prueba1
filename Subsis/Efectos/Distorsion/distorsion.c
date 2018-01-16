@@ -15,10 +15,10 @@ void ADC_IRQHandler(void)
 	//ADC, es decir, 2047+-100), la "clippea" a un valor fijo. En este caso lo llevamos a los valores máximo (4095) y mínimo (0) pero hay que reducir el umbral porque no se ha tratado la señal
 	//antes
 	
-	input = ((LPC_ADC->ADGDR >>4)&0x3FF);		//Tomamos el valor de la muestra
+	input = ((LPC_ADC->ADGDR >>4)&0xFFF);		//Tomamos el valor de la muestra
   if (input > 250 + dist_value) input= 2047 + dist_value;		//Clippeamos/Recortamos al máximo
 	if (input < 250 - dist_value) input= 2047 - dist_value;			//""									"" al mínimo
-	LPC_DAC->DACR = input << 6;		
+	LPC_DAC->DACR = (input >> 2) << 6;		
 	 
 }
 
