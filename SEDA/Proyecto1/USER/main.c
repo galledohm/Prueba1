@@ -1,10 +1,12 @@
 #include <LPC17xx.H>
 #include "init.h"
+#include "PWM.h"
 #include <i2c_lpc17xx.h>
 
 /* ---------------------------------------------------- Variables ----------------------------------------------------*/
-uint32_t temp_LM35 = 0,humedad = 0;
+float temp_LM35 = 0, humedad = 0;
 volatile uint32_t frec_anemometro;
+uint16_t umbral_temp = 25; 									//Límite a partir del cual se activa el ventilador interno (PWM)
 
 /* ---------------------------------------------------- Funciones de atención a la interrupción ----------------------------------------------------*/
 
@@ -79,11 +81,11 @@ unsigned char leer_DS1621(unsigned char ACK)
 	return I2CGetByte(ACK);
 }
 
-
 /* --------------------------------------------------------------- Programa Principal ---------------------------------------------------------------*/
 int main(void)
 {
 	init_GPIO();
+	init_PWM();
 	init_ADC_sensores();
 	/*
 		1. Inicializar pines
@@ -92,6 +94,9 @@ int main(void)
 		4. Inicializar LCD con LCD_Initialization()
 	*/
 	
-	//while (1);
-	
+	while (1)
+	{
+		if ( temp_LM35 > (float)umbral_temp)				//Cuando esté implementado el DS1621 usar su temperatura!!!
+			set_ciclo_trabajo_PWM (temp_LM35);
+	}
 }

@@ -3,9 +3,10 @@
 
 #include <LPC17xx.H>
 
-#define F_cpu 100e6		// Defecto Keil (xtal=12Mhz)
-#define F_pclk F_cpu/4 // Defecto despues del reset
-#define F_muestreo 1 // Fs=Hz -> T=1seg
+#define F_cpu 100e6				// Defecto Keil (xtal=12Mhz)
+#define F_pclk F_cpu/4 		// Defecto despues del reset
+#define F_muestreo 1 			// Fs=Hz -> T=1seg
+#define Tpwm 20e-3				// Periodo PWM1 (20ms)
 
 void init_GPIO(void);
 void init_TIMER0(void);
@@ -18,3 +19,4 @@ void init_ADC_grabar(void);
 void init_DAC(void);
 
 #endif //_INIT_H_
+
