@@ -8,6 +8,14 @@ float temp_LM35 = 0, humedad = 0;
 volatile uint32_t frec_anemometro;
 uint16_t umbral_temp = 25; 									//Límite a partir del cual se activa el ventilador interno (PWM)
 
+//UART
+char buffer[30];		// Buffer de recepción de 30 caracteres
+char *ptr_rx;			// puntero de recepción
+char rx_completa;		// Flag de recepción de cadena que se activa a "1" al recibir la tecla return CR(ASCII=13)
+char *ptr_tx;			// puntero de transmisión
+char tx_completa;		// Flag de transmisión de cadena que se activa al transmitir el caracter null (fin de cadena)
+char fin=0;
+
 /* ---------------------------------------------------- Funciones de atención a la interrupción ----------------------------------------------------*/
 
 void TIMER0_IRQHandler (void)				// Interrumpe cada segundo
