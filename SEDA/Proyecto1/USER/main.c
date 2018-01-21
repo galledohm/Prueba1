@@ -5,9 +5,12 @@
 #include <stdlib.h>
 #include <i2c_lpc17xx.h>
 
+#define pi 3.141516
+#define radio_spinner 0.008 // (8mm) En metros , para obtener la velocidad en m/s
+
 /* ---------------------------------------------------- Variables ----------------------------------------------------*/
 float temp_LM35 = 0, humedad = 0;
-volatile uint32_t frec_anemometro;
+volatile uint32_t vel_anemometro = 0;
 uint16_t umbral_temp = 25; 									//Límite a partir del cual se activa el ventilador interno (PWM)
 
 //UART
@@ -24,18 +27,17 @@ void TIMER0_IRQHandler (void)				// Interrumpe cada segundo
 {
 	
 	LPC_ADC->ADCR|=(1<<16); // BURST=1 --> Cada 65TclkADC se toma una muestra de cada canal comenzando desde el más bajo (bit LSB de CR[0..7])
-	LPC_TIM0->IR|=(1<<1);		// Borrar flag interrupción		
-	
-	frec_anemometro = LPC_TIM3->TC; //Quedaría obtener la velocidad del viento
+		
+	vel_anemometro = LPC_TIM3->TC * 2 * pi * radio_spinner; // Medida en m/s
+	LPC_TIM3->TCR |= 1 << 1; 				// Reset contador (Timer3)
+	LPC_TIM3->TCR&= ~(1 << 1); 			// Out Reset contador (si no se mantiene reseteado)
 	
 	/* Mandar valores por UART
 		 Mandar valores a LCD
-		 Leer frecuencia anemómetro
 		 Iniciar conversión ADC (Hay que pensar si vamos a usar modo burst o lo vamos a hacer manual)
-		 RESET contador CAP
-		 Quitamos RESET contador CAP
-		 Quitamos flag de interrupción de este timer
 	*/
+	
+	LPC_TIM0->IR|=(1<<1);		// Borrar flag interrupción		
 }
 
 void TIMER1_IRQHandler(void)
@@ -89,9 +91,9 @@ float leer_DS1621()
 	I2CSendAddr(0x48,0);													//Dir.Slave 0x48(A2=A1=A0=0) + escritura
 	I2CSendByte(0xAA);														//Leemos temperatura
 	I2CSendAddr(0x48,1);													//Dir.Slave 0x48(A2=A1=A0=0) + lectura
-	*temp_integer = I2CGetByte('0');							//Leemos parte entera de la temperatura (8b de mayor peso)
-	strcpy(temp,temp_integer);										//Copiamos cadena (parte entera)
+	*temp_integer = I2CGetByte('0');							//Leemos parte entera de la temperatura (8b de mayor peso)	
 	*temp_decimal = (I2CGetByte('1') >> 7);				//Leemos parte decimal de la temperatura (8ºbit de los ocho bits de menor peso)
+	strcpy(temp,temp_integer);										//Copiamos cadena (parte entera)
 	strcat(temp, ".");														//Punto decimal
 	strcat(temp, temp_decimal);										//Concatenamos la parte decimal con la entera y el punto
 	return (atof(temp));													//Convertimos a float

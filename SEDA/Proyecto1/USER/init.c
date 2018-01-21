@@ -24,11 +24,15 @@ void init_GPIO(void)
 	LPC_PINCON->PINMODE3 |= (2<<10);						// Se deshabilita el pullup/down
 
 	// Altavoz
-	LPC_PINCON->PINSEL1 |= (2<<20); 	 					// AOUT PIN0.26 (DAC output - Altavoz)
+	LPC_PINCON->PINSEL1 |= (2<<20); 	 				// AOUT PIN0.26 (DAC output - Altavoz)
 	LPC_PINCON->PINMODE1 |= (2<<20); 					// Deshabilita pullup/pulldown
 
 	// MMAT0.1 del TIMER0 para la conversión del ADC de los datos de los sensores analógicos.
 	LPC_PINCON->PINSEL3 |= (3<<26); 						// MAT0.1 PIN1.29 ¿Para qué queremos tener la señal que genera ese TIMER en el pin este?
+	
+	//PWM
+	LPC_PINCON->PINSEL3 |= (2<<4);						 // PWM1.1 P1.18
+	LPC_PINCON->PINMODE3 |= (2<<4);						 // Deshabilita pullup/pulldown
 
 }
 
