@@ -10,7 +10,7 @@
 //#define OFFSET_ADC 0x10 	// Para acceder a ADDR0[0..15]
  
 #define WIDTH_VALUE 0				// Size Mode Transfer = 8 bits
-#define OFFSET_ADC 0x15 		// Para acceder a ADDR0[8..15] dir. impar!!!
+#define OFFSET_ADC 0x09 		// Para acceder a ADGDR[0-7] dir. impar!!!
 #define SBURST 0x00					// Un dato transferido al llegar señal DMACREQ al source
 #define DBURST 0x00					// Un dato transferido al llegar señal DMACREQ	al dest.
 #define TAM_BLOCK_DMA 4000 	// Muestras guardadas en una transferencia al/desde el DMA
@@ -101,7 +101,7 @@ void init_DMA_ADC(void)
 	
 	 //Origen y destino.
 	 LPC_GPDMACH1->DMACCDestAddr = (uint32_t)&muestras[q];	  //Dir.Array muestras
-	 LPC_GPDMACH1->DMACCSrcAddr = LPC_ADC_BASE + 0x15; //Dir.ADGR del ADC
+	 LPC_GPDMACH1->DMACCSrcAddr = LPC_ADC_BASE + OFFSET_ADC; //Dir.ADGR del ADC, podríamos usar la dir. ADDR5 también, eso sería  + 0x29
 	 LPC_GPDMACH1->DMACCLLI = 0;
 
 																 //S.BURST=1  | D.Burst=1  |  S.Width        |     D.Width     |  Incr. Dest | TC interrupt enable.
