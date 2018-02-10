@@ -1,0 +1,147 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+C:\Users\Usuario\Desktop\Subsistemas-SEDA\SEDA\Proyecto1_seda_bkup\PROJECT\Proyecto1.uvproj
+Project File Date:  02/10/2018
+
+<h2>Output:</h2>
+Rebuild target 'LPC1768'
+custom translating Web.inp...
+Custom: C:\Keil\ARM\bin\fcarm @..\WEB\Web.inp
+FCARM FILE CONVERTER V2.41
+Completed 1 File(s), Ratio 73%
+compiling system_LPC17xx.c...
+assembling startup_LPC17xx.s...
+compiling core_cm3.c...
+compiling AsciiLib.c...
+compiling GLCD.c...
+compiling debug_frmwrk.c...
+compiling lpc17xx_adc.c...
+compiling lpc17xx_can.c...
+..\Libraries\LPC1700CMSIS_Firmware_Library\source\lpc17xx_can.c(144): warning:  #550-D: variable "temp" was set but never used
+..\Libraries\LPC1700CMSIS_Firmware_Library\source\lpc17xx_can.c(712): warning:  #550-D: variable "abc" was set but never used
+..\Libraries\LPC1700CMSIS_Firmware_Library\source\lpc17xx_can.c(1105): warning:  #186-D: pointless comparison of unsigned integer with zero
+..\Libraries\LPC1700CMSIS_Firmware_Library\source\lpc17xx_can.c(1374): warning:  #61-D: integer operation result is out of range
+..\Libraries\LPC1700CMSIS_Firmware_Library\source\lpc17xx_can.c(1374): warning:  #68-D: integer conversion resulted in a change of sign
+..\Libraries\LPC1700CMSIS_Firmware_Library\source\lpc17xx_can.c(1378): warning:  #61-D: integer operation result is out of range
+..\Libraries\LPC1700CMSIS_Firmware_Library\source\lpc17xx_can.c(1414): warning:  #61-D: integer operation result is out of range
+..\Libraries\LPC1700CMSIS_Firmware_Library\source\lpc17xx_can.c(1414): warning:  #68-D: integer conversion resulted in a change of sign
+..\Libraries\LPC1700CMSIS_Firmware_Library\source\lpc17xx_can.c(1418): warning:  #61-D: integer operation result is out of range
+..\Libraries\LPC1700CMSIS_Firmware_Library\source\lpc17xx_can.c(1454): warning:  #61-D: integer operation result is out of range
+..\Libraries\LPC1700CMSIS_Firmware_Library\source\lpc17xx_can.c(1454): warning:  #68-D: integer conversion resulted in a change of sign
+..\Libraries\LPC1700CMSIS_Firmware_Library\source\lpc17xx_can.c(1458): warning:  #61-D: integer operation result is out of range
+compiling lpc17xx_clkpwr.c...
+compiling lpc17xx_dac.c...
+compiling lpc17xx_emac.c...
+compiling lpc17xx_exti.c...
+compiling lpc17xx_gpdma.c...
+..\Libraries\LPC1700CMSIS_Firmware_Library\source\lpc17xx_gpdma.c(87): warning:  #1296-D: extended constant initialiser used
+..\Libraries\LPC1700CMSIS_Firmware_Library\source\lpc17xx_gpdma.c(88): warning:  #1296-D: extended constant initialiser used
+..\Libraries\LPC1700CMSIS_Firmware_Library\source\lpc17xx_gpdma.c(89): warning:  #1296-D: extended constant initialiser used
+..\Libraries\LPC1700CMSIS_Firmware_Library\source\lpc17xx_gpdma.c(90): warning:  #1296-D: extended constant initialiser used
+..\Libraries\LPC1700CMSIS_Firmware_Library\source\lpc17xx_gpdma.c(91): warning:  #1296-D: extended constant initialiser used
+..\Libraries\LPC1700CMSIS_Firmware_Library\source\lpc17xx_gpdma.c(92): warning:  #1296-D: extended constant initialiser used
+..\Libraries\LPC1700CMSIS_Firmware_Library\source\lpc17xx_gpdma.c(93): warning:  #1296-D: extended constant initialiser used
+..\Libraries\LPC1700CMSIS_Firmware_Library\source\lpc17xx_gpdma.c(94): warning:  #1296-D: extended constant initialiser used
+..\Libraries\LPC1700CMSIS_Firmware_Library\source\lpc17xx_gpdma.c(95): warning:  #1296-D: extended constant initialiser used
+..\Libraries\LPC1700CMSIS_Firmware_Library\source\lpc17xx_gpdma.c(96): warning:  #1296-D: extended constant initialiser used
+..\Libraries\LPC1700CMSIS_Firmware_Library\source\lpc17xx_gpdma.c(97): warning:  #1296-D: extended constant initialiser used
+..\Libraries\LPC1700CMSIS_Firmware_Library\source\lpc17xx_gpdma.c(98): warning:  #1296-D: extended constant initialiser used
+..\Libraries\LPC1700CMSIS_Firmware_Library\source\lpc17xx_gpdma.c(99): warning:  #1296-D: extended constant initialiser used
+..\Libraries\LPC1700CMSIS_Firmware_Library\source\lpc17xx_gpdma.c(100): warning:  #1296-D: extended constant initialiser used
+..\Libraries\LPC1700CMSIS_Firmware_Library\source\lpc17xx_gpdma.c(101): warning:  #1296-D: extended constant initialiser used
+..\Libraries\LPC1700CMSIS_Firmware_Library\source\lpc17xx_gpdma.c(102): warning:  #1296-D: extended constant initialiser used
+..\Libraries\LPC1700CMSIS_Firmware_Library\source\lpc17xx_gpdma.c(103): warning:  #1296-D: extended constant initialiser used
+..\Libraries\LPC1700CMSIS_Firmware_Library\source\lpc17xx_gpdma.c(104): warning:  #1296-D: extended constant initialiser used
+..\Libraries\LPC1700CMSIS_Firmware_Library\source\lpc17xx_gpdma.c(105): warning:  #1296-D: extended constant initialiser used
+..\Libraries\LPC1700CMSIS_Firmware_Library\source\lpc17xx_gpdma.c(106): warning:  #1296-D: extended constant initialiser used
+..\Libraries\LPC1700CMSIS_Firmware_Library\source\lpc17xx_gpdma.c(107): warning:  #1296-D: extended constant initialiser used
+..\Libraries\LPC1700CMSIS_Firmware_Library\source\lpc17xx_gpdma.c(108): warning:  #1296-D: extended constant initialiser used
+..\Libraries\LPC1700CMSIS_Firmware_Library\source\lpc17xx_gpdma.c(109): warning:  #1296-D: extended constant initialiser used
+..\Libraries\LPC1700CMSIS_Firmware_Library\source\lpc17xx_gpdma.c(110): warning:  #1296-D: extended constant initialiser used
+..\Libraries\LPC1700CMSIS_Firmware_Library\source\lpc17xx_gpdma.c(396): warning:  #186-D: pointless comparison of unsigned integer with zero
+..\Libraries\LPC1700CMSIS_Firmware_Library\source\lpc17xx_gpdma.c(438): warning:  #186-D: pointless comparison of unsigned integer with zero
+compiling lpc17xx_gpio.c...
+compiling lpc17xx_i2c.c...
+..\Libraries\LPC1700CMSIS_Firmware_Library\source\lpc17xx_i2c.c(597): warning:  #188-D: enumerated type mixed with another type
+..\Libraries\LPC1700CMSIS_Firmware_Library\source\lpc17xx_i2c.c(694): warning:  #188-D: enumerated type mixed with another type
+..\Libraries\LPC1700CMSIS_Firmware_Library\source\lpc17xx_i2c.c(701): warning:  #188-D: enumerated type mixed with another type
+..\Libraries\LPC1700CMSIS_Firmware_Library\source\lpc17xx_i2c.c(749): warning:  #188-D: enumerated type mixed with another type
+..\Libraries\LPC1700CMSIS_Firmware_Library\source\lpc17xx_i2c.c(901): warning:  #188-D: enumerated type mixed with another type
+..\Libraries\LPC1700CMSIS_Firmware_Library\source\lpc17xx_i2c.c(914): warning:  #188-D: enumerated type mixed with another type
+..\Libraries\LPC1700CMSIS_Firmware_Library\source\lpc17xx_i2c.c(951): warning:  #188-D: enumerated type mixed with another type
+..\Libraries\LPC1700CMSIS_Firmware_Library\source\lpc17xx_i2c.c(1161): warning:  #188-D: enumerated type mixed with another type
+..\Libraries\LPC1700CMSIS_Firmware_Library\source\lpc17xx_i2c.c(1185): warning:  #186-D: pointless comparison of unsigned integer with zero
+compiling lpc17xx_i2s.c...
+compiling lpc17xx_libcfg_default.c...
+compiling lpc17xx_mcpwm.c...
+..\Libraries\LPC1700CMSIS_Firmware_Library\source\lpc17xx_mcpwm.c(93): warning:  #186-D: pointless comparison of unsigned integer with zero
+..\Libraries\LPC1700CMSIS_Firmware_Library\source\lpc17xx_mcpwm.c(181): warning:  #186-D: pointless comparison of unsigned integer with zero
+..\Libraries\LPC1700CMSIS_Firmware_Library\source\lpc17xx_mcpwm.c(258): warning:  #186-D: pointless comparison of unsigned integer with zero
+..\Libraries\LPC1700CMSIS_Firmware_Library\source\lpc17xx_mcpwm.c(260): warning:  #186-D: pointless comparison of unsigned integer with zero
+..\Libraries\LPC1700CMSIS_Firmware_Library\source\lpc17xx_mcpwm.c(262): warning:  #186-D: pointless comparison of unsigned integer with zero
+..\Libraries\LPC1700CMSIS_Firmware_Library\source\lpc17xx_mcpwm.c(262): warning:  #186-D: pointless comparison of unsigned integer with zero
+..\Libraries\LPC1700CMSIS_Firmware_Library\source\lpc17xx_mcpwm.c(264): warning:  #186-D: pointless comparison of unsigned integer with zero
+..\Libraries\LPC1700CMSIS_Firmware_Library\source\lpc17xx_mcpwm.c(264): warning:  #186-D: pointless comparison of unsigned integer with zero
+..\Libraries\LPC1700CMSIS_Firmware_Library\source\lpc17xx_mcpwm.c(267): warning:  #186-D: pointless comparison of unsigned integer with zero
+..\Libraries\LPC1700CMSIS_Firmware_Library\source\lpc17xx_mcpwm.c(267): warning:  #186-D: pointless comparison of unsigned integer with zero
+..\Libraries\LPC1700CMSIS_Firmware_Library\source\lpc17xx_mcpwm.c(269): warning:  #186-D: pointless comparison of unsigned integer with zero
+..\Libraries\LPC1700CMSIS_Firmware_Library\source\lpc17xx_mcpwm.c(269): warning:  #186-D: pointless comparison of unsigned integer with zero
+..\Libraries\LPC1700CMSIS_Firmware_Library\source\lpc17xx_mcpwm.c(272): warning:  #186-D: pointless comparison of unsigned integer with zero
+..\Libraries\LPC1700CMSIS_Firmware_Library\source\lpc17xx_mcpwm.c(376): warning:  #61-D: integer operation result is out of range
+..\Libraries\LPC1700CMSIS_Firmware_Library\source\lpc17xx_mcpwm.c(378): warning:  #61-D: integer operation result is out of range
+compiling lpc17xx_nvic.c...
+compiling lpc17xx_pinsel.c...
+compiling lpc17xx_pwm.c...
+..\Libraries\LPC1700CMSIS_Firmware_Library\source\lpc17xx_pwm.c(299): warning:  #186-D: pointless comparison of unsigned integer with zero
+..\Libraries\LPC1700CMSIS_Firmware_Library\source\lpc17xx_pwm.c(429): warning:  #186-D: pointless comparison of unsigned integer with zero
+compiling lpc17xx_qei.c...
+compiling lpc17xx_rit.c...
+..\Libraries\LPC1700CMSIS_Firmware_Library\source\lpc17xx_rit.c(180): warning:  #188-D: enumerated type mixed with another type
+compiling lpc17xx_rtc.c...
+..\Libraries\LPC1700CMSIS_Firmware_Library\source\lpc17xx_rtc.c(734): warning:  #186-D: pointless comparison of unsigned integer with zero
+..\Libraries\LPC1700CMSIS_Firmware_Library\source\lpc17xx_rtc.c(758): warning:  #186-D: pointless comparison of unsigned integer with zero
+compiling lpc17xx_spi.c...
+compiling lpc17xx_ssp.c...
+compiling lpc17xx_systick.c...
+compiling lpc17xx_timer.c...
+..\Libraries\LPC1700CMSIS_Firmware_Library\source\lpc17xx_timer.c(115): warning:  #68-D: integer conversion resulted in a change of sign
+compiling lpc17xx_uart.c...
+compiling lpc17xx_wdt.c...
+compiling DMA.c...
+..\USER\DMA.h(15): warning:  #1-D: last line of file ends without a newline
+..\USER\DMA.c(79): warning:  #61-D: integer operation result is out of range
+..\USER\DMA.c(108): warning:  #61-D: integer operation result is out of range
+..\USER\DMA.c(193): warning:  #1-D: last line of file ends without a newline
+compiling main.c...
+..\USER\main.c(167): warning:  #223-D: function "sprintf" declared implicitly
+..\USER\main.c(176): warning:  #223-D: function "sprintf" declared implicitly
+..\USER\main.c(183): warning:  #223-D: function "sprintf" declared implicitly
+..\USER\main.c(35): warning:  #177-D: function "init_io" was declared but never referenced
+..\USER\main.c(146): warning:  #177-D: function "init_display" was declared but never referenced
+..\USER\main.c(194): warning:  #177-D: function "blink_led" was declared but never referenced
+compiling TouchPanel.c...
+compiling i2c_lpc17xx.c...
+compiling init.c...
+..\USER\init.c(9): warning:  #61-D: integer operation result is out of range
+..\USER\init.c(12): warning:  #61-D: integer operation result is out of range
+compiling uart.c...
+compiling PWM.c...
+compiling HTTP_CGI.c...
+..\USER\HTTP_CGI.c(257): warning:  #177-D: variable "tsoc" was declared but never referenced
+..\USER\HTTP_CGI.c(259): warning:  #177-D: variable "id" was declared but never referenced
+..\USER\HTTP_CGI.c(259): warning:  #177-D: variable "lang" was declared but never referenced
+..\USER\HTTP_CGI.c(260): warning:  #177-D: variable "adv" was declared but never referenced
+..\USER\HTTP_CGI.c(58): warning:  #177-D: variable "state" was declared but never referenced
+compiling EMAC_LPC17xx_LAN8720.c...
+..\Libraries\TCP_CM3\EMAC_LPC17xx_LAN8720.c(393): warning:  #177-D: function "output_MDIO" was declared but never referenced
+..\Libraries\TCP_CM3\EMAC_LPC17xx_LAN8720.c(412): warning:  #177-D: function "turnaround_MDIO" was declared but never referenced
+..\Libraries\TCP_CM3\EMAC_LPC17xx_LAN8720.c(424): warning:  #177-D: function "input_MDIO" was declared but never referenced
+compiling Net_Config.c...
+linking...
+Program Size: Code=109592 RO-data=3644 RW-data=32236 ZI-data=27280  
+".\Obj\Proyecto1.axf" - 0 Errors, 88 Warning(s).
+Clean started: Project: 'Proyecto1'
+   deleting intermediate output files for target 'LPC1768'
