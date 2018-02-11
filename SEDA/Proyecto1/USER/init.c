@@ -105,9 +105,9 @@ void init_ADC_grabar(void)
 	LPC_SC->PCONP |= (1<<12);						// POwer ON
 	LPC_SC->PCLKSEL0 &= ~(3<<24); 			// CLK ADC = CCLK/4 (Fpclk después del reset) (100 Mhz/4 = 25Mhz)
 	LPC_ADC->ADCR= 0;
-	LPC_ADC->ADCR= (1<<0)|		  	 		// Canal 0
+	LPC_ADC->ADCR= (1<<5)|		  	 		// Canal 5
 							   (1<<8)|		     		// CLKDIV=1   (Fclk_ADC= 25Mhz /(1+1)= 12.5 Mhz)
 								 (7<<24)|				    // Inicio de conversión con el Match 1 del Timer 1
 								 (1<<21);			 			// PDN=1
-  LPC_ADC->ADINTEN= (1<<0);					// Hab. interrupción fin de conversión canal 0, necesario para DMA
+  LPC_ADC->ADINTEN= (1<<5);					// Hab. interrupción fin de conversión canal 5, necesario para DMA
 }

@@ -1,6 +1,7 @@
 #include <LPC17xx.H>
 #include "init.h"
 #include "PWM.h"
+#include "DMA.h"
 #include <string.h>
 #include <stdlib.h>
 #include <i2c_lpc17xx.h>
@@ -21,7 +22,7 @@ char *ptr_tx;			// puntero de transmisión
 char tx_completa;		// Flag de transmisión de cadena que se activa al transmitir el caracter null (fin de cadena)
 char fin=0;
 
-/* ---------------------------------------------------- Funciones de atención a la interrupción ----------------------------------------------------*/
+/* ---------------------------------------------------- Funciones de atención a la interrupción TIMERS ----------------------------------------------------*/
 
 void TIMER0_IRQHandler (void)				// Interrumpe cada segundo
 {
@@ -63,6 +64,11 @@ void TIMER3_IRQHandler(void)
 	LPC_TIM3->IR|=(1<<1);		// Borrar flag interrupción								
 }
 
+/* ---------------------------------------------------- Funciones de atención a la interrupción Externas ----------------------------------------------------*/
+void EINT1_IRQHandler(){rec();}
+void EINT2_IRQHandler(){play();}
+
+/* ---------------------------------------------------- Funciones de atención a la interrupción ADC ----------------------------------------------------*/
 void ADC_IRQHandler(void)
 {
 	
@@ -99,9 +105,16 @@ float leer_DS1621()
 	return (atof(temp));													//Convertimos a float
 }
 
+
+
 /* --------------------------------------------------------------- Programa Principal ---------------------------------------------------------------*/
 int main(void)
 {
+	NVIC_SetPriority(EINT1_IRQn, 0);		
+	NVIC_SetPriority(EINT2_IRQn, 0);
+	NVIC_SetPriority(DMA_IRQn, 0);
+	NVIC_EnableIRQ(EINT1_IRQn);	
+	NVIC_EnableIRQ(EINT2_IRQn);
 	init_GPIO();
 	init_PWM();
 	init_ADC_sensores();
