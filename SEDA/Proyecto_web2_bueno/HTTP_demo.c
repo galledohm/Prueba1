@@ -3,7 +3,7 @@
 #include <Net_Config.h>
 #include <LPC17xx.h>                    /* LPC17xx definitions               */
 #include "init.h"
-#include <i2c_lpc17xx.h>
+#include "DS1621.h"
 #include "PWM.h"
 #include "DMA.h"
 #include "GLCD.h"
@@ -35,12 +35,30 @@ static void init_display (void);
 
 /*-------------------------- init ------------------------------------------*/
 
-static void init () {
-  /* Add System initialisation code here */ 
-
-//  init_io ();
+static void init ()
+{
+	//Funciones de atención a la interrupción
+	NVIC_SetPriorityGrouping(3);
+	NVIC_SetPriority(UART0_IRQn, 0x0);
+	NVIC_SetPriority(TIMER0_IRQn, 0x1);
+	NVIC_SetPriority(EINT1_IRQn, 0);		
+	NVIC_SetPriority(EINT2_IRQn, 0);
+	NVIC_EnableIRQ(EINT1_IRQn);	
+	NVIC_EnableIRQ(EINT2_IRQn);
+	
+	//Inicialización GPIO
 	init_GPIO();
 	
+	//Inicialización PWM
+	init_PWM();
+	
+	//Inicialización ADC para los sensores analógicos
+	init_ADC_sensores();
+	
+	//Configuración DS1621
+	config_DS1621();
+	
+	//Inicialización LCD y TCP
   init_display ();
   init_TcpNet ();
 
@@ -194,13 +212,6 @@ void TIMER0_IRQHandler (void)				// Interrumpe cada segundo
 
 int main (void) {
   /* Main Thread of the TcpNet */
-	NVIC_SetPriorityGrouping(3);
-	NVIC_SetPriority(UART0_IRQn, 0x0);
-	NVIC_SetPriority(TIMER0_IRQn, 0x1);
-	NVIC_SetPriority(EINT1_IRQn, 0);		
-	NVIC_SetPriority(EINT2_IRQn, 0);
-	NVIC_EnableIRQ(EINT1_IRQn);	
-	NVIC_EnableIRQ(EINT2_IRQn);
   init();
 	
 	uart0_init(9600);
