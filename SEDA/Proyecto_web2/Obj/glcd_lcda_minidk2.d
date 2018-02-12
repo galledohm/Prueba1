@@ -1,0 +1,10 @@
+.\obj\glcd_lcda_minidk2.o: Library\GLCD_LCDA_MiniDK2.c
+.\obj\glcd_lcda_minidk2.o: C:\Keil472a\ARM\Inc\NXP\LPC17xx\lpc17xx.h
+.\obj\glcd_lcda_minidk2.o: C:\Keil472a\ARM\CMSIS\Include\core_cm3.h
+.\obj\glcd_lcda_minidk2.o: C:\Keil472a\ARM\ARMCC\bin\..\include\stdint.h
+.\obj\glcd_lcda_minidk2.o: C:\Keil472a\ARM\CMSIS\Include\core_cmInstr.h
+.\obj\glcd_lcda_minidk2.o: C:\Keil472a\ARM\CMSIS\Include\core_cmFunc.h
+.\obj\glcd_lcda_minidk2.o: C:\Keil472a\ARM\Inc\NXP\LPC17xx\system_LPC17xx.h
+.\obj\glcd_lcda_minidk2.o: Library\GLCD.h
+.\obj\glcd_lcda_minidk2.o: Library\Font_6x8_h.h
+.\obj\glcd_lcda_minidk2.o: Library\Font_16x24_h.h

@@ -1,0 +1,16 @@
+.\obj\glcd_lcdb_minidk2.o: Library\GLCD_LCDB_MiniDK2.c
+.\obj\glcd_lcdb_minidk2.o: C:\Keil472a\ARM\Inc\NXP\LPC17xx\lpc17xx.h
+.\obj\glcd_lcdb_minidk2.o: C:\Keil472a\ARM\CMSIS\Include\core_cm3.h
+.\obj\glcd_lcdb_minidk2.o: C:\Keil472a\ARM\ARMCC\bin\..\include\stdint.h
+.\obj\glcd_lcdb_minidk2.o: C:\Keil472a\ARM\CMSIS\Include\core_cmInstr.h
+.\obj\glcd_lcdb_minidk2.o: C:\Keil472a\ARM\CMSIS\Include\core_cmFunc.h
+.\obj\glcd_lcdb_minidk2.o: C:\Keil472a\ARM\Inc\NXP\LPC17xx\system_LPC17xx.h
+.\obj\glcd_lcdb_minidk2.o: .\Libreria\GLCD\GLCD_B.h
+.\obj\glcd_lcdb_minidk2.o: C:\Keil472a\ARM\ARMCC\bin\..\include\stdlib.h
+.\obj\glcd_lcdb_minidk2.o: .\Libreria\LPC1700CMSIS_Firmware_Library\include\lpc17xx_ssp.h
+.\obj\glcd_lcdb_minidk2.o: .\Libreria\LPC1700CMSIS_Firmware_Library\include\lpc_types.h
+.\obj\glcd_lcdb_minidk2.o: .\Libreria\LPC1700CMSIS_Firmware_Library\include\lpc17xx_gpio.h
+.\obj\glcd_lcdb_minidk2.o: .\Libreria\LPC1700CMSIS_Firmware_Library\include\lpc17xx_pinsel.h
+.\obj\glcd_lcdb_minidk2.o: Library\GLCD.h
+.\obj\glcd_lcdb_minidk2.o: Library\Font_6x8_h.h
+.\obj\glcd_lcdb_minidk2.o: Library\Font_16x24_h.h
