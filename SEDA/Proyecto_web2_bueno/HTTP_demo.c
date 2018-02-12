@@ -178,9 +178,11 @@ void TIMER0_IRQHandler (void)				// Interrumpe cada segundo
 	//Activación del modo BURST
 	LPC_ADC->ADCR|=(1<<16); // BURST=1 --> Cada 65TclkADC se toma una muestra de cada canal comenzando desde el más bajo (bit LSB de CR[0..7])
 		
-	vel_anemometro = 2 * pi * radio_spinner; // Medida en m/s
-	//	LPC_TIM3->TCR |= 1 << 1; 				// Reset contador (Timer3)
-	//	LPC_TIM3->TCR&= ~(1 << 1); 			// Out Reset contador (si no se mantiene reseteado)
+	vel_anemometro = LPC_TIM3->TC * 2 * pi * radio_spinner; // Medida en m/s
+	LPC_TIM3->TCR |= 1 << 1; 				// Reset contador (Timer3)
+	LPC_TIM3->TCR&= ~(1 << 1); 			// Out Reset contador (si no se mantiene reseteado)
+	
+	//TX datos UART y LCD
 	if(tx_completa)
 	{
 			if(contador_uart==0)
@@ -202,7 +204,7 @@ void TIMER0_IRQHandler (void)				// Interrumpe cada segundo
 				contador_uart=0;
 			}
 	}
-	if(contador_disp>5)
+	if(contador_disp>5)			//Actualizamos display cada 2.5s
 	{
 		contador_disp=0;
      upd_display ();    
@@ -214,13 +216,18 @@ void TIMER0_IRQHandler (void)				// Interrumpe cada segundo
 /*------------------------------------ MAIN ---------------------------------------------*/
 
 int main (void) {
-  /* Main Thread of the TcpNet */
+  //Inicialización general
   init();
-	
+	//Baudios UART
 	uart0_init(9600);
 	tx_cadena_UART0("Estacion meteo\n\r");
+	
+	//Inicialización TIMER principales T0-adq y tx datos, T3-Anemómetro
+	init_TIMER3();
 	init_TIMER0();
+	
   dhcp_tout = DHCP_TOUT;
+	
   while (1) {
     timer_poll ();
     main_TcpNet ();

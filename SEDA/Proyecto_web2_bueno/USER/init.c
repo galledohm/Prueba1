@@ -76,6 +76,7 @@ void init_TIMER2(void)
 //TIMER en modo CAP para el anemómetro (ver ejemplo BlackBoard)
 void init_TIMER3(void)
 {
+	  LPC_SC->PCONP|=(1<<23);													// Power-ON TIMER 2
 		LPC_TIM3->CTCR|= (1<<1)|(1<<2);	 	// Modo contador, Cuenta en falling edges de CAP3.1 (P0.24)
 		LPC_TIM3->TCR |= 1 << 0; 					// Start contador
 }
