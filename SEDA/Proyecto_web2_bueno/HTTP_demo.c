@@ -14,7 +14,7 @@
 #define radio_spinner 0.008 // (8mm) En metros , para obtener la velocidad en m/s
 
 float temp_LM35=22.5,temp_DS1621=26.0, humedad=22.5, presion=120;
-volatile uint32_t vel_anemometro = 0;
+float vel_anemometro = 0;
 char buff_env[30];
 uint8_t text_disp[4];
 
@@ -158,24 +158,27 @@ void EINT1_IRQHandler(){rec();}
 void EINT2_IRQHandler(){play();}
 
 /* ---------------------------------------------------- Funciones de atención a la interrupción ADC ----------------------------------------------------*/
-//void ADC_IRQHandler(void)
-//{
-//	
-//	LPC_ADC->ADCR&=~(1<<16); // BURST=0     // Deshabilitamos el modo Ráfaga (ojo continua la conversión del siguiente canal) 
-//  
-//	//Almacenamos las muestras
-//	temp_LM35 = (((LPC_ADC->ADDR0 >>4)&0xFFF)*3.3/4095)*100;	//Temperatura LM35 en ºC
-//	humedad = ((((LPC_ADC->ADDR2 >>4)&0xFFF)*3.3/4095)-0.772)/0.03;	//%Humedad relativa
-//}
+void ADC_IRQHandler(void)
+{
+	
+	LPC_ADC->ADCR&=~(1<<16); // BURST=0     // Deshabilitamos el modo Ráfaga (ojo continua la conversión del siguiente canal) 
+  
+	//Almacenamos las muestras
+	temp_LM35 = (((LPC_ADC->ADDR0 >>4)&0xFFF)*3.3/4095)*100;	//Temperatura LM35 en ºC
+	humedad = ((((LPC_ADC->ADDR2 >>4)&0xFFF)*3.3/4095)-0.772)/0.03;	//%Humedad relativa
+}
 
 /*------------------------------ TIMER0 ---------------------------------------------*/
 
 void TIMER0_IRQHandler (void)				// Interrumpe cada segundo
 {
+	//Contadores para enviar datos por UART y LCD
 	static U32 contador_uart,contador_disp=0;
-	//LPC_ADC->ADCR|=(1<<16); // BURST=1 --> Cada 65TclkADC se toma una muestra de cada canal comenzando desde el más bajo (bit LSB de CR[0..7])
+	
+	//Activación del modo BURST
+	LPC_ADC->ADCR|=(1<<16); // BURST=1 --> Cada 65TclkADC se toma una muestra de cada canal comenzando desde el más bajo (bit LSB de CR[0..7])
 		
-	//	vel_anemometro = LPC_TIM3->TC * 2 * pi * radio_spinner; // Medida en m/s
+	vel_anemometro = 2 * pi * radio_spinner; // Medida en m/s
 	//	LPC_TIM3->TCR |= 1 << 1; 				// Reset contador (Timer3)
 	//	LPC_TIM3->TCR&= ~(1 << 1); 			// Out Reset contador (si no se mantiene reseteado)
 	if(tx_completa)
