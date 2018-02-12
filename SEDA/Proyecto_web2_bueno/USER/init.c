@@ -27,9 +27,6 @@ void init_GPIO(void)
 	LPC_PINCON->PINSEL1 |= (2<<20); 	 				// AOUT PIN0.26 (DAC output - Altavoz)
 	LPC_PINCON->PINMODE1 |= (2<<20); 					// Deshabilita pullup/pulldown
 
-	// MMAT0.1 del TIMER0 para la conversión del ADC de los datos de los sensores analógicos.
-	LPC_PINCON->PINSEL3 |= (3<<26); 						// MAT0.1 PIN1.29 ¿Para qué queremos tener la señal que genera ese TIMER en el pin este?
-	
 	//PWM
 	LPC_PINCON->PINSEL3 |= (2<<4);						 // PWM1.1 P1.18
 	LPC_PINCON->PINMODE3 |= (2<<4);						 // Deshabilita pullup/pulldown
@@ -106,9 +103,9 @@ void init_ADC_grabar(void)
 	LPC_SC->PCONP |= (1<<12);						// POwer ON
 	LPC_SC->PCLKSEL0 &= ~(3<<24); 			// CLK ADC = CCLK/4 (Fpclk después del reset) (100 Mhz/4 = 25Mhz)
 	LPC_ADC->ADCR= 0;
-	LPC_ADC->ADCR= (1<<0)|		  	 		// Canal 0
+	LPC_ADC->ADCR= (1<<5)|		  	 		// Canal 5
 							   (1<<8)|		     		// CLKDIV=1   (Fclk_ADC= 25Mhz /(1+1)= 12.5 Mhz)
 								 (7<<24)|				    // Inicio de conversión con el Match 1 del Timer 1
 								 (1<<21);			 			// PDN=1
-  LPC_ADC->ADINTEN= (1<<0);					// Hab. interrupción fin de conversión canal 0, necesario para DMA
+  LPC_ADC->ADINTEN= (1<<5);					// Hab. interrupción fin de conversión canal 5, necesario para DMA
 }

@@ -41,28 +41,6 @@ void TIMER0_IRQHandler (void)				// Interrumpe cada segundo
 	LPC_TIM0->IR|=(1<<1);		// Borrar flag interrupción		
 }
 
-void TIMER1_IRQHandler(void)
-{	
-
-
-	LPC_TIM1->IR|=(1<<1);		// Borrar flag interrupción								
-}
-
-
-void TIMER2_IRQHandler(void)
-{	
-
-
-	LPC_TIM2->IR|=(1<<1);		// Borrar flag interrupción								
-}
-
-
-void TIMER3_IRQHandler(void)
-{	
-
-
-	LPC_TIM3->IR|=(1<<1);		// Borrar flag interrupción								
-}
 
 /* ---------------------------------------------------- Funciones de atención a la interrupción Externas ----------------------------------------------------*/
 void EINT1_IRQHandler(){rec();}

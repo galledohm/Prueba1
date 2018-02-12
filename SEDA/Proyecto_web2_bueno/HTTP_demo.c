@@ -1,13 +1,3 @@
-/*----------------------------------------------------------------------------
- *      RL-ARM - TCPnet
- *----------------------------------------------------------------------------
- *      Name:    HTTP_DEMO.C
- *      Purpose: HTTP Server demo example
- *----------------------------------------------------------------------------
- *      This code is part of the RealView Run-Time Library.
- *      Copyright (c) 2004-2011 KEIL - An ARM Company. All rights reserved.
- *---------------------------------------------------------------------------*/
-
 #include <stdio.h>
 #include <RTL.h>
 #include <Net_Config.h>
@@ -18,21 +8,18 @@
 #include "DMA.h"
 #include "GLCD.h"
 #include "uart.h" 
-//#include "debug_frmwrk.h"
 
-/*-------------------------Declaraciones METEO--------------------*/
+/*------------------------- Declaraciones METEO --------------------*/
 #define pi 3.141516
 #define radio_spinner 0.008 // (8mm) En metros , para obtener la velocidad en m/s
 
 float temp_LM35=22.5,temp_DS1621=26.0, humedad=22.5, presion=120;
-//int contador_uart=0,contador_disp=0;
 volatile uint32_t vel_anemometro = 0;
 char buff_env[30];
 uint8_t text_disp[4];
-/*-----------------------------------------------------------------------*/
 
+/*--------------------------- Declaraciones WEB --------------------------------------------*/
 
-BOOL LEDrun;
 BOOL LCDupdate;
 BOOL tick;
 U32  dhcp_tout;
@@ -43,17 +30,16 @@ extern LOCALM localm[];                       /* Local Machine Settings      */
 #define MY_IP localm[NETIF_ETH].IpAdr
 #define DHCP_TOUT   50                        /* DHCP timeout 5 seconds      */
 
-//static void init_io (void);
 static void init_display (void);
 
 
-/*--------------------------- init ------------------------------------------*/
-
+/*-------------------------- init ------------------------------------------*/
 
 static void init () {
   /* Add System initialisation code here */ 
 
 //  init_io ();
+	init_GPIO();
 	
   init_display ();
   init_TcpNet ();
@@ -75,91 +61,6 @@ static void timer_poll () {
     timer_tick ();
     tick = __TRUE;
   }
-}
-
-
-/*--------------------------- init_io ---------------------------------------*/
-
-//static void init_io () {
-
-//  /* Configure the GPIO for Push Buttons */
-//  LPC_PINCON->PINSEL4 &= 0xFFCFFFFF;
-//  LPC_GPIO2->FIODIR   &= 0xFFFFFBFF;
-
-// 
-//  /* Configure the GPIO for LED1 and LED2. */
-//  LPC_GPIO3->FIODIR   |= (1<<25)|(1<<26);
-
-
-//  /* Configure UART1 for 115200 baud. */
-//  LPC_PINCON->PINSEL0 &= ~((3 << 4)|(3 << 6));
-//  LPC_PINCON->PINSEL0 |= (1 << 4)|(1 << 6);
-////  LPC_PINCON->PINSEL4 |= 0x0000000A;
-//  LPC_UART0->LCR = 0x83;
-//  LPC_UART0->DLL = 9;                              /* 115200 Baud Rate @ 25.0 MHZ PCLK */
-//  LPC_UART0->FDR = 0x21;                           /* FR 1,507, DIVADDVAL = 1, MULVAL = 2 */
-//  LPC_UART0->DLM = 0;
-//  LPC_UART0->LCR = 0x03;
-
-//  /* Configure AD0.2 input. */
-//  LPC_PINCON->PINSEL1 &= 0xFFF3FFFF;
-//  LPC_PINCON->PINSEL1 |= 0x00040000;
-//  LPC_SC->PCONP       |= 0x00001000;
-//  LPC_ADC->ADCR        = 0x00200404;               /* ADC enable, ADC clock 25MHz/5, select AD0.2 pin */
-//}
-
-
-/*--------------------------- fputc -----------------------------------------*/
-
-int fputc(int ch, FILE *f)  {
-  /* Debug output to serial port. */
-
-  if (ch == '\n')  {
-    while (!(LPC_UART0->LSR & 0x20));
-    LPC_UART0->THR = 0x0D;
-  }
-  while (!(LPC_UART0->LSR & 0x20));
-  LPC_UART0->THR = (ch & 0xFF);
-  return (ch);
-}
-
-
-/*--------------------------- LED_out ---------------------------------------*/
-
-void LED_out (U32 val) {
-  const U8 led_pos[2] = { 25, 26 }; // LED1 and LED2 (P3.25 y P3.26)
-  U32 i,mask;
-
-  for (i = 0; i < 2; i++) {
-    mask = 1 << led_pos[i];
-    if (val & (1<<i)) {
-    LPC_GPIO3->FIOCLR = mask;  // LED ON
-    }
-    else {
-    LPC_GPIO3->FIOSET = mask;  // LED OFF
-    }
-  }
-
-}
-
-
-
-
-/*--------------------------- get_button ------------------------------------*/
-
-U8 get_button (void) {
-  /* Read Mini-DK2 Digital Input */
-  U32 val = 0;
-    /* ISP button ?*/
-  if ((LPC_GPIO2->FIOPIN & (1 << 10)) == 0) val |= 0x01; // P2.10 ?
-	
-    /* KEY1 button ?*/
-  if ((LPC_GPIO2->FIOPIN & (1 << 11)) == 0) val |= 0x02; // P2.11 ?
-	
-    /* KEY2 button ? */
-  if ((LPC_GPIO2->FIOPIN & (1 << 12)) == 0) val |= 0x04; // P2.12 ?
-  
-  return (val);
 }
 
 
@@ -234,91 +135,84 @@ static void dhcp_check () {
   }
 }
 
+/* ---------------------------------------------------- Funciones de atención a la interrupción Externas ----------------------------------------------------*/
+void EINT1_IRQHandler(){rec();}
+void EINT2_IRQHandler(){play();}
 
-/*--------------------------- blink_led -------------------------------------*/
+/* ---------------------------------------------------- Funciones de atención a la interrupción ADC ----------------------------------------------------*/
+//void ADC_IRQHandler(void)
+//{
+//	
+//	LPC_ADC->ADCR&=~(1<<16); // BURST=0     // Deshabilitamos el modo Ráfaga (ojo continua la conversión del siguiente canal) 
+//  
+//	//Almacenamos las muestras
+//	temp_LM35 = (((LPC_ADC->ADDR0 >>4)&0xFFF)*3.3/4095)*100;	//Temperatura LM35 en ºC
+//	humedad = ((((LPC_ADC->ADDR2 >>4)&0xFFF)*3.3/4095)-0.772)/0.03;	//%Humedad relativa
+//}
 
-
-static void blink_led () {
-  /* Blink the LED1 and LED2 on Mini-DK2 board */
-  const U8 led_val[2] = {0x01,0x02};
-  static U32 cnt;
-
-  if (tick == __TRUE) {
-    /* Every 100 ms */
-    tick = __FALSE;
-    if (LEDrun == __TRUE) {
-      LED_out (led_val[cnt]);
-      if (++cnt >= sizeof(led_val)) {
-        cnt = 0;
-      }
-    }
-    if (LCDupdate == __TRUE) {
-     // upd_display ();
-    }
-  }
-}
-
-
-
-/*---------------------------------------------------------------------------*/
+/*------------------------------ TIMER0 ---------------------------------------------*/
 
 void TIMER0_IRQHandler (void)				// Interrumpe cada segundo
 {
 	static U32 contador_uart,contador_disp=0;
 	//LPC_ADC->ADCR|=(1<<16); // BURST=1 --> Cada 65TclkADC se toma una muestra de cada canal comenzando desde el más bajo (bit LSB de CR[0..7])
 		
-//	vel_anemometro = LPC_TIM3->TC * 2 * pi * radio_spinner; // Medida en m/s
-//	LPC_TIM3->TCR |= 1 << 1; 				// Reset contador (Timer3)
-//	LPC_TIM3->TCR&= ~(1 << 1); 			// Out Reset contador (si no se mantiene reseteado)
-		if(tx_completa){
-				if(contador_uart==0)
-				{
+	//	vel_anemometro = LPC_TIM3->TC * 2 * pi * radio_spinner; // Medida en m/s
+	//	LPC_TIM3->TCR |= 1 << 1; 				// Reset contador (Timer3)
+	//	LPC_TIM3->TCR&= ~(1 << 1); 			// Out Reset contador (si no se mantiene reseteado)
+	if(tx_completa)
+	{
+			if(contador_uart==0)
+			{
 					sprintf((char*)buff_env,"Temperatura\n LM35: %.1f C\n DS1621: %.1f C\n\r",temp_LM35,temp_DS1621);
 					tx_cadena_UART0(buff_env);
 					contador_uart++;	
-				}
-				else if(contador_uart==1)
-				{	
-					sprintf((char*)buff_env,"Presion: %.2f hPa\n Humedad: %.2f %%\n\r",presion,humedad);
-					tx_cadena_UART0(buff_env);
-					contador_uart++;
-				}
-				else if(contador_uart==2)
-				{	
-					sprintf((char*)buff_env,"Umbral: %d C\n\r",umbral_temp);
-					tx_cadena_UART0(buff_env);
-					contador_uart=0;
-				}
 			}
-		if(contador_disp>5)
-			{
-				contador_disp=0;
-				// if (LCDupdate == __TRUE) {
-      upd_display ();
-    
+			else if(contador_uart==1)
+			{	
+				sprintf((char*)buff_env,"Presion: %.2f hPa\n Humedad: %.2f %%\n\r",presion,humedad);
+				tx_cadena_UART0(buff_env);
+				contador_uart++;
 			}
-
-contador_disp++;
-LPC_TIM0->IR|=(1<<1);		// Borrar flag interrupción		
+			else if(contador_uart==2)
+			{	
+				sprintf((char*)buff_env,"Umbral: %d C\n\r",umbral_temp);
+				tx_cadena_UART0(buff_env);
+				contador_uart=0;
+			}
+	}
+	if(contador_disp>5)
+	{
+		contador_disp=0;
+     upd_display ();    
+	}
+	contador_disp++;
+	LPC_TIM0->IR|=(1<<1);		// Borrar flag interrupción		
 }
+
+/*------------------------------------ MAIN ---------------------------------------------*/
 
 int main (void) {
   /* Main Thread of the TcpNet */
 	NVIC_SetPriorityGrouping(3);
 	NVIC_SetPriority(UART0_IRQn, 0x0);
 	NVIC_SetPriority(TIMER0_IRQn, 0x1);
+	NVIC_SetPriority(EINT1_IRQn, 0);		
+	NVIC_SetPriority(EINT2_IRQn, 0);
+	NVIC_EnableIRQ(EINT1_IRQn);	
+	NVIC_EnableIRQ(EINT2_IRQn);
   init();
 	
 	uart0_init(9600);
 	tx_cadena_UART0("Estacion meteo\n\r");
 	init_TIMER0();
-  LEDrun = __TRUE;
   dhcp_tout = DHCP_TOUT;
   while (1) {
     timer_poll ();
     main_TcpNet ();
     dhcp_check ();
-    blink_led ();
+		if ( temp_LM35 > (float)umbral_temp)				//Cuando esté implementado el DS1621 usar su temperatura!!!
+			set_ciclo_trabajo_PWM (temp_LM35);
   }
 }
 

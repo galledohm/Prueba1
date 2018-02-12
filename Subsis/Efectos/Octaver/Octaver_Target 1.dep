@@ -1,5 +1,5 @@
 Dependencies for Project 'Octaver', Target 'Target 1': (DO NOT MODIFY !)
-F (.\octaver.c)(0x5A4EB03B)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\NXP\LPC17xx-o .\octaver.o --omf_browse .\octaver.crf --depend .\octaver.d)
+F (.\octaver.c)(0x5A7A5626)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\NXP\LPC17xx-o .\octaver.o --omf_browse .\octaver.crf --depend .\octaver.d)
 I (C:\Keil\ARM\Inc\NXP\LPC17xx\LPC17xx.H)(0x51C7F718)
 I (C:\Keil\ARM\CMSIS\Include\core_cm3.h)(0x51C7FB9A)
 I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7FD94)

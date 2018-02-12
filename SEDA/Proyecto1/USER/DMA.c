@@ -18,12 +18,6 @@ uint16_t muestras[TAM_BLOCK_DMA*4]={54,54,54,54,54,54,54,54,54,54,54,54,54,54,54
 int counter = 1;
 int index1 = 0;
 	
-int q=0;
-int w=0;
-int e=0;
-int r=0;
-int t=0;
-	
 // Ojo, el bloque de memoria se llena en 2 segundos (TAM_BLOCK_ADC/F_muestreo)
 
 void apagar_DMA(void)

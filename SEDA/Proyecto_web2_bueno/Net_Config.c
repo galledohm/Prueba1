@@ -88,7 +88,7 @@
 
 //     <o>Address byte 3 <0-255>
 //     <i> Default: 0
-#define _IP3           43
+#define _IP3           5
 
 //     <o>Address byte 4 <0-255>
 //     <i> Default: 100
@@ -128,11 +128,11 @@
 
 //     <o>Address byte 3 <0-255>
 //     <i> Default: 0
-#define _GW3           43
+#define _GW3           5
 
 //     <o>Address byte 4 <0-255>
 //     <i> Default: 254
-#define _GW4           5
+#define _GW4           43
 
 //   </h>
 //   <h>Primary DNS Server
@@ -148,11 +148,11 @@
 
 //     <o>Address byte 3 <0-255>
 //     <i> Default: 2
-#define _pDNS3         43
+#define _pDNS3         1
 
 //     <o>Address byte 4 <0-255>
 //     <i> Default: 129
-#define _pDNS4         5
+#define _pDNS4         1
 
 //   </h>
 //   <h>Secondary DNS Server

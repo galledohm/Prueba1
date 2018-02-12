@@ -26,7 +26,7 @@ void init_DAC(void)
 	LPC_PINCON->PINSEL1|= (2<<20); 	 	// DAC output = P0.26 (AOUT)
 	LPC_PINCON->PINMODE1|= (2<<20); 	// Deshabilita pullup/pulldown
 	LPC_SC->PCLKSEL0|= (0x00<<22); 	 	// CCLK/4 (Fpclk después del reset) (100 Mhz/4 = 25Mhz)	
-	LPC_DAC->DACCTRL=0;								// ? 
+	LPC_DAC->DACCTRL=0;								
 }
 
 void init_ADC(void)
@@ -41,8 +41,8 @@ void init_ADC(void)
 								 (4<<24);				    // Inicio de conversión con el Match 1 del Timer 0
 	
 	LPC_ADC->ADINTEN= (1<<0)|(1<<8);	// Hab. interrupción fin de conversión canal 0
-	NVIC_EnableIRQ(ADC_IRQn);					// ? 
-	NVIC_SetPriority(ADC_IRQn,1);			// ?        
+	NVIC_EnableIRQ(ADC_IRQn);					 
+	NVIC_SetPriority(ADC_IRQn,1);			        
 }	
 
 /*  Timer 0 en modo Output Compare (reset T0TC on Match 1)
@@ -52,13 +52,13 @@ void init_ADC(void)
 						
 void init_TIMER0(void)
 {
-	  LPC_SC->PCONP|=(1<<1);						// ? 
-	  LPC_PINCON->PINSEL3|= 0x0C000000; // ?
-    LPC_TIM0->PR = 0x00;							// ?   
-    LPC_TIM0->MCR = 0x10;   					// ?   
+	  LPC_SC->PCONP|=(1<<1);						
+	  LPC_PINCON->PINSEL3|= 0x0C000000; 
+    LPC_TIM0->PR = 0x00;							   
+    LPC_TIM0->MCR = 0x10;   					   
     LPC_TIM0->MR1 = (F_pclk/F_muestreo/2)-1; // Se han de producir DOS Match para iniciar la conversión!!!!   
-    LPC_TIM0->EMR = 0x00C2;   				// ? 
-    LPC_TIM0->TCR = 0x01;     				// ? 
+    LPC_TIM0->EMR = 0x00C2;   				
+    LPC_TIM0->TCR = 0x01;     				 
 }	
 
 int main(void)
