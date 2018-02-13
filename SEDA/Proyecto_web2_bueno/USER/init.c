@@ -43,37 +43,23 @@ void init_TIMER0(void)
     LPC_TIM0->PR = 0x01;														// Prescaler igual a 1 para tener 1s de freq
     LPC_TIM0->MCR = 0x18;   												// ¡¡Interrumpe y resetea TC cuando se alcance el valor de MR1
     LPC_TIM0->MR1 = (F_pclk/F_muestreo_std/2)-1; 		// DOS Match para iniciar la conversión!!!!   
-    //LPC_TIM0->EMR = 0x00C2;   										// Usar en caso de que se quiera comprobar la señal generada por este Match
     LPC_TIM0->TCR = 0x01;  
 		NVIC_EnableIRQ (TIMER0_IRQn);	// TC y PC habilitados para contar
 }
 
-// TIMER -> DMA (solo pueden usarse el TIMER0 o el TIMER1 para esto ya que la condición de START solo se da para el MAT0.1, MAT0.3, MAT1.0 o MAT1.1)
+// TIMER1 para grabación (ADC-DMA)
 void init_TIMER1(void)
 {
 	  LPC_SC->PCONP|=(1<<2);													// Power-ON TIMER 1
     LPC_TIM1->PR = 0x00;														// Prescaler igual a 0 
-    LPC_TIM1->MCR = 0x10;   												// Reset del TC cuando se alcance el valor de MR1
+    LPC_TIM1->MCR = 0x18;   												// Reset del TC cuando se alcance el valor de MR1
     LPC_TIM1->MR1 = (F_pclk/F_muestreo_rec/2)-1; 		// DOS Match para iniciar la conversión!!!!  
-    LPC_TIM1->EMR = 0x00C2;   											// Necesario para el ADC_grabar(?)
-    LPC_TIM1->TCR = 0x01;     											//  TC y PC habilitados para contar
+    LPC_TIM1->TCR = 0x03;     											// TC y PC habilitados para contar + reset del timer
+		LPC_TIM1->TCR &= ~(1<<1);												// Des-reset
+		NVIC_EnableIRQ(TIMER1_IRQn);										//Habilitamos interrupción del Timer1
 }
 
-
-// Configuración del timer que controla la conversión del DAC para reproducir
-void init_TIMER2(void)
-{
-	  LPC_SC->PCONP|=(1<<22);													// Power-ON TIMER 2
-    LPC_TIM2->PR = 0x00;														// Prescaler igual a 0   
-    LPC_TIM2->MCR = 0x10;   												// Reset del TC cuando se alcance el valor de MR1  
-    LPC_TIM2->MR1 = (F_pclk/F_muestreo_std/2)-1; 		// DOS Match para iniciar la conversión!!!!   
-    //LPC_TIM2->EMR = 0x00C2;   											// Usar en caso de que se quiera comprobar la señal generada por este Match
-    LPC_TIM2->TCR = 0x01;     											// TC y PC habilitados para contar
-}
-
-
-
-//TIMER en modo CAP para el anemómetro (ver ejemplo BlackBoard)
+//TIMER3 en modo CAP para el anemómetro (ver ejemplo BlackBoard)
 void init_TIMER3(void)
 {
 	  LPC_SC->PCONP|=(1<<23);													// Power-ON TIMER 2
@@ -90,7 +76,7 @@ void init_ADC_sensores(void)
 	LPC_SC->PCLKSEL0 &= ~(3<<24); 			// CLK ADC = CCLK/4 (Fpclk después del reset) (100 Mhz/4 = 25Mhz)
 	LPC_ADC->ADCR= (0x01<<2)|					// Canal 2
 								 (0x01<<4)|	  	  	// Canal 4
-							   (0xFF<<8)|		     	// CLKDIV=255   (Fclk_ADC= 25Mhz /(255+1)= 97.656 Khz)
+							   (0x0F<<8)|		     	// CLKDIV=15   (Fclk_ADC= 25Mhz /(15+1)= 1.5625 Mhz)
 								 (4<<24)|				    // Inicio de conversión con el Match 1 del Timer 0
 								 (0x01<<21);			 	// PDN=1
 

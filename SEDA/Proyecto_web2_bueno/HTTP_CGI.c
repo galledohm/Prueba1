@@ -33,9 +33,6 @@ int umbral_temp = 25; 									//Límite a partir del cual se activa el ventilado
  *
  * --------------------------------------------------------------------------*/
 
-/* http_demo.c */
-extern U8  get_button (void);
-
 /* at_System.c */
 extern  LOCALM localm[];
 #define LocM   localm[NETIF_ETH]
@@ -48,34 +45,16 @@ extern struct http_cfg  http_config;
 #define http_EnAuth     http_config.EnAuth
 #define http_auth_passw http_config.Passw
 
-extern BOOL LEDrun;
-extern void LED_out (U32 val);
 extern BOOL LCDupdate;
 extern U8   lcd_text[2][16+1];
 
 /* Local variables. */
-static U8 P2;
-static char const state[][9] = {
-  "FREE",
-  "CLOSED",
-  "LISTEN",
-  "SYN_REC",
-  "SYN_SENT",
-  "FINW1",
-  "FINW2",
-  "CLOSING",
-  "LAST_ACK",
-  "TWAIT",
-  "CONNECT"};
 
-/* My structure of CGI status U32 variable. This variable is private for */
-/* each HTTP Session and is not altered by HTTP Server. It is only set to  */
-/* zero when the cgi_func() is called for the first time.                  */
-typedef struct {
-  U16 xcnt;
-  U16 unused;
-} MY_BUF;
-#define MYBUF(p)        ((MY_BUF *)p)
+//typedef struct {
+//  U16 xcnt;
+//  U16 unused;
+//} MY_BUF;
+//#define MYBUF(p)        ((MY_BUF *)p)
 
 /*----------------------------------------------------------------------------
  * HTTP Server Common Gateway Interface Functions
@@ -88,8 +67,6 @@ void cgi_process_var (U8 *qs) {
   /* for the CGI Form GET method. It is called on SUBMIT from the browser. */
   /*.The Querry_String.is SPACE terminated.                                */
   U8 *var;
-  int s[4];
-
   var = (U8 *)alloc_mem (40);
   do
 		{
@@ -117,29 +94,8 @@ void cgi_process_data (U8 code, U8 *dat, U16 len) {
 /*--------------------------- cgi_func --------------------------------------*/
 
 U16 cgi_func (U8 *env, U8 *buf, U16 buflen, U32 *pcgi) {
-  /* This function is called by HTTP server script interpreter to make a    */
-  /* formated output for 'stdout'. It returns the number of bytes written   */
-  /* to the output buffer. Hi-bit of return value (len is or-ed with 0x8000)*/
-  /* is a repeat flag for the system script interpreter. If this bit is set */
-  /* to 1, the system will call the 'cgi_func()' again for the same script  */
-  /* line with parameter 'pcgi' pointing to a 4-byte buffer. This buffer    */
-  /* can be used for storing different status variables for this function.  */
-  /* It is set to 0 by HTTP Server on first call and is not altered by      */
-  /* HTTP server for repeated calls. This function should NEVER write more  */
-  /* than 'buflen' bytes to the buffer.                                     */
-  /* Parameters:                                                            */
-  /*   env    - environment variable string                                 */
-  /*   buf    - HTTP transmit buffer                                        */
-  /*   buflen - length of this buffer (500-1400 bytes - depends on MSS)     */
-  /*   pcgi   - pointer to session local buffer used for repeated loops     */
-  /*            This is a U32 variable - size is 4 bytes. Value is:         */
-  /*            - on 1st call = 0                                           */
-  /*            - 2nd call    = as set by this function on first call       */
-  TCP_INFO *tsoc;
+  
   U32 len = 0;
-  U8 id, *lang;
-  static U32 adv;
-
   switch (env[0]) {
     case 't' :  //Se actualizan los campos correspondientes a las temperaturas	
      switch (env[2]) {

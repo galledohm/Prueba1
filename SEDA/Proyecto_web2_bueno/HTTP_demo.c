@@ -97,8 +97,8 @@ static void upd_display () {
 	 GUI_Text(80,100,text_disp,White,Black);
 	 sprintf((char*)text_disp,"%d C",umbral_temp);
 	 GUI_Text(80,120,text_disp,White,Black);
-	   GUI_Text(60,144,lcd_text[0],White,Red);
-   GUI_Text(52,160,lcd_text[1],White,Red);
+	 GUI_Text(60,160,lcd_text[0],White,Red);
+   GUI_Text(52,180,lcd_text[1],White,Red);
 
    //LCDupdate =__FALSE;
 }
@@ -164,8 +164,8 @@ void ADC_IRQHandler(void)
 	LPC_ADC->ADCR&=~(1<<16); // BURST=0     // Deshabilitamos el modo Ráfaga (ojo continua la conversión del siguiente canal) 
   
 	//Almacenamos las muestras
-	temp_LM35 = (((LPC_ADC->ADDR0 >>4)&0xFFF)*3.3/4095)*100;	//Temperatura LM35 en ºC
-	humedad = ((((LPC_ADC->ADDR2 >>4)&0xFFF)*3.3/4095)-0.772)/0.03;	//%Humedad relativa
+	temp_LM35 = (((LPC_ADC->ADDR2 >>4)&0xFFF)*3.3/4095)*10;	//Temperatura LM35 en ºC
+	humedad = ((((LPC_ADC->ADDR4 >>4)&0xFFF)*3.3/4095)-0.772)/0.03;	//%Humedad relativa
 }
 
 /*------------------------------ TIMER0 ---------------------------------------------*/

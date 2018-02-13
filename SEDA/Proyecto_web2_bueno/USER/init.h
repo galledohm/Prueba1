@@ -18,7 +18,11 @@ void init_PWM(void);
 void init_ADC_sensores(void);
 void init_ADC_grabar(void);
 
-extern float temp_LM35,temp_DS1621, humedad, presion;
+extern float temp_LM35;
+extern float temp_DS1621;
+extern float humedad;
+extern float presion;
+
 extern int umbral_temp;
 #endif //_INIT_H_
 

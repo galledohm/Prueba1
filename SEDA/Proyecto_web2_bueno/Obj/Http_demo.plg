@@ -537,3 +537,383 @@ Erase Done.
 Programming Done.
 Verify OK.
 Application running ...
+Build target 'MCB1700'
+custom translating Web.inp...
+Custom: C:\Keil\ARM\bin\fcarm @Web\Web.inp
+FCARM FILE CONVERTER V2.41
+Completed 1 File(s), Ratio 77%
+compiling HTTP_demo.c...
+.\USER\DS1621.h(5): warning:  #1295-D: Deprecated declaration leer_DS1621 - give arg types
+.\USER\DS1621.h(7): warning:  #1-D: last line of file ends without a newline
+.\USER\DMA.h(15): warning:  #1-D: last line of file ends without a newline
+compiling WEB.C...
+compiling init.c...
+USER\init.c(9): warning:  #61-D: integer operation result is out of range
+USER\init.c(12): warning:  #61-D: integer operation result is out of range
+linking...
+Program Size: Code=98096 RO-data=3588 RW-data=32212 ZI-data=25132  
+".\Obj\Http_demo.axf" - 0 Errors, 5 Warning(s).
+Load "C:\\Users\\GalleDoh\\Documents\\Subsistemas-SEDA\\SEDA\\Proyecto_web2_bueno\\Obj\\Http_demo.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'MCB1700'
+custom translating Web.inp...
+Custom: C:\Keil\ARM\bin\fcarm @Web\Web.inp
+FCARM FILE CONVERTER V2.41
+Completed 1 File(s), Ratio 77%
+compiling HTTP_demo.c...
+.\USER\DS1621.h(5): warning:  #1295-D: Deprecated declaration leer_DS1621 - give arg types
+.\USER\DS1621.h(7): warning:  #1-D: last line of file ends without a newline
+.\USER\DMA.h(15): warning:  #1-D: last line of file ends without a newline
+linking...
+Program Size: Code=98100 RO-data=3588 RW-data=32212 ZI-data=25132  
+".\Obj\Http_demo.axf" - 0 Errors, 3 Warning(s).
+Load "C:\\Users\\GalleDoh\\Documents\\Subsistemas-SEDA\\SEDA\\Proyecto_web2_bueno\\Obj\\Http_demo.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'MCB1700'
+custom translating Web.inp...
+Custom: C:\Keil\ARM\bin\fcarm @Web\Web.inp
+FCARM FILE CONVERTER V2.41
+Completed 1 File(s), Ratio 77%
+compiling WEB.C...
+compiling DMA.c...
+USER\DMA.h(15): warning:  #1-D: last line of file ends without a newline
+USER\DMA.c(50): warning:  #61-D: integer operation result is out of range
+USER\DMA.c(79): warning:  #61-D: integer operation result is out of range
+linking...
+Program Size: Code=98112 RO-data=3588 RW-data=32212 ZI-data=25132  
+".\Obj\Http_demo.axf" - 0 Errors, 3 Warning(s).
+Load "C:\\Users\\GalleDoh\\Documents\\Subsistemas-SEDA\\SEDA\\Proyecto_web2_bueno\\Obj\\Http_demo.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'MCB1700'
+custom translating Web.inp...
+Custom: C:\Keil\ARM\bin\fcarm @Web\Web.inp
+FCARM FILE CONVERTER V2.41
+Completed 1 File(s), Ratio 77%
+compiling HTTP_demo.c...
+.\USER\DS1621.h(5): warning:  #1295-D: Deprecated declaration leer_DS1621 - give arg types
+.\USER\DS1621.h(7): warning:  #1-D: last line of file ends without a newline
+.\USER\DMA.h(15): warning:  #1-D: last line of file ends without a newline
+compiling init.c...
+USER\init.c(9): warning:  #61-D: integer operation result is out of range
+USER\init.c(12): warning:  #61-D: integer operation result is out of range
+linking...
+Program Size: Code=98112 RO-data=3588 RW-data=32212 ZI-data=25132  
+".\Obj\Http_demo.axf" - 0 Errors, 5 Warning(s).
+Load "C:\\Users\\GalleDoh\\Documents\\Subsistemas-SEDA\\SEDA\\Proyecto_web2_bueno\\Obj\\Http_demo.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'MCB1700'
+custom translating Web.inp...
+Custom: C:\Keil\ARM\bin\fcarm @Web\Web.inp
+FCARM FILE CONVERTER V2.41
+Completed 1 File(s), Ratio 77%
+compiling HTTP_CGI.c...
+HTTP_CGI.c(91): warning:  #177-D: variable "s" was declared but never referenced
+HTTP_CGI.c(138): warning:  #177-D: variable "tsoc" was declared but never referenced
+HTTP_CGI.c(140): warning:  #177-D: variable "id" was declared but never referenced
+HTTP_CGI.c(140): warning:  #177-D: variable "lang" was declared but never referenced
+HTTP_CGI.c(141): warning:  #177-D: variable "adv" was declared but never referenced
+HTTP_CGI.c(57): warning:  #177-D: variable "P2" was declared but never referenced
+HTTP_CGI.c(58): warning:  #177-D: variable "state" was declared but never referenced
+compiling WEB.C...
+linking...
+Program Size: Code=98068 RO-data=3588 RW-data=32212 ZI-data=25132  
+".\Obj\Http_demo.axf" - 0 Errors, 7 Warning(s).
+Load "C:\\Users\\GalleDoh\\Documents\\Subsistemas-SEDA\\SEDA\\Proyecto_web2_bueno\\Obj\\Http_demo.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'MCB1700'
+custom translating Web.inp...
+Custom: C:\Keil\ARM\bin\fcarm @Web\Web.inp
+FCARM FILE CONVERTER V2.41
+Completed 1 File(s), Ratio 77%
+compiling HTTP_demo.c...
+.\USER\DS1621.h(5): warning:  #1295-D: Deprecated declaration leer_DS1621 - give arg types
+.\USER\DS1621.h(7): warning:  #1-D: last line of file ends without a newline
+.\USER\DMA.h(15): warning:  #1-D: last line of file ends without a newline
+compiling HTTP_CGI.c...
+HTTP_CGI.c(91): warning:  #177-D: variable "s" was declared but never referenced
+HTTP_CGI.c(138): warning:  #177-D: variable "tsoc" was declared but never referenced
+HTTP_CGI.c(140): warning:  #177-D: variable "id" was declared but never referenced
+HTTP_CGI.c(140): warning:  #177-D: variable "lang" was declared but never referenced
+HTTP_CGI.c(141): warning:  #177-D: variable "adv" was declared but never referenced
+HTTP_CGI.c(57): warning:  #177-D: variable "P2" was declared but never referenced
+HTTP_CGI.c(58): warning:  #177-D: variable "state" was declared but never referenced
+compiling DMA.c...
+USER\DMA.h(15): warning:  #1-D: last line of file ends without a newline
+USER\DMA.c(50): warning:  #61-D: integer operation result is out of range
+USER\DMA.c(79): warning:  #61-D: integer operation result is out of range
+compiling init.c...
+USER\init.c(9): warning:  #61-D: integer operation result is out of range
+USER\init.c(12): warning:  #61-D: integer operation result is out of range
+linking...
+Program Size: Code=98112 RO-data=3588 RW-data=32212 ZI-data=25132  
+".\Obj\Http_demo.axf" - 0 Errors, 15 Warning(s).
+Build target 'MCB1700'
+custom translating Web.inp...
+Custom: C:\Keil\ARM\bin\fcarm @Web\Web.inp
+FCARM FILE CONVERTER V2.41
+Completed 1 File(s), Ratio 77%
+compiling WEB.C...
+linking...
+Program Size: Code=98112 RO-data=3588 RW-data=32212 ZI-data=25132  
+".\Obj\Http_demo.axf" - 0 Errors, 0 Warning(s).
+Load "C:\\Users\\GalleDoh\\Documents\\Subsistemas-SEDA\\SEDA\\Proyecto_web2_bueno\\Obj\\Http_demo.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'MCB1700'
+custom translating Web.inp...
+Custom: C:\Keil\ARM\bin\fcarm @Web\Web.inp
+FCARM FILE CONVERTER V2.41
+Completed 1 File(s), Ratio 77%
+compiling HTTP_demo.c...
+.\USER\DS1621.h(5): warning:  #1295-D: Deprecated declaration leer_DS1621 - give arg types
+.\USER\DS1621.h(7): warning:  #1-D: last line of file ends without a newline
+.\USER\DMA.h(15): warning:  #1-D: last line of file ends without a newline
+compiling HTTP_CGI.c...
+HTTP_CGI.c(91): warning:  #177-D: variable "s" was declared but never referenced
+HTTP_CGI.c(147): error:  #20: identifier "temp_LM35" is undefined
+HTTP_CGI.c(151): error:  #20: identifier "temp_DS1621" is undefined
+HTTP_CGI.c(155): error:  #20: identifier "humedad" is undefined
+HTTP_CGI.c(159): error:  #20: identifier "presion" is undefined
+HTTP_CGI.c(138): warning:  #177-D: variable "tsoc" was declared but never referenced
+HTTP_CGI.c(140): warning:  #177-D: variable "id" was declared but never referenced
+HTTP_CGI.c(140): warning:  #177-D: variable "lang" was declared but never referenced
+HTTP_CGI.c(141): warning:  #177-D: variable "adv" was declared but never referenced
+HTTP_CGI.c(57): warning:  #177-D: variable "P2" was declared but never referenced
+HTTP_CGI.c(58): warning:  #177-D: variable "state" was declared but never referenced
+compiling DMA.c...
+USER\DMA.h(15): warning:  #1-D: last line of file ends without a newline
+USER\DMA.c(50): warning:  #61-D: integer operation result is out of range
+USER\DMA.c(79): warning:  #61-D: integer operation result is out of range
+compiling init.c...
+USER\init.c(9): warning:  #61-D: integer operation result is out of range
+USER\init.c(12): warning:  #61-D: integer operation result is out of range
+".\Obj\Http_demo.axf" - 4 Errors, 15 Warning(s).
+Target not created
+Build target 'MCB1700'
+custom translating Web.inp...
+Custom: C:\Keil\ARM\bin\fcarm @Web\Web.inp
+FCARM FILE CONVERTER V2.41
+Completed 1 File(s), Ratio 77%
+compiling HTTP_demo.c...
+.\USER\DS1621.h(5): warning:  #1295-D: Deprecated declaration leer_DS1621 - give arg types
+.\USER\DS1621.h(7): warning:  #1-D: last line of file ends without a newline
+.\USER\DMA.h(15): warning:  #1-D: last line of file ends without a newline
+compiling HTTP_CGI.c...
+HTTP_CGI.c(86): warning:  #177-D: variable "s" was declared but never referenced
+HTTP_CGI.c(133): warning:  #177-D: variable "tsoc" was declared but never referenced
+HTTP_CGI.c(135): warning:  #177-D: variable "id" was declared but never referenced
+HTTP_CGI.c(135): warning:  #177-D: variable "lang" was declared but never referenced
+HTTP_CGI.c(136): warning:  #177-D: variable "adv" was declared but never referenced
+HTTP_CGI.c(52): warning:  #177-D: variable "P2" was declared but never referenced
+HTTP_CGI.c(53): warning:  #177-D: variable "state" was declared but never referenced
+compiling WEB.C...
+linking...
+.\Obj\Http_demo.axf: Error: L6200E: Symbol temp_LM35 multiply defined (by http_cgi.o and http_demo.o).
+.\Obj\Http_demo.axf: Error: L6200E: Symbol temp_DS1621 multiply defined (by http_cgi.o and http_demo.o).
+.\Obj\Http_demo.axf: Error: L6200E: Symbol humedad multiply defined (by http_cgi.o and http_demo.o).
+.\Obj\Http_demo.axf: Error: L6200E: Symbol presion multiply defined (by http_cgi.o and http_demo.o).
+".\Obj\Http_demo.axf" - 4 Errors, 10 Warning(s).
+Target not created
+Build target 'MCB1700'
+custom translating Web.inp...
+Custom: C:\Keil\ARM\bin\fcarm @Web\Web.inp
+FCARM FILE CONVERTER V2.41
+Completed 1 File(s), Ratio 77%
+compiling HTTP_CGI.c...
+HTTP_CGI.c(86): warning:  #177-D: variable "s" was declared but never referenced
+HTTP_CGI.c(133): warning:  #177-D: variable "tsoc" was declared but never referenced
+HTTP_CGI.c(135): warning:  #177-D: variable "id" was declared but never referenced
+HTTP_CGI.c(135): warning:  #177-D: variable "lang" was declared but never referenced
+HTTP_CGI.c(136): warning:  #177-D: variable "adv" was declared but never referenced
+HTTP_CGI.c(52): warning:  #177-D: variable "P2" was declared but never referenced
+HTTP_CGI.c(53): warning:  #177-D: variable "state" was declared but never referenced
+linking...
+Program Size: Code=98112 RO-data=3588 RW-data=32228 ZI-data=25132  
+".\Obj\Http_demo.axf" - 0 Errors, 7 Warning(s).
+Load "C:\\Users\\GalleDoh\\Documents\\Subsistemas-SEDA\\SEDA\\Proyecto_web2_bueno\\Obj\\Http_demo.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'MCB1700'
+custom translating Web.inp...
+Custom: C:\Keil\ARM\bin\fcarm @Web\Web.inp
+FCARM FILE CONVERTER V2.41
+Completed 1 File(s), Ratio 77%
+compiling HTTP_demo.c...
+.\USER\DS1621.h(5): warning:  #1295-D: Deprecated declaration leer_DS1621 - give arg types
+.\USER\DS1621.h(7): warning:  #1-D: last line of file ends without a newline
+.\USER\DMA.h(15): warning:  #1-D: last line of file ends without a newline
+compiling HTTP_CGI.c...
+HTTP_CGI.c(86): warning:  #177-D: variable "s" was declared but never referenced
+HTTP_CGI.c(133): warning:  #177-D: variable "tsoc" was declared but never referenced
+HTTP_CGI.c(135): warning:  #177-D: variable "id" was declared but never referenced
+HTTP_CGI.c(135): warning:  #177-D: variable "lang" was declared but never referenced
+HTTP_CGI.c(136): warning:  #177-D: variable "adv" was declared but never referenced
+HTTP_CGI.c(52): warning:  #177-D: variable "P2" was declared but never referenced
+HTTP_CGI.c(53): warning:  #177-D: variable "state" was declared but never referenced
+compiling WEB.C...
+compiling DMA.c...
+USER\DMA.h(15): warning:  #1-D: last line of file ends without a newline
+USER\DMA.c(50): warning:  #61-D: integer operation result is out of range
+USER\DMA.c(79): warning:  #61-D: integer operation result is out of range
+compiling init.c...
+USER\init.c(9): warning:  #61-D: integer operation result is out of range
+USER\init.c(12): warning:  #61-D: integer operation result is out of range
+linking...
+Program Size: Code=98112 RO-data=3588 RW-data=32212 ZI-data=25132  
+".\Obj\Http_demo.axf" - 0 Errors, 15 Warning(s).
+Build target 'MCB1700'
+custom translating Web.inp...
+Custom: C:\Keil\ARM\bin\fcarm @Web\Web.inp
+FCARM FILE CONVERTER V2.41
+Completed 1 File(s), Ratio 77%
+compiling HTTP_CGI.c...
+HTTP_CGI.c(52): warning:  #177-D: variable "P2" was declared but never referenced
+HTTP_CGI.c(53): warning:  #177-D: variable "state" was declared but never referenced
+linking...
+Program Size: Code=98112 RO-data=3588 RW-data=32208 ZI-data=25136  
+".\Obj\Http_demo.axf" - 0 Errors, 2 Warning(s).
+Build target 'MCB1700'
+custom translating Web.inp...
+Custom: C:\Keil\ARM\bin\fcarm @Web\Web.inp
+FCARM FILE CONVERTER V2.41
+Completed 1 File(s), Ratio 77%
+compiling HTTP_CGI.c...
+compiling WEB.C...
+linking...
+Program Size: Code=98112 RO-data=3588 RW-data=32204 ZI-data=25132  
+".\Obj\Http_demo.axf" - 0 Errors, 0 Warning(s).
+Build target 'MCB1700'
+custom translating Web.inp...
+Custom: C:\Keil\ARM\bin\fcarm @Web\Web.inp
+FCARM FILE CONVERTER V2.41
+Completed 1 File(s), Ratio 77%
+compiling HTTP_CGI.c...
+linking...
+Program Size: Code=98112 RO-data=3588 RW-data=32204 ZI-data=25132  
+".\Obj\Http_demo.axf" - 0 Errors, 0 Warning(s).
+Load "C:\\Users\\GalleDoh\\Documents\\Subsistemas-SEDA\\SEDA\\Proyecto_web2_bueno\\Obj\\Http_demo.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'MCB1700'
+custom translating Web.inp...
+Custom: C:\Keil\ARM\bin\fcarm @Web\Web.inp
+FCARM FILE CONVERTER V2.41
+Completed 1 File(s), Ratio 77%
+compiling WEB.C...
+compiling DMA.c...
+USER\DMA.h(15): warning:  #1-D: last line of file ends without a newline
+USER\DMA.c(50): warning:  #61-D: integer operation result is out of range
+USER\DMA.c(79): warning:  #61-D: integer operation result is out of range
+compiling init.c...
+USER\init.c(9): warning:  #61-D: integer operation result is out of range
+USER\init.c(12): warning:  #61-D: integer operation result is out of range
+linking...
+Program Size: Code=98164 RO-data=3588 RW-data=32204 ZI-data=25132  
+".\Obj\Http_demo.axf" - 0 Errors, 5 Warning(s).
+Build target 'MCB1700'
+custom translating Web.inp...
+Custom: C:\Keil\ARM\bin\fcarm @Web\Web.inp
+FCARM FILE CONVERTER V2.41
+Completed 1 File(s), Ratio 77%
+compiling DMA.c...
+USER\DMA.h(15): warning:  #1-D: last line of file ends without a newline
+USER\DMA.c(50): warning:  #61-D: integer operation result is out of range
+USER\DMA.c(79): warning:  #61-D: integer operation result is out of range
+compiling init.c...
+USER\init.c(9): warning:  #61-D: integer operation result is out of range
+USER\init.c(12): warning:  #61-D: integer operation result is out of range
+linking...
+Program Size: Code=98184 RO-data=3588 RW-data=32204 ZI-data=25132  
+".\Obj\Http_demo.axf" - 0 Errors, 5 Warning(s).
+Load "C:\\Users\\GalleDoh\\Documents\\Subsistemas-SEDA\\SEDA\\Proyecto_web2_bueno\\Obj\\Http_demo.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'MCB1700'
+custom translating Web.inp...
+Custom: C:\Keil\ARM\bin\fcarm @Web\Web.inp
+FCARM FILE CONVERTER V2.41
+Completed 1 File(s), Ratio 77%
+compiling HTTP_demo.c...
+.\USER\DS1621.h(5): warning:  #1295-D: Deprecated declaration leer_DS1621 - give arg types
+.\USER\DS1621.h(7): warning:  #1-D: last line of file ends without a newline
+.\USER\DMA.h(15): warning:  #1-D: last line of file ends without a newline
+compiling WEB.C...
+linking...
+Program Size: Code=98184 RO-data=3588 RW-data=32204 ZI-data=25132  
+".\Obj\Http_demo.axf" - 0 Errors, 3 Warning(s).
+Load "C:\\Users\\GalleDoh\\Documents\\Subsistemas-SEDA\\SEDA\\Proyecto_web2_bueno\\Obj\\Http_demo.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'MCB1700'
+custom translating Web.inp...
+Custom: C:\Keil\ARM\bin\fcarm @Web\Web.inp
+FCARM FILE CONVERTER V2.41
+Completed 1 File(s), Ratio 77%
+compiling HTTP_demo.c...
+.\USER\DS1621.h(5): warning:  #1295-D: Deprecated declaration leer_DS1621 - give arg types
+.\USER\DS1621.h(7): warning:  #1-D: last line of file ends without a newline
+.\USER\DMA.h(15): warning:  #1-D: last line of file ends without a newline
+linking...
+Program Size: Code=98184 RO-data=3588 RW-data=32204 ZI-data=25132  
+".\Obj\Http_demo.axf" - 0 Errors, 3 Warning(s).
+Load "C:\\Users\\GalleDoh\\Documents\\Subsistemas-SEDA\\SEDA\\Proyecto_web2_bueno\\Obj\\Http_demo.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'MCB1700'
+custom translating Web.inp...
+Custom: C:\Keil\ARM\bin\fcarm @Web\Web.inp
+FCARM FILE CONVERTER V2.41
+Completed 1 File(s), Ratio 77%
+compiling WEB.C...
+linking...
+Program Size: Code=98184 RO-data=3588 RW-data=32204 ZI-data=25132  
+".\Obj\Http_demo.axf" - 0 Errors, 0 Warning(s).
+Load "C:\\Users\\GalleDoh\\Documents\\Subsistemas-SEDA\\SEDA\\Proyecto_web2_bueno\\Obj\\Http_demo.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'MCB1700'
+custom translating Web.inp...
+Custom: C:\Keil\ARM\bin\fcarm @Web\Web.inp
+FCARM FILE CONVERTER V2.41
+Completed 1 File(s), Ratio 77%
+compiling DMA.c...
+USER\DMA.h(15): warning:  #1-D: last line of file ends without a newline
+USER\DMA.c(50): warning:  #61-D: integer operation result is out of range
+USER\DMA.c(79): warning:  #61-D: integer operation result is out of range
+linking...
+Program Size: Code=98184 RO-data=3588 RW-data=32204 ZI-data=25132  
+".\Obj\Http_demo.axf" - 0 Errors, 3 Warning(s).
+Load "C:\\Users\\GalleDoh\\Documents\\Subsistemas-SEDA\\SEDA\\Proyecto_web2_bueno\\Obj\\Http_demo.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
