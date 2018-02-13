@@ -107,7 +107,13 @@ U16 cgi_func (U8 *env, U8 *buf, U16 buflen, U32 *pcgi) {
 			 case '2': //Temp sensor digital
 				 len= sprintf((char*)buf,(const char*)&env[4],temp_DS1621);
 			 break;
-		 }break;
+			 
+			 case '3': //Umbral de temperatura
+				 len= sprintf((char*)buf,(const char*)&env[4],umbral_temp);
+			 break;
+			 
+		 }
+		 break;
 	 }
 		case 'h': //Se actualiza la humedad
 					len= sprintf((char*)buf,(const char*)&env[2],humedad);

@@ -172,6 +172,7 @@ void ADC_IRQHandler(void)
 	//Almacenamos las muestras
 	temp_LM35 = (((LPC_ADC->ADDR2 >>4)&0xFFF)*3.3/4095)*10;	//Temperatura LM35 en ºC
 	humedad = ((((LPC_ADC->ADDR4 >>4)&0xFFF)*3.3/4095)-0.772)/0.03;	//%Humedad relativa
+	temp_DS1621=leer_DS1621();
 }
 
 /*------------------------------ TIMER0 ---------------------------------------------*/
@@ -243,8 +244,24 @@ int main (void) {
     timer_poll ();
     main_TcpNet ();
     dhcp_check ();
-		if ( temp_LM35 > (float)umbral_temp)				//Cuando esté implementado el DS1621 usar su temperatura!!!
-			set_ciclo_trabajo_PWM (temp_LM35);
+//		if ( temp_LM35 > (float)umbral_temp)				//Cuando esté implementado el DS1621 usar su temperatura!!!
+//			set_ciclo_trabajo_PWM (75);
+		switch(umbral_temp){
+			case 25:
+				set_ciclo_trabajo_PWM (20);
+			break;
+			
+			case 30:
+				set_ciclo_trabajo_PWM (50);
+			break;
+			
+			case 50:
+				set_ciclo_trabajo_PWM (100);
+			break;
+		
+			
+		}
+		
   }
 }
 

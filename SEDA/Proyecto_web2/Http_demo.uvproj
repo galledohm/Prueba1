@@ -393,6 +393,16 @@
           <GroupName>HTTP Files</GroupName>
           <Files>
             <File>
+              <FileName>index.cgi</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Web\index.cgi</FilePath>
+            </File>
+            <File>
+              <FileName>Web.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Web\Web.c</FilePath>
+            </File>
+            <File>
               <FileName>Web.inp</FileName>
               <FileType>7</FileType>
               <FilePath>.\Web\Web.inp</FilePath>
@@ -429,11 +439,6 @@
               <FileName>HTTP_CGI.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\HTTP_CGI.c</FilePath>
-            </File>
-            <File>
-              <FileName>WEB.C</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Web\WEB.C</FilePath>
             </File>
             <File>
               <FileName>DMA.c</FileName>
@@ -1019,27 +1024,19 @@
           <GroupName>HTTP Files</GroupName>
           <Files>
             <File>
+              <FileName>index.cgi</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Web\index.cgi</FilePath>
+            </File>
+            <File>
+              <FileName>Web.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Web\Web.c</FilePath>
+            </File>
+            <File>
               <FileName>Web.inp</FileName>
               <FileType>7</FileType>
               <FilePath>.\Web\Web.inp</FilePath>
-              <FileOption>
-                <CommonProperty>
-                  <UseCPPCompiler>2</UseCPPCompiler>
-                  <RVCTCodeConst>0</RVCTCodeConst>
-                  <RVCTZI>0</RVCTZI>
-                  <RVCTOtherData>0</RVCTOtherData>
-                  <ModuleSelection>0</ModuleSelection>
-                  <IncludeInBuild>2</IncludeInBuild>
-                  <AlwaysBuild>2</AlwaysBuild>
-                  <GenerateAssemblyFile>2</GenerateAssemblyFile>
-                  <AssembleAssemblyFile>2</AssembleAssemblyFile>
-                  <PublicsOnly>2</PublicsOnly>
-                  <StopOnExitCode>11</StopOnExitCode>
-                  <CustomArgument>$KARM\bin\fcarm @@Web\Web.inp</CustomArgument>
-                  <IncludeLibraryModules></IncludeLibraryModules>
-                </CommonProperty>
-                <FileArmAds/>
-              </FileOption>
             </File>
           </Files>
         </Group>
@@ -1055,11 +1052,6 @@
               <FileName>HTTP_CGI.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\HTTP_CGI.c</FilePath>
-            </File>
-            <File>
-              <FileName>WEB.C</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Web\WEB.C</FilePath>
             </File>
             <File>
               <FileName>DMA.c</FileName>
@@ -1587,27 +1579,19 @@
           <GroupName>HTTP Files</GroupName>
           <Files>
             <File>
+              <FileName>index.cgi</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Web\index.cgi</FilePath>
+            </File>
+            <File>
+              <FileName>Web.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Web\Web.c</FilePath>
+            </File>
+            <File>
               <FileName>Web.inp</FileName>
               <FileType>7</FileType>
               <FilePath>.\Web\Web.inp</FilePath>
-              <FileOption>
-                <CommonProperty>
-                  <UseCPPCompiler>2</UseCPPCompiler>
-                  <RVCTCodeConst>0</RVCTCodeConst>
-                  <RVCTZI>0</RVCTZI>
-                  <RVCTOtherData>0</RVCTOtherData>
-                  <ModuleSelection>0</ModuleSelection>
-                  <IncludeInBuild>2</IncludeInBuild>
-                  <AlwaysBuild>2</AlwaysBuild>
-                  <GenerateAssemblyFile>2</GenerateAssemblyFile>
-                  <AssembleAssemblyFile>2</AssembleAssemblyFile>
-                  <PublicsOnly>2</PublicsOnly>
-                  <StopOnExitCode>11</StopOnExitCode>
-                  <CustomArgument>$KARM\bin\fcarm @@Web\Web.inp</CustomArgument>
-                  <IncludeLibraryModules></IncludeLibraryModules>
-                </CommonProperty>
-                <FileArmAds/>
-              </FileOption>
             </File>
           </Files>
         </Group>
@@ -1663,11 +1647,6 @@
               <FileName>HTTP_CGI.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\HTTP_CGI.c</FilePath>
-            </File>
-            <File>
-              <FileName>WEB.C</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Web\WEB.C</FilePath>
             </File>
             <File>
               <FileName>DMA.c</FileName>

@@ -1,7 +1,7 @@
 --cpu Cortex-M3
+".\obj\web.o"
 ".\obj\http_demo.o"
 ".\obj\http_cgi.o"
-".\obj\web.o"
 ".\obj\dma.o"
 ".\obj\i2c_lpc17xx.o"
 ".\obj\init.o"
