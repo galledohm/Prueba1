@@ -136,7 +136,7 @@ void TIMER1_IRQHandler()
 		muestras[index1]=(((LPC_ADC->ADDR5) >> 8)&0xFF);			//Muestras de 8bits
 		index1++;
 		
-		if (index1 == 16000)
+		if (index1 == 15999)
 		{
 			index1 = 0;
 			NVIC_DisableIRQ(TIMER1_IRQn);
