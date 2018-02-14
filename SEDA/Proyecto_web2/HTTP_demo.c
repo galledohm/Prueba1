@@ -263,9 +263,12 @@ int main (void) {
     timer_poll ();
     main_TcpNet ();
     dhcp_check ();
-		if ( temp_DS1621 > (float)umbral_temp)	//Se comprueba el umbral de temperatura para
-			set_ciclo_trabajo_PWM (temp_DS1621);	//configurar la velocidad del ventilador.
-		
+		if ( temp_DS1621 > (float)umbral_temp)									//Se comprueba el umbral de temperatura para
+		{
+			set_ciclo_trabajo_PWM (temp_DS1621);									//configurar la velocidad del ventilador.
+			if (temp_DS1621 > ((float)umbral_temp + 50))						//En caso de una temperatura muy alta, lanzar alarma			
+				play();
+		}		
   }
 }
 
