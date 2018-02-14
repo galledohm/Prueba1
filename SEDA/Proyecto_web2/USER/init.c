@@ -76,7 +76,7 @@ void init_ADC_sensores(void)
 	LPC_SC->PCLKSEL0 &= ~(3<<24); 			// CLK ADC = CCLK/4 (Fpclk después del reset) (100 Mhz/4 = 25Mhz)
 	LPC_ADC->ADCR= (0x01<<2)|					// Canal 2
 								 (0x01<<4)|	  	  	// Canal 4
-							   (0x0F<<8)|		     	// CLKDIV=15   (Fclk_ADC= 25Mhz /(15+1)= 1.5625 Mhz)
+							   (0xFF<<8)|		     	// CLKDIV=255   (Fclk_ADC= 25Mhz /(255+1)= 97.65625 Khz)
 								 (4<<24)|				    // Inicio de conversión con el Match 1 del Timer 0
 								 (0x01<<21);			 	// PDN=1
 

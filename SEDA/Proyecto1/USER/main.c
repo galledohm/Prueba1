@@ -5,6 +5,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <i2c_lpc17xx.h>
+#include "BMP180.h"
 
 #define pi 3.141516
 #define radio_spinner 0.008 // (8mm) En metros , para obtener la velocidad en m/s
@@ -13,6 +14,7 @@
 float temp_LM35 = 0, humedad = 0;
 volatile uint32_t vel_anemometro = 0;
 uint16_t umbral_temp = 25; 									//Límite a partir del cual se activa el ventilador interno (PWM)
+int bmp_t, bmp_p;
 
 //UART
 char buffer[30];		// Buffer de recepción de 30 caracteres
@@ -88,6 +90,7 @@ float leer_DS1621()
 /* --------------------------------------------------------------- Programa Principal ---------------------------------------------------------------*/
 int main(void)
 {
+	float alt;
 	NVIC_SetPriority(EINT1_IRQn, 0);		
 	NVIC_SetPriority(EINT2_IRQn, 0);
 	NVIC_SetPriority(DMA_IRQn, 0);
@@ -97,6 +100,13 @@ int main(void)
 	init_PWM();
 	init_ADC_sensores();
 	config_DS1621();
+	check_communication();
+	read_calibration_data ();
+	read_uncompensated_temp();
+	read_uncompensated_press ();
+	bmp_t = calculate_temp();
+	bmp_p = calculate_press();
+	alt = calculate_altitude();
 	/*
 		1. Inicializar pines
 		2. Inicializar ADC

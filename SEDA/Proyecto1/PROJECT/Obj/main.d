@@ -11,3 +11,5 @@
 .\obj\main.o: C:\Keil\ARM\ARMCC\bin\..\include\string.h
 .\obj\main.o: C:\Keil\ARM\ARMCC\bin\..\include\stdlib.h
 .\obj\main.o: ..\USER\i2c_lpc17xx.h
+.\obj\main.o: ..\USER\BMP180.h
+.\obj\main.o: C:\Keil\ARM\ARMCC\bin\..\include\math.h

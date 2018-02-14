@@ -7,3 +7,4 @@
 .\obj\dma.o: C:\Keil\ARM\Inc\NXP\LPC17xx\system_LPC17xx.h
 .\obj\dma.o: USER\DMA.h
 .\obj\dma.o: USER\init.h
+.\obj\dma.o: USER\audio_muestras.h

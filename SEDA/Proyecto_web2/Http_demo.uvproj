@@ -139,7 +139,7 @@
             <RestoreTracepoints>0</RestoreTracepoints>
           </Target>
           <RunDebugAfterBuild>0</RunDebugAfterBuild>
-          <TargetSelection>7</TargetSelection>
+          <TargetSelection>1</TargetSelection>
           <SimDlls>
             <CpuDll></CpuDll>
             <CpuDllArguments></CpuDllArguments>
@@ -153,7 +153,7 @@
             <PeripheralDll></PeripheralDll>
             <PeripheralDllArguments></PeripheralDllArguments>
             <InitializationFile></InitializationFile>
-            <Driver>Segger\JL2CM3.dll</Driver>
+            <Driver>BIN\UL2CM3.DLL</Driver>
           </TargetDlls>
         </DebugOption>
         <Utilities>
@@ -163,10 +163,10 @@
             <RunIndependent>0</RunIndependent>
             <UpdateFlashBeforeDebugging>0</UpdateFlashBeforeDebugging>
             <Capability>1</Capability>
-            <DriverSelection>4099</DriverSelection>
+            <DriverSelection>4096</DriverSelection>
           </Flash1>
           <bUseTDR>0</bUseTDR>
-          <Flash2>Segger\JL2CM3.dll</Flash2>
+          <Flash2>BIN\UL2CM3.DLL</Flash2>
           <Flash3>"" ()</Flash3>
           <Flash4></Flash4>
         </Utilities>
@@ -474,6 +474,11 @@
               <FileName>DS1621.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\USER\DS1621.c</FilePath>
+            </File>
+            <File>
+              <FileName>audio_muestras.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\USER\audio_muestras.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -1088,6 +1093,11 @@
               <FileType>1</FileType>
               <FilePath>.\USER\DS1621.c</FilePath>
             </File>
+            <File>
+              <FileName>audio_muestras.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\USER\audio_muestras.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -1682,6 +1692,11 @@
               <FileName>DS1621.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\USER\DS1621.c</FilePath>
+            </File>
+            <File>
+              <FileName>audio_muestras.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\USER\audio_muestras.h</FilePath>
             </File>
           </Files>
         </Group>

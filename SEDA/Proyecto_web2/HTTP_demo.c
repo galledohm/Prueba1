@@ -160,7 +160,7 @@ static void dhcp_check () {
 }
 
 /* ---------------------------------------------------- Funciones de atención a la interrupción Externas ----------------------------------------------------*/
-void EINT1_IRQHandler(){rec();}
+void EINT1_IRQHandler(){rec_ADC();}
 void EINT2_IRQHandler(){play();}
 
 /* ---------------------------------------------------- Funciones de atención a la interrupción ADC ----------------------------------------------------*/
