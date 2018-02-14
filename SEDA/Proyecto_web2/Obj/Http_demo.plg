@@ -7,16 +7,7 @@ C:\Users\GalleDoh\Documents\Subsistemas-SEDA\SEDA\Proyecto_web2\Http_demo.uvproj
 Project File Date:  02/14/2018
 
 <h2>Output:</h2>
-Build target 'MCB1700'
-custom translating Web.inp...
-Custom: C:\Keil\ARM\bin\fcarm @Web\Web.inp
-FCARM FILE CONVERTER V2.41
-Completed 2 File(s), Ratio 92%
-compiling HTTP_demo.c...
-.\USER\DS1621.h(5): warning:  #1295-D: Deprecated declaration leer_DS1621 - give arg types
-.\USER\DS1621.h(7): warning:  #1-D: last line of file ends without a newline
-.\USER\DMA.h(13): warning:  #1-D: last line of file ends without a newline
-.\USER\BMP180.h(26): warning:  #1-D: last line of file ends without a newline
-linking...
-Program Size: Code=103140 RO-data=7000 RW-data=16364 ZI-data=25128  
-".\Obj\Http_demo.axf" - 0 Errors, 4 Warning(s).
+Clean started: Project: 'Http_demo'
+   deleting intermediate output files for target 'MCB1700'
+   deleting intermediate output files for target 'MCB1700 Debug'
+   deleting intermediate output files for target 'MCB1700 RTX'
