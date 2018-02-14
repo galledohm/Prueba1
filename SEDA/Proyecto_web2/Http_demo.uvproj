@@ -480,6 +480,11 @@
               <FileType>5</FileType>
               <FilePath>.\USER\audio_muestras.h</FilePath>
             </File>
+            <File>
+              <FileName>BMP180.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\USER\BMP180.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -1098,6 +1103,11 @@
               <FileType>5</FileType>
               <FilePath>.\USER\audio_muestras.h</FilePath>
             </File>
+            <File>
+              <FileName>BMP180.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\USER\BMP180.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -1697,6 +1707,11 @@
               <FileName>audio_muestras.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\USER\audio_muestras.h</FilePath>
+            </File>
+            <File>
+              <FileName>BMP180.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\USER\BMP180.c</FilePath>
             </File>
           </Files>
         </Group>

@@ -48,14 +48,6 @@ extern struct http_cfg  http_config;
 extern BOOL LCDupdate;
 extern U8   lcd_text[2][16+1];
 
-/* Local variables. */
-
-//typedef struct {
-//  U16 xcnt;
-//  U16 unused;
-//} MY_BUF;
-//#define MYBUF(p)        ((MY_BUF *)p)
-
 /*----------------------------------------------------------------------------
  * HTTP Server Common Gateway Interface Functions
  *---------------------------------------------------------------------------*/
@@ -115,7 +107,7 @@ U16 cgi_func (U8 *env, U8 *buf, U16 buflen, U32 *pcgi) {
 			 
 		 }
 		 break;
-		}
+		
 		case 'h': //Se actualiza la humedad
 					len= sprintf((char*)buf,(const char*)&env[2],humedad);
 		break;
@@ -125,9 +117,8 @@ U16 cgi_func (U8 *env, U8 *buf, U16 buflen, U32 *pcgi) {
 		break;
 		case 'v': //Se actualiza la presión
 				len= sprintf((char*)buf,(const char*)&env[2],vel_anemometro);
-		break;
-		}
-  
+		break;		
+  }
   return ((U16)len);
 }
 
