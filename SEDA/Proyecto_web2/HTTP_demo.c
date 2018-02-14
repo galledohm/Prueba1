@@ -11,12 +11,13 @@
 #include "GLCD.h"
 #include "i2c_lpc17xx.h"
 #include "uart.h" 
+#include "BMP180.h"
 
 /*------------------------- Declaraciones METEO --------------------*/
 #define pi 3.141516
 #define radio_spinner 0.008 // (8mm) En metros , para obtener la velocidad en m/s
 
-float temp_LM35=22.5,temp_DS1621=26.0, humedad=22.5, presion=120;
+float temp_LM35 = 22.5, temp_DS1621 = 26.0, temp_BMP180 = 30.1, humedad = 22.5, presion = 120.0, altitud = 500.4;
 float vel_anemometro = 0;
 char buff_env[30];
 uint8_t text_disp[4];
@@ -160,7 +161,7 @@ static void dhcp_check () {
 }
 
 /* ---------------------------------------------------- Funciones de atención a la interrupción Externas ----------------------------------------------------*/
-void EINT1_IRQHandler(){rec();}
+void EINT1_IRQHandler(){rec_ADC();}
 void EINT2_IRQHandler(){play();}
 
 /* ---------------------------------------------------- Funciones de atención a la interrupción ADC ----------------------------------------------------*/
@@ -182,12 +183,20 @@ void TIMER0_IRQHandler (void)				// Interrumpe cada segundo
 	//Contadores para enviar datos por UART y LCD
 	static U32 contador_uart,contador_disp=0;
 	
-	//Activación del modo BURST
+	//Activación del modo BURST - ADC sensores analógicos
 	LPC_ADC->ADCR|=(1<<16); // BURST=1 --> Cada 65TclkADC se toma una muestra de cada canal comenzando desde el más bajo (bit LSB de CR[0..7])
-		
+	
+	//Lectura velocidad anemómetro
 	vel_anemometro = LPC_TIM3->TC * 2 * pi * radio_spinner; // Medida en m/s
 	LPC_TIM3->TCR |= 1 << 1; 				// Reset contador (Timer3)
 	LPC_TIM3->TCR&= ~(1 << 1); 			// Out Reset contador (si no se mantiene reseteado)
+	
+	//Lectura datos BMP
+	read_uncompensated_temp();
+	read_uncompensated_press();
+	temp_BMP180 = calculate_temp();
+	presion = calculate_press();
+	altitud = calculate_altitude();
 	
 	//TX datos UART y LCD
 	if(tx_completa)
@@ -238,33 +247,22 @@ int main (void) {
 	init_TIMER3();
 	init_TIMER0();
 	
+	//Lectura datos calibración BMP180
+	check_communication();
+	read_calibration_data();
+	
   dhcp_tout = DHCP_TOUT;
 	
-  while (1) {
+  while (1)
+	{
     timer_poll ();
     main_TcpNet ();
     dhcp_check ();
-//		if ( temp_LM35 > (float)umbral_temp)				//Cuando esté implementado el DS1621 usar su temperatura!!!
-//			set_ciclo_trabajo_PWM (75);
-		switch(umbral_temp){
-			case 25:
-				set_ciclo_trabajo_PWM (20);
-			break;
-			
-			case 30:
-				set_ciclo_trabajo_PWM (50);
-			break;
-			
-			case 50:
-				set_ciclo_trabajo_PWM (100);
-			break;
-		
-			
-		}
+		if ( temp_DS1621 > (float)umbral_temp)				//Cuando esté implementado el DS1621 usar su temperatura!!!
+			set_ciclo_trabajo_PWM (temp_DS1621);
 		
   }
 }
-
 
 
 /*----------------------------------------------------------------------------
