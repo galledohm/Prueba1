@@ -20,10 +20,11 @@ void init_ADC_grabar(void);
 
 extern float temp_LM35;
 extern float temp_DS1621;
+extern float temp_BMP180;
 extern float humedad;
 extern float presion;
 extern float vel_anemometro;
-
+extern float altitud;
 extern int umbral_temp;
 #endif //_INIT_H_
 

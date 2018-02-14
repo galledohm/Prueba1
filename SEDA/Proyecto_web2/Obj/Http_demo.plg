@@ -3,7 +3,7 @@
 <pre>
 <h1>µVision Build Log</h1>
 <h2>Project:</h2>
-C:\Users\GalleDoh\Documents\Subsistemas-SEDA\SEDA\Proyecto_web2\Http_demo.uvproj
+C:\Users\Usuario\Desktop\Proyecto_web2\Http_demo.uvproj
 Project File Date:  02/14/2018
 
 <h2>Output:</h2>
@@ -13,157 +13,175 @@ Custom: C:\Keil\ARM\bin\fcarm @Web\Web.inp
 FCARM FILE CONVERTER V2.41
 Completed 2 File(s), Ratio 92%
 compiling Web.c...
+compiling HTTP_demo.c...
+.\USER\DS1621.h(5): warning:  #1295-D: Deprecated declaration leer_DS1621 - give arg types
+.\USER\DS1621.h(7): warning:  #1-D: last line of file ends without a newline
+.\USER\DMA.h(13): warning:  #1-D: last line of file ends without a newline
+.\USER\BMP180.h(26): warning:  #1-D: last line of file ends without a newline
+compiling HTTP_CGI.c...
+HTTP_CGI.c(104): error:  #20: identifier "temp_BMP180" is undefined
+HTTP_CGI.c(109): warning:  #111-D: statement is unreachable
+HTTP_CGI.c(113): warning:  #111-D: statement is unreachable
+compiling DMA.c...
+USER\DMA.h(13): warning:  #1-D: last line of file ends without a newline
+USER\DMA.c(51): warning:  #61-D: integer operation result is out of range
+USER\DMA.c(80): warning:  #61-D: integer operation result is out of range
+compiling i2c_lpc17xx.c...
+compiling init.c...
+USER\init.c(9): warning:  #61-D: integer operation result is out of range
+USER\init.c(12): warning:  #61-D: integer operation result is out of range
+compiling PWM.c...
+compiling TouchPanel.c...
+compiling uart.c...
+compiling DS1621.c...
+USER\DS1621.h(5): warning:  #1295-D: Deprecated declaration leer_DS1621 - give arg types
+USER\DS1621.h(7): warning:  #1-D: last line of file ends without a newline
+USER\DS1621.c(22): warning:  #550-D: variable "f_decimal" was set but never used
+compiling BMP180.c...
+USER\BMP180.h(26): warning:  #1-D: last line of file ends without a newline
+USER\BMP180.c(261): warning:  #1-D: last line of file ends without a newline
+compiling Net_Config.c...
+assembling startup_LPC17xx.s...
+compiling RTX_Conf_CM.c...
+compiling EMAC_LPC17xx_100Mb.c...
+compiling system_LPC17xx.c...
+compiling HzLib.c...
+compiling lpc17xx_pinsel.c...
+compiling lpc17xx_gpio.c...
+compiling lpc17xx_ssp.c...
+compiling lpc17xx_libcfg_default.c...
+compiling lpc17xx_clkpwr.c...
+compiling GLCD.c...
+compiling AsciiLib.c...
+".\Obj\Http_demo.axf" - 1 Errors, 16 Warning(s).
+Target not created
+Build target 'MCB1700'
+custom translating Web.inp...
+Custom: C:\Keil\ARM\bin\fcarm @Web\Web.inp
+FCARM FILE CONVERTER V2.41
+Completed 2 File(s), Ratio 92%
+compiling HTTP_demo.c...
+.\USER\DS1621.h(5): warning:  #1295-D: Deprecated declaration leer_DS1621 - give arg types
+.\USER\DS1621.h(7): warning:  #1-D: last line of file ends without a newline
+.\USER\DMA.h(13): warning:  #1-D: last line of file ends without a newline
+.\USER\BMP180.h(26): warning:  #1-D: last line of file ends without a newline
+compiling HTTP_CGI.c...
+HTTP_CGI.c(109): warning:  #111-D: statement is unreachable
+HTTP_CGI.c(113): warning:  #111-D: statement is unreachable
+compiling DMA.c...
+USER\DMA.h(13): warning:  #1-D: last line of file ends without a newline
+USER\DMA.c(51): warning:  #61-D: integer operation result is out of range
+USER\DMA.c(80): warning:  #61-D: integer operation result is out of range
+compiling init.c...
+USER\init.c(9): warning:  #61-D: integer operation result is out of range
+USER\init.c(12): warning:  #61-D: integer operation result is out of range
 linking...
-.\Obj\Http_demo.axf: Error: L6218E: Undefined symbol rec_ADC (referred from http_demo.o).
+Program Size: Code=104040 RO-data=6812 RW-data=16364 ZI-data=25128  
+".\Obj\Http_demo.axf" - 0 Errors, 11 Warning(s).
+Rebuild target 'MCB1700'
+custom translating Web.inp...
+Custom: C:\Keil\ARM\bin\fcarm @Web\Web.inp
+FCARM FILE CONVERTER V2.41
+Completed 2 File(s), Ratio 92%
+compiling Web.c...
+compiling HTTP_demo.c...
+.\USER\DS1621.h(5): warning:  #1295-D: Deprecated declaration leer_DS1621 - give arg types
+.\USER\DS1621.h(7): warning:  #1-D: last line of file ends without a newline
+.\USER\DMA.h(13): warning:  #1-D: last line of file ends without a newline
+.\USER\BMP180.h(26): warning:  #1-D: last line of file ends without a newline
+compiling HTTP_CGI.c...
+HTTP_CGI.c(109): warning:  #111-D: statement is unreachable
+HTTP_CGI.c(113): warning:  #111-D: statement is unreachable
+compiling DMA.c...
+USER\DMA.h(13): warning:  #1-D: last line of file ends without a newline
+USER\DMA.c(51): warning:  #61-D: integer operation result is out of range
+USER\DMA.c(80): warning:  #61-D: integer operation result is out of range
+compiling i2c_lpc17xx.c...
+compiling init.c...
+USER\init.c(9): warning:  #61-D: integer operation result is out of range
+USER\init.c(12): warning:  #61-D: integer operation result is out of range
+compiling PWM.c...
+compiling TouchPanel.c...
+compiling uart.c...
+compiling DS1621.c...
+USER\DS1621.h(5): warning:  #1295-D: Deprecated declaration leer_DS1621 - give arg types
+USER\DS1621.h(7): warning:  #1-D: last line of file ends without a newline
+USER\DS1621.c(22): warning:  #550-D: variable "f_decimal" was set but never used
+compiling BMP180.c...
+USER\BMP180.h(26): warning:  #1-D: last line of file ends without a newline
+USER\BMP180.c(261): warning:  #1-D: last line of file ends without a newline
+compiling Net_Config.c...
+assembling startup_LPC17xx.s...
+compiling RTX_Conf_CM.c...
+compiling EMAC_LPC17xx_100Mb.c...
+compiling system_LPC17xx.c...
+compiling HzLib.c...
+compiling lpc17xx_pinsel.c...
+compiling lpc17xx_gpio.c...
+compiling lpc17xx_ssp.c...
+compiling lpc17xx_libcfg_default.c...
+compiling lpc17xx_clkpwr.c...
+compiling GLCD.c...
+compiling AsciiLib.c...
+linking...
+Program Size: Code=104040 RO-data=6812 RW-data=16364 ZI-data=25128  
+".\Obj\Http_demo.axf" - 0 Errors, 16 Warning(s).
+Rebuild target 'MCB1700'
+custom translating Web.inp...
+Custom: C:\Keil\ARM\bin\fcarm @Web\Web.inp
+FCARM FILE CONVERTER V2.41
+Completed 2 File(s), Ratio 92%
+compiling Web.c...
+compiling HTTP_demo.c...
+.\USER\DS1621.h(5): warning:  #1295-D: Deprecated declaration leer_DS1621 - give arg types
+.\USER\DS1621.h(7): warning:  #1-D: last line of file ends without a newline
+.\USER\DMA.h(13): warning:  #1-D: last line of file ends without a newline
+.\USER\BMP180.h(26): warning:  #1-D: last line of file ends without a newline
+compiling HTTP_CGI.c...
+HTTP_CGI.c(117): warning:  #111-D: statement is unreachable
+HTTP_CGI.c(132): error:  #20: identifier "altura" is undefined
+compiling DMA.c...
+USER\DMA.h(13): warning:  #1-D: last line of file ends without a newline
+USER\DMA.c(51): warning:  #61-D: integer operation result is out of range
+USER\DMA.c(80): warning:  #61-D: integer operation result is out of range
+compiling i2c_lpc17xx.c...
+compiling init.c...
+USER\init.c(9): warning:  #61-D: integer operation result is out of range
+USER\init.c(12): warning:  #61-D: integer operation result is out of range
+compiling PWM.c...
+compiling TouchPanel.c...
+compiling uart.c...
+compiling DS1621.c...
+USER\DS1621.h(5): warning:  #1295-D: Deprecated declaration leer_DS1621 - give arg types
+USER\DS1621.h(7): warning:  #1-D: last line of file ends without a newline
+USER\DS1621.c(22): warning:  #550-D: variable "f_decimal" was set but never used
+compiling BMP180.c...
+USER\BMP180.h(26): warning:  #1-D: last line of file ends without a newline
+USER\BMP180.c(261): warning:  #1-D: last line of file ends without a newline
+compiling Net_Config.c...
+assembling startup_LPC17xx.s...
+compiling RTX_Conf_CM.c...
+compiling EMAC_LPC17xx_100Mb.c...
+compiling system_LPC17xx.c...
+compiling HzLib.c...
+compiling lpc17xx_pinsel.c...
+compiling lpc17xx_gpio.c...
+compiling lpc17xx_ssp.c...
+compiling lpc17xx_libcfg_default.c...
+compiling lpc17xx_clkpwr.c...
+compiling GLCD.c...
+compiling AsciiLib.c...
+".\Obj\Http_demo.axf" - 1 Errors, 15 Warning(s).
+Target not created
+Build target 'MCB1700'
+custom translating Web.inp...
+Custom: C:\Keil\ARM\bin\fcarm @Web\Web.inp
+FCARM FILE CONVERTER V2.41
+Completed 2 File(s), Ratio 92%
+compiling HTTP_CGI.c...
+HTTP_CGI.c(129): error:  #20: identifier "altura" is undefined
 ".\Obj\Http_demo.axf" - 1 Errors, 0 Warning(s).
 Target not created
-Clean started: Project: 'Http_demo'
-   deleting intermediate output files for target 'MCB1700'
-   deleting intermediate output files for target 'MCB1700 Debug'
-   deleting intermediate output files for target 'MCB1700 RTX'
-Rebuild target 'MCB1700'
-custom translating Web.inp...
-Custom: C:\Keil\ARM\bin\fcarm @Web\Web.inp
-FCARM FILE CONVERTER V2.41
-Completed 2 File(s), Ratio 92%
-compiling Web.c...
-compiling HTTP_demo.c...
-.\USER\DS1621.h(5): warning:  #1295-D: Deprecated declaration leer_DS1621 - give arg types
-.\USER\DS1621.h(7): warning:  #1-D: last line of file ends without a newline
-.\USER\DMA.h(13): warning:  #1-D: last line of file ends without a newline
-compiling HTTP_CGI.c...
-HTTP_CGI.c(113): warning:  #111-D: statement is unreachable
-HTTP_CGI.c(117): warning:  #111-D: statement is unreachable
-HTTP_CGI.c(119): error:  #121: a case label may only be used within a switch
-HTTP_CGI.c(121): error:  #116: a break statement may only be used within a loop or switch
-HTTP_CGI.c(123): error:  #121: a case label may only be used within a switch
-HTTP_CGI.c(125): error:  #116: a break statement may only be used within a loop or switch
-HTTP_CGI.c(126): error:  #121: a case label may only be used within a switch
-HTTP_CGI.c(128): error:  #116: a break statement may only be used within a loop or switch
-HTTP_CGI.c(129): warning:  #940-D: missing return statement at end of non-void function "cgi_func"
-HTTP_CGI.c(98): warning:  #550-D: variable "len" was set but never used
-HTTP_CGI.c(131): error:  #169: expected a declaration
-HTTP_CGI.c(132): error:  #169: expected a declaration
-HTTP_CGI.c(137): warning: At end of source:  #12-D: parsing restarts here after previous syntax error
-compiling DMA.c...
-USER\DMA.h(13): warning:  #1-D: last line of file ends without a newline
-USER\DMA.c(51): warning:  #61-D: integer operation result is out of range
-USER\DMA.c(80): warning:  #61-D: integer operation result is out of range
-compiling i2c_lpc17xx.c...
-compiling init.c...
-USER\init.c(9): warning:  #61-D: integer operation result is out of range
-USER\init.c(12): warning:  #61-D: integer operation result is out of range
-compiling PWM.c...
-compiling TouchPanel.c...
-compiling uart.c...
-compiling DS1621.c...
-USER\DS1621.h(5): warning:  #1295-D: Deprecated declaration leer_DS1621 - give arg types
-USER\DS1621.h(7): warning:  #1-D: last line of file ends without a newline
-USER\DS1621.c(22): warning:  #550-D: variable "f_decimal" was set but never used
-compiling Net_Config.c...
-assembling startup_LPC17xx.s...
-compiling RTX_Conf_CM.c...
-compiling EMAC_LPC17xx_100Mb.c...
-compiling system_LPC17xx.c...
-compiling HzLib.c...
-compiling lpc17xx_pinsel.c...
-compiling lpc17xx_gpio.c...
-compiling lpc17xx_ssp.c...
-compiling lpc17xx_libcfg_default.c...
-compiling lpc17xx_clkpwr.c...
-compiling GLCD.c...
-compiling AsciiLib.c...
-".\Obj\Http_demo.axf" - 8 Errors, 16 Warning(s).
-Target not created
-Build target 'MCB1700'
-custom translating Web.inp...
-Custom: C:\Keil\ARM\bin\fcarm @Web\Web.inp
-FCARM FILE CONVERTER V2.41
-Completed 2 File(s), Ratio 92%
-compiling HTTP_CGI.c...
-HTTP_CGI.c(113): warning:  #111-D: statement is unreachable
-HTTP_CGI.c(117): warning:  #111-D: statement is unreachable
-HTTP_CGI.c(119): error:  #121: a case label may only be used within a switch
-HTTP_CGI.c(121): error:  #116: a break statement may only be used within a loop or switch
-HTTP_CGI.c(123): error:  #121: a case label may only be used within a switch
-HTTP_CGI.c(125): error:  #116: a break statement may only be used within a loop or switch
-HTTP_CGI.c(126): error:  #121: a case label may only be used within a switch
-HTTP_CGI.c(128): error:  #116: a break statement may only be used within a loop or switch
-HTTP_CGI.c(129): warning:  #940-D: missing return statement at end of non-void function "cgi_func"
-HTTP_CGI.c(98): warning:  #550-D: variable "len" was set but never used
-HTTP_CGI.c(131): error:  #169: expected a declaration
-HTTP_CGI.c(132): error:  #169: expected a declaration
-HTTP_CGI.c(137): warning: At end of source:  #12-D: parsing restarts here after previous syntax error
-".\Obj\Http_demo.axf" - 8 Errors, 5 Warning(s).
-Target not created
-Build target 'MCB1700'
-custom translating Web.inp...
-Custom: C:\Keil\ARM\bin\fcarm @Web\Web.inp
-FCARM FILE CONVERTER V2.41
-Completed 2 File(s), Ratio 92%
-compiling Web.c...
-compiling HTTP_CGI.c...
-HTTP_CGI.c(113): warning:  #111-D: statement is unreachable
-HTTP_CGI.c(117): warning:  #111-D: statement is unreachable
-linking...
-Program Size: Code=98496 RO-data=6664 RW-data=16204 ZI-data=25128  
-".\Obj\Http_demo.axf" - 0 Errors, 2 Warning(s).
-Build target 'MCB1700'
-custom translating Web.inp...
-Custom: C:\Keil\ARM\bin\fcarm @Web\Web.inp
-FCARM FILE CONVERTER V2.41
-Completed 2 File(s), Ratio 92%
-compiling HTTP_demo.c...
-.\USER\DS1621.h(5): warning:  #1295-D: Deprecated declaration leer_DS1621 - give arg types
-.\USER\DS1621.h(7): warning:  #1-D: last line of file ends without a newline
-.\USER\DMA.h(13): warning:  #1-D: last line of file ends without a newline
-.\USER\BMP180.h(26): warning:  #1-D: last line of file ends without a newline
-compiling HTTP_CGI.c...
-HTTP_CGI.c(105): warning:  #111-D: statement is unreachable
-HTTP_CGI.c(109): warning:  #111-D: statement is unreachable
-compiling BMP180.c...
-USER\BMP180.h(26): warning:  #1-D: last line of file ends without a newline
-USER\BMP180.c(261): warning:  #1-D: last line of file ends without a newline
-linking...
-Program Size: Code=98496 RO-data=6664 RW-data=16280 ZI-data=25132  
-".\Obj\Http_demo.axf" - 0 Errors, 8 Warning(s).
-Build target 'MCB1700'
-custom translating Web.inp...
-Custom: C:\Keil\ARM\bin\fcarm @Web\Web.inp
-FCARM FILE CONVERTER V2.41
-Completed 2 File(s), Ratio 92%
-compiling Web.c...
-compiling HTTP_demo.c...
-.\USER\DS1621.h(5): warning:  #1295-D: Deprecated declaration leer_DS1621 - give arg types
-.\USER\DS1621.h(7): warning:  #1-D: last line of file ends without a newline
-.\USER\DMA.h(13): warning:  #1-D: last line of file ends without a newline
-.\USER\BMP180.h(26): warning:  #1-D: last line of file ends without a newline
-compiling BMP180.c...
-USER\BMP180.h(26): warning:  #1-D: last line of file ends without a newline
-USER\BMP180.c(261): warning:  #1-D: last line of file ends without a newline
-linking...
-Program Size: Code=104012 RO-data=6816 RW-data=16364 ZI-data=25128  
-".\Obj\Http_demo.axf" - 0 Errors, 6 Warning(s).
-Build target 'MCB1700'
-custom translating Web.inp...
-Custom: C:\Keil\ARM\bin\fcarm @Web\Web.inp
-FCARM FILE CONVERTER V2.41
-Completed 2 File(s), Ratio 92%
-compiling HTTP_demo.c...
-.\USER\DS1621.h(5): warning:  #1295-D: Deprecated declaration leer_DS1621 - give arg types
-.\USER\DS1621.h(7): warning:  #1-D: last line of file ends without a newline
-.\USER\DMA.h(13): warning:  #1-D: last line of file ends without a newline
-.\USER\BMP180.h(26): warning:  #1-D: last line of file ends without a newline
-compiling BMP180.c...
-USER\BMP180.h(26): warning:  #1-D: last line of file ends without a newline
-USER\BMP180.c(261): warning:  #1-D: last line of file ends without a newline
-linking...
-Program Size: Code=104004 RO-data=6816 RW-data=16364 ZI-data=25128  
-".\Obj\Http_demo.axf" - 0 Errors, 6 Warning(s).
-Clean started: Project: 'Http_demo'
-   deleting intermediate output files for target 'MCB1700'
-   deleting intermediate output files for target 'MCB1700 Debug'
-   deleting intermediate output files for target 'MCB1700 RTX'
 Rebuild target 'MCB1700'
 custom translating Web.inp...
 Custom: C:\Keil\ARM\bin\fcarm @Web\Web.inp
@@ -176,8 +194,7 @@ compiling HTTP_demo.c...
 .\USER\DMA.h(13): warning:  #1-D: last line of file ends without a newline
 .\USER\BMP180.h(26): warning:  #1-D: last line of file ends without a newline
 compiling HTTP_CGI.c...
-HTTP_CGI.c(105): warning:  #111-D: statement is unreachable
-HTTP_CGI.c(109): warning:  #111-D: statement is unreachable
+HTTP_CGI.c(129): error:  #20: identifier "altura" is undefined
 compiling DMA.c...
 USER\DMA.h(13): warning:  #1-D: last line of file ends without a newline
 USER\DMA.c(51): warning:  #61-D: integer operation result is out of range
@@ -209,15 +226,775 @@ compiling lpc17xx_libcfg_default.c...
 compiling lpc17xx_clkpwr.c...
 compiling GLCD.c...
 compiling AsciiLib.c...
+".\Obj\Http_demo.axf" - 1 Errors, 14 Warning(s).
+Target not created
+Build target 'MCB1700'
+custom translating Web.inp...
+Custom: C:\Keil\ARM\bin\fcarm @Web\Web.inp
+FCARM FILE CONVERTER V2.41
+Completed 2 File(s), Ratio 92%
+compiling HTTP_demo.c...
+.\USER\DS1621.h(5): warning:  #1295-D: Deprecated declaration leer_DS1621 - give arg types
+.\USER\DS1621.h(7): warning:  #1-D: last line of file ends without a newline
+.\USER\DMA.h(13): warning:  #1-D: last line of file ends without a newline
+.\USER\BMP180.h(26): warning:  #1-D: last line of file ends without a newline
+compiling HTTP_CGI.c...
+compiling DMA.c...
+USER\DMA.h(13): warning:  #1-D: last line of file ends without a newline
+USER\DMA.c(51): warning:  #61-D: integer operation result is out of range
+USER\DMA.c(80): warning:  #61-D: integer operation result is out of range
+compiling init.c...
+USER\init.c(9): warning:  #61-D: integer operation result is out of range
+USER\init.c(12): warning:  #61-D: integer operation result is out of range
 linking...
-Program Size: Code=104004 RO-data=6816 RW-data=16364 ZI-data=25128  
-".\Obj\Http_demo.axf" - 0 Errors, 16 Warning(s).
-Load "C:\\Users\\GalleDoh\\Documents\\Subsistemas-SEDA\\SEDA\\Proyecto_web2\\Obj\\Http_demo.axf" 
-Erase Done.
+Program Size: Code=104100 RO-data=6856 RW-data=16364 ZI-data=25128  
+".\Obj\Http_demo.axf" - 0 Errors, 9 Warning(s).
+Build target 'MCB1700'
+custom translating Web.inp...
+Custom: C:\Keil\ARM\bin\fcarm @Web\Web.inp
+FCARM FILE CONVERTER V2.41
+Completed 2 File(s), Ratio 92%
+compiling Web.c...
+compiling HTTP_demo.c...
+.\USER\DS1621.h(5): warning:  #1295-D: Deprecated declaration leer_DS1621 - give arg types
+.\USER\DS1621.h(7): warning:  #1-D: last line of file ends without a newline
+.\USER\DMA.h(13): warning:  #1-D: last line of file ends without a newline
+.\USER\BMP180.h(26): warning:  #1-D: last line of file ends without a newline
+linking...
+Program Size: Code=104272 RO-data=6860 RW-data=16364 ZI-data=25128  
+".\Obj\Http_demo.axf" - 0 Errors, 4 Warning(s).
+Load "C:\\Users\\Usuario\\Desktop\\Proyecto_web2\\Obj\\Http_demo.axf" 
+Internal DLL Error
+Load "C:\\Users\\Usuario\\Desktop\\Proyecto_web2\\Obj\\Http_demo.axf" 
+Set JLink Project File to "C:\Users\Usuario\Desktop\Proyecto_web2\JLinkSettings.ini"
+* JLink Info: Device "LPC1768" selected (512 KB flash, 32 KB RAM).
+ 
+JLink info:
+------------
+DLL: V4.68a, compiled Apr 12 2013 13:26:50
+Firmware: J-Link ARM-OB STM32 compiled Aug 22 2012 19:52:04
+Hardware: V7.00
+Feature(s) : RDI,FlashDL,FlashBP,JFlash,GDBFull 
+ 
+* JLink Info: TotalIRLen = 4, IRPrint = 0x01
+* JLink Info: Found Cortex-M3 r2p0, Little endian.
+* JLink Info: TPIU fitted.
+* JLink Info: ETM fitted.
+* JLink Info: FPUnit: 6 code (BP) slots and 2 literal slots
+ROMTableAddr = 0xE00FF003
+* JLink Info: Found Cortex-M3 r2p0, Little endian.
+* JLink Info: TPIU fitted.
+* JLink Info: ETM fitted.
+* JLink Info: FPUnit: 6 code (BP) slots and 2 literal slots
+ 
+Target info:
+------------
+Device: LPC1768
+VTarget = 3.300V
+State of Pins: 
+TCK: 1, TDI: 0, TDO: 1, TMS: 0, TRES: 1, TRST: 1
+Hardware-Breakpoints: 6
+Software-Breakpoints: 8192
+Watchpoints:          4
+JTAG speed: 4000 kHz
+ 
+Full Chip Erase Done.
 Programming Done.
-Verify OK.
+* JLink Info: Found Cortex-M3 r2p0, Little endian.
+* JLink Info: TPIU fitted.
+* JLink Info: ETM fitted.
+* JLink Info: FPUnit: 6 code (BP) slots and 2 literal slots
 Application running ...
-Clean started: Project: 'Http_demo'
-   deleting intermediate output files for target 'MCB1700'
-   deleting intermediate output files for target 'MCB1700 Debug'
-   deleting intermediate output files for target 'MCB1700 RTX'
+Build target 'MCB1700'
+custom translating Web.inp...
+Custom: C:\Keil\ARM\bin\fcarm @Web\Web.inp
+FCARM FILE CONVERTER V2.41
+Completed 2 File(s), Ratio 92%
+linking...
+Program Size: Code=104272 RO-data=6860 RW-data=16364 ZI-data=25128  
+".\Obj\Http_demo.axf" - 0 Errors, 0 Warning(s).
+Load "C:\\Users\\Usuario\\Desktop\\Proyecto_web2\\Obj\\Http_demo.axf" 
+Set JLink Project File to "C:\Users\Usuario\Desktop\Proyecto_web2\JLinkSettings.ini"
+* JLink Info: Device "LPC1768" selected (512 KB flash, 32 KB RAM).
+ 
+JLink info:
+------------
+DLL: V4.68a, compiled Apr 12 2013 13:26:50
+Firmware: J-Link ARM-OB STM32 compiled Aug 22 2012 19:52:04
+Hardware: V7.00
+Feature(s) : RDI,FlashDL,FlashBP,JFlash,GDBFull 
+ 
+* JLink Info: TotalIRLen = 4, IRPrint = 0x01
+* JLink Info: Found Cortex-M3 r2p0, Little endian.
+* JLink Info: TPIU fitted.
+* JLink Info: ETM fitted.
+* JLink Info: FPUnit: 6 code (BP) slots and 2 literal slots
+ROMTableAddr = 0xE00FF003
+* JLink Info: Found Cortex-M3 r2p0, Little endian.
+* JLink Info: TPIU fitted.
+* JLink Info: ETM fitted.
+* JLink Info: FPUnit: 6 code (BP) slots and 2 literal slots
+ 
+Target info:
+------------
+Device: LPC1768
+VTarget = 3.300V
+State of Pins: 
+TCK: 1, TDI: 0, TDO: 1, TMS: 0, TRES: 1, TRST: 1
+Hardware-Breakpoints: 6
+Software-Breakpoints: 8192
+Watchpoints:          4
+JTAG speed: 4000 kHz
+ 
+Full Chip Erase Done.
+Programming Done.
+* JLink Info: Found Cortex-M3 r2p0, Little endian.
+* JLink Info: TPIU fitted.
+* JLink Info: ETM fitted.
+* JLink Info: FPUnit: 6 code (BP) slots and 2 literal slots
+Application running ...
+Rebuild target 'MCB1700'
+custom translating Web.inp...
+Custom: C:\Keil\ARM\bin\fcarm @Web\Web.inp
+FCARM FILE CONVERTER V2.41
+Completed 2 File(s), Ratio 92%
+compiling Web.c...
+compiling HTTP_demo.c...
+.\USER\DS1621.h(5): warning:  #1295-D: Deprecated declaration leer_DS1621 - give arg types
+.\USER\DS1621.h(7): warning:  #1-D: last line of file ends without a newline
+.\USER\DMA.h(13): warning:  #1-D: last line of file ends without a newline
+.\USER\BMP180.h(26): warning:  #1-D: last line of file ends without a newline
+compiling HTTP_CGI.c...
+compiling DMA.c...
+USER\DMA.h(13): warning:  #1-D: last line of file ends without a newline
+USER\DMA.c(51): warning:  #61-D: integer operation result is out of range
+USER\DMA.c(80): warning:  #61-D: integer operation result is out of range
+compiling i2c_lpc17xx.c...
+compiling init.c...
+USER\init.c(9): warning:  #61-D: integer operation result is out of range
+USER\init.c(12): warning:  #61-D: integer operation result is out of range
+compiling PWM.c...
+compiling TouchPanel.c...
+compiling uart.c...
+compiling DS1621.c...
+USER\DS1621.h(5): warning:  #1295-D: Deprecated declaration leer_DS1621 - give arg types
+USER\DS1621.h(7): warning:  #1-D: last line of file ends without a newline
+USER\DS1621.c(22): warning:  #550-D: variable "f_decimal" was set but never used
+compiling BMP180.c...
+USER\BMP180.h(26): warning:  #1-D: last line of file ends without a newline
+USER\BMP180.c(261): warning:  #1-D: last line of file ends without a newline
+compiling Net_Config.c...
+assembling startup_LPC17xx.s...
+compiling RTX_Conf_CM.c...
+compiling EMAC_LPC17xx_100Mb.c...
+compiling system_LPC17xx.c...
+compiling HzLib.c...
+compiling lpc17xx_pinsel.c...
+compiling lpc17xx_gpio.c...
+compiling lpc17xx_ssp.c...
+compiling lpc17xx_libcfg_default.c...
+compiling lpc17xx_clkpwr.c...
+compiling GLCD.c...
+compiling AsciiLib.c...
+linking...
+Program Size: Code=104272 RO-data=6924 RW-data=16364 ZI-data=25128  
+".\Obj\Http_demo.axf" - 0 Errors, 14 Warning(s).
+Rebuild target 'MCB1700'
+custom translating Web.inp...
+Custom: C:\Keil\ARM\bin\fcarm @Web\Web.inp
+FCARM FILE CONVERTER V2.41
+Completed 2 File(s), Ratio 92%
+compiling Web.c...
+compiling HTTP_demo.c...
+.\USER\DS1621.h(5): warning:  #1295-D: Deprecated declaration leer_DS1621 - give arg types
+.\USER\DS1621.h(7): warning:  #1-D: last line of file ends without a newline
+.\USER\DMA.h(13): warning:  #1-D: last line of file ends without a newline
+.\USER\BMP180.h(26): warning:  #1-D: last line of file ends without a newline
+compiling HTTP_CGI.c...
+compiling DMA.c...
+USER\DMA.h(13): warning:  #1-D: last line of file ends without a newline
+USER\DMA.c(51): warning:  #61-D: integer operation result is out of range
+USER\DMA.c(80): warning:  #61-D: integer operation result is out of range
+compiling i2c_lpc17xx.c...
+compiling init.c...
+USER\init.c(9): warning:  #61-D: integer operation result is out of range
+USER\init.c(12): warning:  #61-D: integer operation result is out of range
+compiling PWM.c...
+compiling TouchPanel.c...
+compiling uart.c...
+compiling DS1621.c...
+USER\DS1621.h(5): warning:  #1295-D: Deprecated declaration leer_DS1621 - give arg types
+USER\DS1621.h(7): warning:  #1-D: last line of file ends without a newline
+USER\DS1621.c(22): warning:  #550-D: variable "f_decimal" was set but never used
+compiling BMP180.c...
+USER\BMP180.h(26): warning:  #1-D: last line of file ends without a newline
+USER\BMP180.c(261): warning:  #1-D: last line of file ends without a newline
+compiling Net_Config.c...
+assembling startup_LPC17xx.s...
+compiling RTX_Conf_CM.c...
+compiling EMAC_LPC17xx_100Mb.c...
+compiling system_LPC17xx.c...
+compiling HzLib.c...
+compiling lpc17xx_pinsel.c...
+compiling lpc17xx_gpio.c...
+compiling lpc17xx_ssp.c...
+compiling lpc17xx_libcfg_default.c...
+compiling lpc17xx_clkpwr.c...
+compiling GLCD.c...
+compiling AsciiLib.c...
+linking...
+Program Size: Code=104272 RO-data=6932 RW-data=16364 ZI-data=25128  
+".\Obj\Http_demo.axf" - 0 Errors, 14 Warning(s).
+Load "C:\\Users\\Usuario\\Desktop\\Proyecto_web2\\Obj\\Http_demo.axf" 
+Set JLink Project File to "C:\Users\Usuario\Desktop\Proyecto_web2\JLinkSettings.ini"
+* JLink Info: Device "LPC1768" selected (512 KB flash, 32 KB RAM).
+ 
+JLink info:
+------------
+DLL: V4.68a, compiled Apr 12 2013 13:26:50
+Firmware: J-Link ARM-OB STM32 compiled Aug 22 2012 19:52:04
+Hardware: V7.00
+Feature(s) : RDI,FlashDL,FlashBP,JFlash,GDBFull 
+ 
+* JLink Info: TotalIRLen = 4, IRPrint = 0x01
+* JLink Info: Found Cortex-M3 r2p0, Little endian.
+* JLink Info: TPIU fitted.
+* JLink Info: ETM fitted.
+* JLink Info: FPUnit: 6 code (BP) slots and 2 literal slots
+ROMTableAddr = 0xE00FF003
+* JLink Info: Found Cortex-M3 r2p0, Little endian.
+* JLink Info: TPIU fitted.
+* JLink Info: ETM fitted.
+* JLink Info: FPUnit: 6 code (BP) slots and 2 literal slots
+ 
+Target info:
+------------
+Device: LPC1768
+VTarget = 3.300V
+State of Pins: 
+TCK: 1, TDI: 0, TDO: 1, TMS: 0, TRES: 1, TRST: 1
+Hardware-Breakpoints: 6
+Software-Breakpoints: 8192
+Watchpoints:          4
+JTAG speed: 4000 kHz
+ 
+Full Chip Erase Done.
+Programming Done.
+* JLink Info: Found Cortex-M3 r2p0, Little endian.
+* JLink Info: TPIU fitted.
+* JLink Info: ETM fitted.
+* JLink Info: FPUnit: 6 code (BP) slots and 2 literal slots
+Application running ...
+Rebuild target 'MCB1700'
+custom translating Web.inp...
+Custom: C:\Keil\ARM\bin\fcarm @Web\Web.inp
+FCARM FILE CONVERTER V2.41
+Completed 2 File(s), Ratio 92%
+compiling Web.c...
+compiling HTTP_demo.c...
+.\USER\DS1621.h(5): warning:  #1295-D: Deprecated declaration leer_DS1621 - give arg types
+.\USER\DS1621.h(7): warning:  #1-D: last line of file ends without a newline
+.\USER\DMA.h(13): warning:  #1-D: last line of file ends without a newline
+.\USER\BMP180.h(26): warning:  #1-D: last line of file ends without a newline
+compiling HTTP_CGI.c...
+compiling DMA.c...
+USER\DMA.h(13): warning:  #1-D: last line of file ends without a newline
+USER\DMA.c(51): warning:  #61-D: integer operation result is out of range
+USER\DMA.c(80): warning:  #61-D: integer operation result is out of range
+compiling i2c_lpc17xx.c...
+compiling init.c...
+USER\init.c(9): warning:  #61-D: integer operation result is out of range
+USER\init.c(12): warning:  #61-D: integer operation result is out of range
+compiling PWM.c...
+compiling TouchPanel.c...
+compiling uart.c...
+compiling DS1621.c...
+USER\DS1621.h(5): warning:  #1295-D: Deprecated declaration leer_DS1621 - give arg types
+USER\DS1621.h(7): warning:  #1-D: last line of file ends without a newline
+USER\DS1621.c(22): warning:  #550-D: variable "f_decimal" was set but never used
+compiling BMP180.c...
+USER\BMP180.h(26): warning:  #1-D: last line of file ends without a newline
+USER\BMP180.c(261): warning:  #1-D: last line of file ends without a newline
+compiling Net_Config.c...
+assembling startup_LPC17xx.s...
+compiling RTX_Conf_CM.c...
+compiling EMAC_LPC17xx_100Mb.c...
+compiling system_LPC17xx.c...
+compiling HzLib.c...
+compiling lpc17xx_pinsel.c...
+compiling lpc17xx_gpio.c...
+compiling lpc17xx_ssp.c...
+compiling lpc17xx_libcfg_default.c...
+compiling lpc17xx_clkpwr.c...
+compiling GLCD.c...
+compiling AsciiLib.c...
+linking...
+Program Size: Code=104272 RO-data=6932 RW-data=16364 ZI-data=25128  
+".\Obj\Http_demo.axf" - 0 Errors, 14 Warning(s).
+Load "C:\\Users\\Usuario\\Desktop\\Proyecto_web2\\Obj\\Http_demo.axf" 
+Set JLink Project File to "C:\Users\Usuario\Desktop\Proyecto_web2\JLinkSettings.ini"
+* JLink Info: Device "LPC1768" selected (512 KB flash, 32 KB RAM).
+ 
+JLink info:
+------------
+DLL: V4.68a, compiled Apr 12 2013 13:26:50
+Firmware: J-Link ARM-OB STM32 compiled Aug 22 2012 19:52:04
+Hardware: V7.00
+Feature(s) : RDI,FlashDL,FlashBP,JFlash,GDBFull 
+ 
+* JLink Info: TotalIRLen = 4, IRPrint = 0x01
+* JLink Info: Found Cortex-M3 r2p0, Little endian.
+* JLink Info: TPIU fitted.
+* JLink Info: ETM fitted.
+* JLink Info: FPUnit: 6 code (BP) slots and 2 literal slots
+ROMTableAddr = 0xE00FF003
+* JLink Info: Found Cortex-M3 r2p0, Little endian.
+* JLink Info: TPIU fitted.
+* JLink Info: ETM fitted.
+* JLink Info: FPUnit: 6 code (BP) slots and 2 literal slots
+ 
+Target info:
+------------
+Device: LPC1768
+VTarget = 3.300V
+State of Pins: 
+TCK: 1, TDI: 0, TDO: 1, TMS: 0, TRES: 1, TRST: 1
+Hardware-Breakpoints: 6
+Software-Breakpoints: 8192
+Watchpoints:          4
+JTAG speed: 4000 kHz
+ 
+Full Chip Erase Done.
+Programming Done.
+* JLink Info: Found Cortex-M3 r2p0, Little endian.
+* JLink Info: TPIU fitted.
+* JLink Info: ETM fitted.
+* JLink Info: FPUnit: 6 code (BP) slots and 2 literal slots
+Application running ...
+Build target 'MCB1700'
+custom translating Web.inp...
+Custom: C:\Keil\ARM\bin\fcarm @Web\Web.inp
+FCARM FILE CONVERTER V2.41
+Completed 2 File(s), Ratio 92%
+compiling HTTP_demo.c...
+.\USER\DS1621.h(5): warning:  #1295-D: Deprecated declaration leer_DS1621 - give arg types
+.\USER\DS1621.h(7): warning:  #1-D: last line of file ends without a newline
+.\USER\DMA.h(13): warning:  #1-D: last line of file ends without a newline
+.\USER\BMP180.h(26): warning:  #1-D: last line of file ends without a newline
+linking...
+Program Size: Code=104336 RO-data=6932 RW-data=16364 ZI-data=25128  
+".\Obj\Http_demo.axf" - 0 Errors, 4 Warning(s).
+Load "C:\\Users\\Usuario\\Desktop\\Proyecto_web2\\Obj\\Http_demo.axf" 
+Set JLink Project File to "C:\Users\Usuario\Desktop\Proyecto_web2\JLinkSettings.ini"
+* JLink Info: Device "LPC1768" selected (512 KB flash, 32 KB RAM).
+ 
+JLink info:
+------------
+DLL: V4.68a, compiled Apr 12 2013 13:26:50
+Firmware: J-Link ARM-OB STM32 compiled Aug 22 2012 19:52:04
+Hardware: V7.00
+Feature(s) : RDI,FlashDL,FlashBP,JFlash,GDBFull 
+ 
+* JLink Info: TotalIRLen = 4, IRPrint = 0x01
+* JLink Info: Found Cortex-M3 r2p0, Little endian.
+* JLink Info: TPIU fitted.
+* JLink Info: ETM fitted.
+* JLink Info: FPUnit: 6 code (BP) slots and 2 literal slots
+ROMTableAddr = 0xE00FF003
+* JLink Info: Found Cortex-M3 r2p0, Little endian.
+* JLink Info: TPIU fitted.
+* JLink Info: ETM fitted.
+* JLink Info: FPUnit: 6 code (BP) slots and 2 literal slots
+ 
+Target info:
+------------
+Device: LPC1768
+VTarget = 3.300V
+State of Pins: 
+TCK: 1, TDI: 0, TDO: 1, TMS: 0, TRES: 1, TRST: 1
+Hardware-Breakpoints: 6
+Software-Breakpoints: 8192
+Watchpoints:          4
+JTAG speed: 4000 kHz
+ 
+Full Chip Erase Done.
+Programming Done.
+* JLink Info: Found Cortex-M3 r2p0, Little endian.
+* JLink Info: TPIU fitted.
+* JLink Info: ETM fitted.
+* JLink Info: FPUnit: 6 code (BP) slots and 2 literal slots
+Application running ...
+Build target 'MCB1700'
+custom translating Web.inp...
+Custom: C:\Keil\ARM\bin\fcarm @Web\Web.inp
+FCARM FILE CONVERTER V2.41
+Completed 2 File(s), Ratio 92%
+compiling Web.c...
+compiling HTTP_demo.c...
+.\USER\DS1621.h(5): warning:  #1295-D: Deprecated declaration leer_DS1621 - give arg types
+.\USER\DS1621.h(7): warning:  #1-D: last line of file ends without a newline
+.\USER\DMA.h(13): warning:  #1-D: last line of file ends without a newline
+.\USER\BMP180.h(26): warning:  #1-D: last line of file ends without a newline
+linking...
+Program Size: Code=104296 RO-data=7004 RW-data=16364 ZI-data=25128  
+".\Obj\Http_demo.axf" - 0 Errors, 4 Warning(s).
+Load "C:\\Users\\Usuario\\Desktop\\Proyecto_web2\\Obj\\Http_demo.axf" 
+Set JLink Project File to "C:\Users\Usuario\Desktop\Proyecto_web2\JLinkSettings.ini"
+* JLink Info: Device "LPC1768" selected (512 KB flash, 32 KB RAM).
+ 
+JLink info:
+------------
+DLL: V4.68a, compiled Apr 12 2013 13:26:50
+Firmware: J-Link ARM-OB STM32 compiled Aug 22 2012 19:52:04
+Hardware: V7.00
+Feature(s) : RDI,FlashDL,FlashBP,JFlash,GDBFull 
+ 
+* JLink Info: TotalIRLen = 4, IRPrint = 0x01
+* JLink Info: Found Cortex-M3 r2p0, Little endian.
+* JLink Info: TPIU fitted.
+* JLink Info: ETM fitted.
+* JLink Info: FPUnit: 6 code (BP) slots and 2 literal slots
+ROMTableAddr = 0xE00FF003
+* JLink Info: Found Cortex-M3 r2p0, Little endian.
+* JLink Info: TPIU fitted.
+* JLink Info: ETM fitted.
+* JLink Info: FPUnit: 6 code (BP) slots and 2 literal slots
+ 
+Target info:
+------------
+Device: LPC1768
+VTarget = 3.300V
+State of Pins: 
+TCK: 1, TDI: 0, TDO: 1, TMS: 0, TRES: 1, TRST: 1
+Hardware-Breakpoints: 6
+Software-Breakpoints: 8192
+Watchpoints:          4
+JTAG speed: 4000 kHz
+ 
+Full Chip Erase Done.
+Programming Done.
+* JLink Info: Found Cortex-M3 r2p0, Little endian.
+* JLink Info: TPIU fitted.
+* JLink Info: ETM fitted.
+* JLink Info: FPUnit: 6 code (BP) slots and 2 literal slots
+Application running ...
+Build target 'MCB1700'
+custom translating Web.inp...
+Custom: C:\Keil\ARM\bin\fcarm @Web\Web.inp
+FCARM FILE CONVERTER V2.41
+Completed 2 File(s), Ratio 92%
+compiling HTTP_demo.c...
+.\USER\DS1621.h(5): warning:  #1295-D: Deprecated declaration leer_DS1621 - give arg types
+.\USER\DS1621.h(7): warning:  #1-D: last line of file ends without a newline
+.\USER\DMA.h(13): warning:  #1-D: last line of file ends without a newline
+.\USER\BMP180.h(26): warning:  #1-D: last line of file ends without a newline
+linking...
+Program Size: Code=104272 RO-data=7004 RW-data=16364 ZI-data=25128  
+".\Obj\Http_demo.axf" - 0 Errors, 4 Warning(s).
+Load "C:\\Users\\Usuario\\Desktop\\Proyecto_web2\\Obj\\Http_demo.axf" 
+Set JLink Project File to "C:\Users\Usuario\Desktop\Proyecto_web2\JLinkSettings.ini"
+* JLink Info: Device "LPC1768" selected (512 KB flash, 32 KB RAM).
+ 
+JLink info:
+------------
+DLL: V4.68a, compiled Apr 12 2013 13:26:50
+Firmware: J-Link ARM-OB STM32 compiled Aug 22 2012 19:52:04
+Hardware: V7.00
+Feature(s) : RDI,FlashDL,FlashBP,JFlash,GDBFull 
+ 
+* JLink Info: TotalIRLen = 4, IRPrint = 0x01
+* JLink Info: Found Cortex-M3 r2p0, Little endian.
+* JLink Info: TPIU fitted.
+* JLink Info: ETM fitted.
+* JLink Info: FPUnit: 6 code (BP) slots and 2 literal slots
+ROMTableAddr = 0xE00FF003
+* JLink Info: Found Cortex-M3 r2p0, Little endian.
+* JLink Info: TPIU fitted.
+* JLink Info: ETM fitted.
+* JLink Info: FPUnit: 6 code (BP) slots and 2 literal slots
+ 
+Target info:
+------------
+Device: LPC1768
+VTarget = 3.300V
+State of Pins: 
+TCK: 1, TDI: 0, TDO: 1, TMS: 0, TRES: 1, TRST: 1
+Hardware-Breakpoints: 6
+Software-Breakpoints: 8192
+Watchpoints:          4
+JTAG speed: 4000 kHz
+ 
+Full Chip Erase Done.
+Programming Done.
+* JLink Info: Found Cortex-M3 r2p0, Little endian.
+* JLink Info: TPIU fitted.
+* JLink Info: ETM fitted.
+* JLink Info: FPUnit: 6 code (BP) slots and 2 literal slots
+Application running ...
+Build target 'MCB1700'
+custom translating Web.inp...
+Custom: C:\Keil\ARM\bin\fcarm @Web\Web.inp
+FCARM FILE CONVERTER V2.41
+Completed 2 File(s), Ratio 92%
+compiling Web.c...
+compiling HTTP_demo.c...
+.\USER\DS1621.h(5): warning:  #1295-D: Deprecated declaration leer_DS1621 - give arg types
+.\USER\DS1621.h(7): warning:  #1-D: last line of file ends without a newline
+.\USER\DMA.h(13): warning:  #1-D: last line of file ends without a newline
+.\USER\BMP180.h(26): warning:  #1-D: last line of file ends without a newline
+linking...
+Program Size: Code=104284 RO-data=7000 RW-data=16364 ZI-data=25128  
+".\Obj\Http_demo.axf" - 0 Errors, 4 Warning(s).
+Load "C:\\Users\\Usuario\\Desktop\\Proyecto_web2\\Obj\\Http_demo.axf" 
+Set JLink Project File to "C:\Users\Usuario\Desktop\Proyecto_web2\JLinkSettings.ini"
+* JLink Info: Device "LPC1768" selected (512 KB flash, 32 KB RAM).
+ 
+JLink info:
+------------
+DLL: V4.68a, compiled Apr 12 2013 13:26:50
+Firmware: J-Link ARM-OB STM32 compiled Aug 22 2012 19:52:04
+Hardware: V7.00
+Feature(s) : RDI,FlashDL,FlashBP,JFlash,GDBFull 
+ 
+* JLink Info: TotalIRLen = 4, IRPrint = 0x01
+* JLink Info: Found Cortex-M3 r2p0, Little endian.
+* JLink Info: TPIU fitted.
+* JLink Info: ETM fitted.
+* JLink Info: FPUnit: 6 code (BP) slots and 2 literal slots
+ROMTableAddr = 0xE00FF003
+* JLink Info: Found Cortex-M3 r2p0, Little endian.
+* JLink Info: TPIU fitted.
+* JLink Info: ETM fitted.
+* JLink Info: FPUnit: 6 code (BP) slots and 2 literal slots
+ 
+Target info:
+------------
+Device: LPC1768
+VTarget = 3.300V
+State of Pins: 
+TCK: 1, TDI: 0, TDO: 1, TMS: 0, TRES: 1, TRST: 1
+Hardware-Breakpoints: 6
+Software-Breakpoints: 8192
+Watchpoints:          4
+JTAG speed: 4000 kHz
+ 
+Full Chip Erase Done.
+Programming Done.
+* JLink Info: Found Cortex-M3 r2p0, Little endian.
+* JLink Info: TPIU fitted.
+* JLink Info: ETM fitted.
+* JLink Info: FPUnit: 6 code (BP) slots and 2 literal slots
+Application running ...
+Build target 'MCB1700'
+custom translating Web.inp...
+Custom: C:\Keil\ARM\bin\fcarm @Web\Web.inp
+FCARM FILE CONVERTER V2.41
+Completed 2 File(s), Ratio 95%
+compiling HTTP_demo.c...
+.\USER\DS1621.h(5): warning:  #1295-D: Deprecated declaration leer_DS1621 - give arg types
+.\USER\DS1621.h(7): warning:  #1-D: last line of file ends without a newline
+.\USER\DMA.h(13): warning:  #1-D: last line of file ends without a newline
+.\USER\BMP180.h(26): warning:  #1-D: last line of file ends without a newline
+compiling uart.c...
+linking...
+Program Size: Code=104284 RO-data=7000 RW-data=16364 ZI-data=25128  
+".\Obj\Http_demo.axf" - 0 Errors, 4 Warning(s).
+Build target 'MCB1700'
+custom translating Web.inp...
+Custom: C:\Keil\ARM\bin\fcarm @Web\Web.inp
+FCARM FILE CONVERTER V2.41
+Completed 2 File(s), Ratio 95%
+compiling Web.c...
+linking...
+Program Size: Code=104284 RO-data=10280 RW-data=16364 ZI-data=25128  
+".\Obj\Http_demo.axf" - 0 Errors, 0 Warning(s).
+Load "C:\\Users\\Usuario\\Desktop\\Proyecto_web2\\Obj\\Http_demo.axf" 
+Load "C:\\Users\\Usuario\\Desktop\\Proyecto_web2\\Obj\\Http_demo.axf" 
+Load "C:\\Users\\Usuario\\Desktop\\Proyecto_web2\\Obj\\Http_demo.axf" 
+Set JLink Project File to "C:\Users\Usuario\Desktop\Proyecto_web2\JLinkSettings.ini"
+* JLink Info: Device "LPC1768" selected (512 KB flash, 32 KB RAM).
+ 
+JLink info:
+------------
+DLL: V4.68a, compiled Apr 12 2013 13:26:50
+Firmware: J-Link ARM-OB STM32 compiled Aug 22 2012 19:52:04
+Hardware: V7.00
+Feature(s) : RDI,FlashDL,FlashBP,JFlash,GDBFull 
+ 
+* JLink Info: TotalIRLen = 4, IRPrint = 0x01
+* JLink Info: Found Cortex-M3 r2p0, Little endian.
+* JLink Info: TPIU fitted.
+* JLink Info: ETM fitted.
+* JLink Info: FPUnit: 6 code (BP) slots and 2 literal slots
+ROMTableAddr = 0xE00FF003
+* JLink Info: Found Cortex-M3 r2p0, Little endian.
+* JLink Info: TPIU fitted.
+* JLink Info: ETM fitted.
+* JLink Info: FPUnit: 6 code (BP) slots and 2 literal slots
+ 
+Target info:
+------------
+Device: LPC1768
+VTarget = 3.300V
+State of Pins: 
+TCK: 1, TDI: 0, TDO: 1, TMS: 0, TRES: 1, TRST: 1
+Hardware-Breakpoints: 6
+Software-Breakpoints: 8192
+Watchpoints:          4
+JTAG speed: 4000 kHz
+ 
+Full Chip Erase Done.
+Programming Done.
+* JLink Info: Found Cortex-M3 r2p0, Little endian.
+* JLink Info: TPIU fitted.
+* JLink Info: ETM fitted.
+* JLink Info: FPUnit: 6 code (BP) slots and 2 literal slots
+Application running ...
+Build target 'MCB1700'
+custom translating Web.inp...
+Custom: C:\Keil\ARM\bin\fcarm @Web\Web.inp
+FCARM FILE CONVERTER V2.41
+Completed 2 File(s), Ratio 92%
+linking...
+Program Size: Code=104284 RO-data=10280 RW-data=16364 ZI-data=25128  
+".\Obj\Http_demo.axf" - 0 Errors, 0 Warning(s).
+Rebuild target 'MCB1700'
+custom translating Web.inp...
+Custom: C:\Keil\ARM\bin\fcarm @Web\Web.inp
+FCARM FILE CONVERTER V2.41
+Completed 2 File(s), Ratio 92%
+compiling Web.c...
+compiling HTTP_demo.c...
+.\USER\DS1621.h(5): warning:  #1295-D: Deprecated declaration leer_DS1621 - give arg types
+.\USER\DS1621.h(7): warning:  #1-D: last line of file ends without a newline
+.\USER\DMA.h(13): warning:  #1-D: last line of file ends without a newline
+.\USER\BMP180.h(26): warning:  #1-D: last line of file ends without a newline
+compiling HTTP_CGI.c...
+compiling DMA.c...
+USER\DMA.h(13): warning:  #1-D: last line of file ends without a newline
+USER\DMA.c(51): warning:  #61-D: integer operation result is out of range
+USER\DMA.c(80): warning:  #61-D: integer operation result is out of range
+compiling i2c_lpc17xx.c...
+compiling init.c...
+USER\init.c(9): warning:  #61-D: integer operation result is out of range
+USER\init.c(12): warning:  #61-D: integer operation result is out of range
+compiling PWM.c...
+compiling TouchPanel.c...
+compiling uart.c...
+compiling DS1621.c...
+USER\DS1621.h(5): warning:  #1295-D: Deprecated declaration leer_DS1621 - give arg types
+USER\DS1621.h(7): warning:  #1-D: last line of file ends without a newline
+USER\DS1621.c(21): warning:  #550-D: variable "f_decimal" was set but never used
+compiling BMP180.c...
+USER\BMP180.h(26): warning:  #1-D: last line of file ends without a newline
+USER\BMP180.c(261): warning:  #1-D: last line of file ends without a newline
+compiling Net_Config.c...
+assembling startup_LPC17xx.s...
+compiling RTX_Conf_CM.c...
+compiling EMAC_LPC17xx_100Mb.c...
+compiling system_LPC17xx.c...
+compiling HzLib.c...
+compiling lpc17xx_pinsel.c...
+compiling lpc17xx_gpio.c...
+compiling lpc17xx_ssp.c...
+compiling lpc17xx_libcfg_default.c...
+compiling lpc17xx_clkpwr.c...
+compiling GLCD.c...
+compiling AsciiLib.c...
+linking...
+Program Size: Code=103108 RO-data=7000 RW-data=16364 ZI-data=25128  
+".\Obj\Http_demo.axf" - 0 Errors, 14 Warning(s).
+Load "C:\\Users\\Usuario\\Desktop\\Proyecto_web2\\Obj\\Http_demo.axf" 
+Load "C:\\Users\\Usuario\\Desktop\\Proyecto_web2\\Obj\\Http_demo.axf" 
+Set JLink Project File to "C:\Users\Usuario\Desktop\Proyecto_web2\JLinkSettings.ini"
+* JLink Info: Device "LPC1768" selected (512 KB flash, 32 KB RAM).
+ 
+JLink info:
+------------
+DLL: V4.68a, compiled Apr 12 2013 13:26:50
+Firmware: J-Link ARM-OB STM32 compiled Aug 22 2012 19:52:04
+Hardware: V7.00
+Feature(s) : RDI,FlashDL,FlashBP,JFlash,GDBFull 
+ 
+* JLink Info: TotalIRLen = 4, IRPrint = 0x01
+* JLink Info: Found Cortex-M3 r2p0, Little endian.
+* JLink Info: TPIU fitted.
+* JLink Info: ETM fitted.
+* JLink Info: FPUnit: 6 code (BP) slots and 2 literal slots
+ROMTableAddr = 0xE00FF003
+* JLink Info: Found Cortex-M3 r2p0, Little endian.
+* JLink Info: TPIU fitted.
+* JLink Info: ETM fitted.
+* JLink Info: FPUnit: 6 code (BP) slots and 2 literal slots
+ 
+Target info:
+------------
+Device: LPC1768
+VTarget = 3.300V
+State of Pins: 
+TCK: 1, TDI: 0, TDO: 1, TMS: 0, TRES: 1, TRST: 1
+Hardware-Breakpoints: 6
+Software-Breakpoints: 8192
+Watchpoints:          4
+JTAG speed: 4000 kHz
+ 
+Full Chip Erase Done.
+Programming Done.
+* JLink Info: Found Cortex-M3 r2p0, Little endian.
+* JLink Info: TPIU fitted.
+* JLink Info: ETM fitted.
+* JLink Info: FPUnit: 6 code (BP) slots and 2 literal slots
+Application running ...
+Build target 'MCB1700'
+custom translating Web.inp...
+Custom: C:\Keil\ARM\bin\fcarm @Web\Web.inp
+FCARM FILE CONVERTER V2.41
+Completed 2 File(s), Ratio 92%
+compiling HTTP_demo.c...
+.\USER\DS1621.h(5): warning:  #1295-D: Deprecated declaration leer_DS1621 - give arg types
+.\USER\DS1621.h(7): warning:  #1-D: last line of file ends without a newline
+.\USER\DMA.h(13): warning:  #1-D: last line of file ends without a newline
+.\USER\BMP180.h(26): warning:  #1-D: last line of file ends without a newline
+linking...
+Program Size: Code=103100 RO-data=7000 RW-data=16364 ZI-data=25128  
+".\Obj\Http_demo.axf" - 0 Errors, 4 Warning(s).
+Load "C:\\Users\\Usuario\\Desktop\\Proyecto_web2\\Obj\\Http_demo.axf" 
+Set JLink Project File to "C:\Users\Usuario\Desktop\Proyecto_web2\JLinkSettings.ini"
+* JLink Info: Device "LPC1768" selected (512 KB flash, 32 KB RAM).
+ 
+JLink info:
+------------
+DLL: V4.68a, compiled Apr 12 2013 13:26:50
+Firmware: J-Link ARM-OB STM32 compiled Aug 22 2012 19:52:04
+Hardware: V7.00
+Feature(s) : RDI,FlashDL,FlashBP,JFlash,GDBFull 
+ 
+* JLink Info: TotalIRLen = 4, IRPrint = 0x01
+* JLink Info: Found Cortex-M3 r2p0, Little endian.
+* JLink Info: TPIU fitted.
+* JLink Info: ETM fitted.
+* JLink Info: FPUnit: 6 code (BP) slots and 2 literal slots
+ROMTableAddr = 0xE00FF003
+* JLink Info: Found Cortex-M3 r2p0, Little endian.
+* JLink Info: TPIU fitted.
+* JLink Info: ETM fitted.
+* JLink Info: FPUnit: 6 code (BP) slots and 2 literal slots
+ 
+Target info:
+------------
+Device: LPC1768
+VTarget = 3.300V
+State of Pins: 
+TCK: 1, TDI: 0, TDO: 1, TMS: 0, TRES: 1, TRST: 1
+Hardware-Breakpoints: 6
+Software-Breakpoints: 8192
+Watchpoints:          4
+JTAG speed: 4000 kHz
+ 
+Full Chip Erase Done.
+Programming Done.
+* JLink Info: Found Cortex-M3 r2p0, Little endian.
+* JLink Info: TPIU fitted.
+* JLink Info: ETM fitted.
+* JLink Info: FPUnit: 6 code (BP) slots and 2 literal slots
+Application running ...

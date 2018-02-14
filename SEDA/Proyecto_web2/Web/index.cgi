@@ -29,8 +29,12 @@ t 	<td>DS1621</td>
 c t 2 <td>%.1f C</td>
 t </tr>
 t <tr>
-t 	<td>Umbral de temperatura</td>
+t 	<td>BMP180</td>
 c t 3 <td>%.1f C</td>
+t </tr>
+t <tr>
+t 	<td>Umbral</td>
+c t 4 <td>%d C</td>
 t </tr>
 t <tr>
 t 	<th align='left'>HUMEDAD</th>
@@ -43,7 +47,7 @@ t  <tr>
 t 	<th align='left'>PRESIÓN</th>
 t </tr>
 t <tr>
-t <td>BMP</td>
+t <td>BMP180</td>
 c p <td>%.1f hPa</td>
 t </tr>
 t <tr>
@@ -52,6 +56,13 @@ t </tr>
 t <tr>
 t 	<td>Anemómetro</td>
 c v	<td>%.2f m/s</td>
+t </tr>
+t <tr>
+t 	<th align='left'>ALTITUD</th>
+t </tr>
+t <tr>
+t 	<td>BMP180</td>
+c a	<td>%.2f m</td>
 t </tr>
 t </font></table>
 t <form method="GET" action="index.cgi">

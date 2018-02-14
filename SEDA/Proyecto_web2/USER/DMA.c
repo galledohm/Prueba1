@@ -37,22 +37,22 @@ void init_DMA_DAC(void)
 	
     LPC_GPDMACH0->DMACCLLI      = 0; 																		// No usamos link list
     LPC_GPDMACH0->DMACCControl  = TAM_BLOCK_DMA													// Transferencia 4 veces ya que 2 seg de audio son 16000 muestras
-                            | (0 << 12)         									   		// source burst size (12 - 14) = 1
-                            | (0 << 15)         											 	// destination burst size (15 - 17) = 1
-                            | (0 << 18)          												// source width (18 - 20) = 8 bit poniendo los tres bits a 0
-                            | (0 << 21)           										 	// destination width (21 - 23) = 8 bit
-                            | (0 << 24)           											// source AHB select (24) = AHB 0
-                            | (0 << 25)           											// destination AHB select (25) = AHB 0
-                            | (1 << 26)           											// source increment (26) = increment
-                            | (0 << 27)           											// destination increment (27)en este caso no incrementa ya que es el Dac , si fuera una posicin d ememoria si
+                            | (0 << 12)         									   		// Tamaño de ráfaga de la fuente (12 - 14) = 1
+                            | (0 << 15)         											 	// Tamaño de la ráfaga en el destino (15 - 17) = 1
+                            | (0 << 18)          												// Bits de los datos de la fuente (18 - 20) = 8 bit poniendo los tres bits a 0
+                            | (0 << 21)           										 	// Bits de datos en el destino (21 - 23) = 8 bit
+                            | (0 << 24)           											// Debe ser 0
+                            | (0 << 25)           											// Debe ser 0
+                            | (1 << 26)           											// Se incrementa la dirección de la fuente (26) 
+                            | (0 << 27)           											// destination increment (27)en este caso no incrementa ya que es el Dac , si fuera una posicin de memoria si
                             | (0 << 28)           											// mode select (28) = access in user mode
                             | (0 << 29)           										 	// (29) = access not bufferable
                             | (0 << 30)           										 	// (30) = access not cacheable
                             | (1 << 31);           											// terminal count interrupt enabled
 
-    LPC_GPDMACH0->DMACCConfig   =  1   																	// channel enabled (0)
-                            | (0 << 1) 																	// source peripheral (1 - 5) = none seleccionamos de que va a  ir a que va a ir
-                            | (7 << 6) 																	// destination peripheral (6 - 10) = DAC
+    LPC_GPDMACH0->DMACCConfig   =  1   																	// canal activado (0)
+                            | (0 << 1) 																	// periférico de origen (1 - 5) = none seleccionamos de que va a  ir a que va a ir
+                            | (7 << 6) 																	// periférico de destino (6 - 10) = DAC
                             | (1 << 11)																	// flow control (11 - 13) = MEM to PERF
                             | (1 << 14)																	// (14) = mask out error interrupt
                             | (1 << 15)																	// (15) = mask out terminal count interrupt
@@ -76,7 +76,7 @@ void init_DMA_ADC(void)
 	 LPC_GPDMACH1->DMACCSrcAddr = LPC_ADC_BASE + OFFSET_ADC; //Dir.ADGR del ADC, podríamos usar la dir. ADDR5 también, eso sería  + 0x29
 	 LPC_GPDMACH1->DMACCLLI = 0;
 
-																 //S.BURST=1  | D.Burst=1  |  S.Width        |     D.Width     |  Incr. Dest | TC interrupt enable.
+																 //S.BURST=1  | D.Burst=1  |  8 bits        |     8 bits     |  Incr. Dest | TC interrupt enable.
 	 LPC_GPDMACH1->DMACCControl |= (SBURST<<12) |(DBURST<<15)|(WIDTH_VALUE<<18)|(WIDTH_VALUE<<21)| ( 1 << 27 ) | (1 << 31); 	 				
 	 LPC_GPDMACH1->DMACCControl |= TAM_BLOCK_DMA;//Tamaño maximo.	 
 
@@ -91,7 +91,7 @@ void DMA_IRQHandler(void)
 	{
 		index1 = TAM_BLOCK_DMA * counter;	//Aumentamos índice búffer muestras
 		
-		if (LPC_GPDMA->DMACIntStat & 2) 		//Interrupción CH1? 
+		if (LPC_GPDMA->DMACIntStat & 2) 		
 		{			
 			if (LPC_GPDMA->DMACIntTCStat & 2)
 			{

@@ -96,17 +96,22 @@ U16 cgi_func (U8 *env, U8 *buf, U16 buflen, U32 *pcgi) {
 			{
 				case '1': //Temp sensor analógico LM35
 					len= sprintf((char*)buf,(const char*)&env[4],temp_LM35);
-				break;			 
-				case '2': //Temp sensor digital
+				break;	
+				
+				case '2': //Temp sensor DS1621
 				 len= sprintf((char*)buf,(const char*)&env[4],temp_DS1621);
 				break;
-			}
-			break;
+				
+				case '3': //Temp sensor BMP180
+				 len= sprintf((char*)buf,(const char*)&env[4],temp_BMP180);
+				break;
+				
+				case '4': //Umbral
 				 len= sprintf((char*)buf,(const char*)&env[4],umbral_temp);
-			 break;
-			 
+				break;
+			}	 	 
 		 }
-		 break;
+		break;
 		
 		case 'h': //Se actualiza la humedad
 					len= sprintf((char*)buf,(const char*)&env[2],humedad);
@@ -115,9 +120,14 @@ U16 cgi_func (U8 *env, U8 *buf, U16 buflen, U32 *pcgi) {
 		case 'p': //Se actualiza la presión
 				len= sprintf((char*)buf,(const char*)&env[2],presion);
 		break;
-		case 'v': //Se actualiza la presión
+		
+		case 'v': //Se actualiza la velocidad del anemómetro
 				len= sprintf((char*)buf,(const char*)&env[2],vel_anemometro);
-		break;		
+		break;
+		
+				case 'a': //Se actualiza la altura
+				len= sprintf((char*)buf,(const char*)&env[2],altitud);
+		break;	
   }
   return ((U16)len);
 }

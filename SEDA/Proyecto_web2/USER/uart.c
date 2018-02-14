@@ -22,22 +22,22 @@ void UART0_IRQHandler(void) {
 	
     switch(LPC_UART0->IIR&0x0E) {
 	
-	case 0x04:								 /* RBR, Receiver Buffer Ready */
-			*ptr_rx=LPC_UART0->RBR; 	   			 /* lee el dato recibido y lo almacena */
+	case 0x04:								 		// RBR, El buffer de recepción está listo 
+			*ptr_rx=LPC_UART0->RBR; 	  // Lee el dato recibido y lo almacena 
 	    if (*ptr_rx++ ==13) 				// Caracter return --> Cadena completa
 	    	{
-					*ptr_rx=0;		/* Añadimos el caracter null para tratar los datos recibidos como una cadena*/ 
-					rx_completa = 1;/* rx completa */
-					ptr_rx=buffer;	/* puntero al inicio del buffer para nueva recepción */
+					*ptr_rx=0;						//Añadimos el caracter null para tratar los datos recibidos como una cadena
+					rx_completa = 1;			// Recepción completa */
+					ptr_rx=buffer;				// Puntero al inicio del buffer para nueva recepción 
 	    	}	
 		break;
 	
     
-   case 0x02:								/* THRE, Transmit Holding Register empty */
+   case 0x02:										// THRE, El registro de transmisión está vacío 
 		if (*ptr_tx!=0) 
-			LPC_UART0->THR=*ptr_tx++;	/* carga un nuevo dato para ser transmitido */
+			LPC_UART0->THR=*ptr_tx++;	// carga un nuevo dato para ser transmitido 
 		else 
-			tx_completa=1;
+			tx_completa=1;						//Transmisión completa
 		break;
 
     }
@@ -73,14 +73,12 @@ static int uart0_set_baudrate(unsigned int baudrate) {
     unsigned int relativeOptimalError = 100000;
 
     uClk = uClk >> 4; /* div by 16 */
-
-    /*
-     *  The formula is :
+     /*  The formula is :
      * BaudRate= uClk * (mulFracDiv/(mulFracDiv+dividerAddFracDiv) / (16 * DLL)
      *
      * The value of mulFracDiv and dividerAddFracDiv should comply to the following expressions:
-     * 0 < mulFracDiv <= 15, 0 <= dividerAddFracDiv <= 15
-     */
+      0 < mulFracDiv <= 15, 0 <= dividerAddFracDiv <= 15*/
+  
     for (mulFracDiv = 1; mulFracDiv <= 15; mulFracDiv++) {
         for (dividerAddFracDiv = 0; dividerAddFracDiv <= 15; dividerAddFracDiv++) {
             temp = (mulFracDiv * uClk) / (mulFracDiv + dividerAddFracDiv);
@@ -108,11 +106,9 @@ static int uart0_set_baudrate(unsigned int baudrate) {
                 }
             }
         }
-
         if (relativeError == 0)
             break;
     }
-
     if (relativeOptimalError < ((baudrate * UART_ACCEPTED_BAUDRATE_ERROR) / 100)) {
 
         LPC_UART0->LCR |= DLAB_ENABLE; 	// importante poner a 1
@@ -130,16 +126,16 @@ static int uart0_set_baudrate(unsigned int baudrate) {
  					   					  
 void uart0_init(int baudrate) {
     
-    LPC_PINCON->PINSEL0|=(1<<4)|(1<<6);// Change P0.2 and P0.3 mode to TXD0 and RXD0
+    LPC_PINCON->PINSEL0|=(1<<4)|(1<<6);// Cambia el modo de P0.2 y P0.3 a TXD0 y RXD0
   
-    LPC_UART0->LCR &= ~STOP_1_BIT & ~PARITY_NONE; // Set 8N1 mode (8 bits/dato, sin pariad, y 1 bit de stop)
+    LPC_UART0->LCR &= ~STOP_1_BIT & ~PARITY_NONE; // Modo 8N1 (8 bits/dato, sin pariad, y 1 bit de stop)
     LPC_UART0->LCR |= CHAR_8_BIT;
 
-    uart0_set_baudrate(baudrate);// Set the baud rate
+    uart0_set_baudrate(baudrate);// Se configura la velocidad
     
      
-    LPC_UART0->IER = THRE_IRQ_ENABLE|RBR_IRQ_ENABLE;// Enable UART TX and RX interrupt (for LPC17xx UART)   
-    NVIC_EnableIRQ(UART0_IRQn);// Enable the UART interrupt (for Cortex-CM3 NVIC)
+    LPC_UART0->IER = THRE_IRQ_ENABLE|RBR_IRQ_ENABLE;// Se habilitan las interrubpciones de transmisión y recepción de la UART   
+    NVIC_EnableIRQ(UART0_IRQn);// Se habilita la interrupción de la UART
 
     
 }

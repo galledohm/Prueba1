@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-//#include <string.h>
 #include <RTL.h>
 #include <Net_Config.h>
 #include <LPC17xx.h>                    /* LPC17xx definitions               */
@@ -95,16 +94,20 @@ static void upd_display () {
    GUI_Text(150,40,text_disp,White,Black);
 	 sprintf((char*)text_disp,"%.1f C",temp_DS1621);
    GUI_Text(170,60,text_disp,White,Black);
-	 sprintf((char*)text_disp,"%.1f %%",humedad);
-	 GUI_Text(80,80,text_disp,White,Black);
-	 sprintf((char*)text_disp,"%.2f hPa",presion);
+	 sprintf((char*)text_disp,"%.1f C",temp_BMP180);
+   GUI_Text(170,80,text_disp,White,Black);
+	 sprintf((char*)text_disp,"%d %%",umbral_temp);
 	 GUI_Text(80,100,text_disp,White,Black);
-	 sprintf((char*)text_disp,"%d C",umbral_temp);
+	 sprintf((char*)text_disp,"%.2f hPa",presion);
 	 GUI_Text(80,120,text_disp,White,Black);
-		sprintf((char*)text_disp,"%.2f m/s",vel_anemometro);
+	 sprintf((char*)text_disp,"%.1f C",humedad);
 	 GUI_Text(80,140,text_disp,White,Black);
-	 GUI_Text(60,200,lcd_text[0],White,Red);
-   GUI_Text(52,220,lcd_text[1],White,Red);
+	 sprintf((char*)text_disp,"%.2f m/s",vel_anemometro);
+	 GUI_Text(80,160,text_disp,White,Black);
+		sprintf((char*)text_disp,"%.2f m",altitud);
+	 GUI_Text(80,180,text_disp,White,Black);
+	 GUI_Text(60,240,lcd_text[0],White,Red);
+   GUI_Text(52,260,lcd_text[1],White,Red);
 
    //LCDupdate =__FALSE;
 }
@@ -120,10 +123,12 @@ static void init_display () {
   GUI_Text(10,10, "ESTACION METEOROLOGICA",Green,Black);
   GUI_Text(10,40, "Temperatura LM35: ",Red,Black);
 	GUI_Text(10,60, "Temperatura DS1621: ",Red,Black);
-	GUI_Text(10,80, "Humedad: ",Red,Black);
-	GUI_Text(10,100, "Presion: ",Red,Black);
-	GUI_Text(10,120, "Umbral : ",Red,Black);
-	GUI_Text(10,140, "Viento : ",Red,Black);
+	GUI_Text(10,80, "Temperatura BMP180: ",Red,Black);
+	GUI_Text(10,100, "Humedad: ",Red,Black);
+	GUI_Text(10,120, "Presion: ",Red,Black);
+	GUI_Text(10,140, "Umbral : ",Red,Black);
+	GUI_Text(10,160, "Viento : ",Red,Black);
+	GUI_Text(10,180, "Altitud: ",Red,Black);
 }
 /*--------------------------- dhcp_check ------------------------------------*/
 
@@ -204,21 +209,21 @@ void TIMER0_IRQHandler (void)				// Interrumpe cada segundo
 		switch(contador_uart){
 			case 0:
 			{
-					sprintf((char*)buff_env,"Temperatura\n LM35: %.1f C\n DS1621: %.1f C\n\r",temp_LM35,temp_DS1621);
+					sprintf((char*)buff_env,"TEMPERATURAS\n LM35: %.1f C\nDS1621: %.1f C\nBMP018: %.1f C\nUmbral: %d C\n\r",temp_LM35,temp_DS1621,temp_BMP180,umbral_temp);
 					tx_cadena_UART0(buff_env);
 					contador_uart++;	
 				break;
 			}
 			case 1:
 			{	
-				sprintf((char*)buff_env,"Presion: %.2f hPa\n Humedad: %.2f %%\n\r",presion,humedad);
+				sprintf((char*)buff_env,"PRESION: %.2f hPa\n\nHUMEDAD: %.2f %%\n\r",presion,humedad);
 				tx_cadena_UART0(buff_env);
 				contador_uart++;
 				break;
 			}
 			case 2:
 			{	
-				sprintf((char*)buff_env,"Viento: %.2f m/s\nUmbral: %d C\n\r",vel_anemometro,umbral_temp);
+				sprintf((char*)buff_env,"VIENTO: %.2f m/s\n\nALTITUD: %.2f m\n\r",vel_anemometro,altitud);
 				tx_cadena_UART0(buff_env);
 				contador_uart=0;
 				break;
@@ -241,7 +246,7 @@ int main (void) {
   init();
 	//Baudios UART
 	uart0_init(9600);
-	tx_cadena_UART0("Estacion meteo\n\r");
+	tx_cadena_UART0("----ESTACION METEOROLOGICA---\n\r");
 	
 	//Inicialización TIMER principales T0-adq y tx datos, T3-Anemómetro
 	init_TIMER3();
@@ -258,8 +263,8 @@ int main (void) {
     timer_poll ();
     main_TcpNet ();
     dhcp_check ();
-		if ( temp_DS1621 > (float)umbral_temp)				//Cuando esté implementado el DS1621 usar su temperatura!!!
-			set_ciclo_trabajo_PWM (temp_DS1621);
+		if ( temp_DS1621 > (float)umbral_temp)	//Se comprueba el umbral de temperatura para
+			set_ciclo_trabajo_PWM (temp_DS1621);	//configurar la velocidad del ventilador.
 		
   }
 }
